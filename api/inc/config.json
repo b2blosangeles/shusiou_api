@@ -1,0 +1,6 @@
+{
+    "video_dir":"/var/vv/vr",
+    "lesson_video":"/var/vv/lesson",
+    "cache_image":"/var/vv/cache",
+    "lesson_data":"/var/vv/lesson_data"
+}
