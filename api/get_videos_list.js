@@ -1,5 +1,5 @@
 // var folder_base = '/var/shusiou/videos/';
-var video_list_file = '/var/shusiou/video_list.data';
+var video_list_file = '/mnt/shusiou-video/youtube/video_list.data';
 
 var CP = new pkg.crowdProcess();
 var _f = {};
