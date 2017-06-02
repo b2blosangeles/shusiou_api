@@ -49,7 +49,7 @@ _f['S2'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {	
-			res.send(data);
+			res.send(file_video);
 			return true;		
 		pkg.fs.stat(fn, function(err, data) {
 
