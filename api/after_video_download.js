@@ -1,6 +1,6 @@
 var ytdl = require(env.space_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
 var folder_base = '/mnt/shusiou-video/youtube/';
-
+var videos_base = folder_base + 'videos/';
 var video_list_file = folder_base + 'video_list.data';
 
 var CP = new pkg.crowdProcess();
@@ -35,7 +35,7 @@ _f['S1'] = function(cbk) {
 	}	
 	var folderP = require(env.space_path + '/api/inc/folderP/folderP');
 	var fp = new folderP();
-	fp.build(folder_base + vid + '/', function() {
+	fp.build(videos_base + vid + '/', function() {
 		cbk(vid);
 	});	
 };
@@ -43,7 +43,7 @@ _f['S1'] = function(cbk) {
 
 
 _f['S2'] = function(cbk) {
-	var vid = CP.data.S0, fn = folder_base + vid + '/matrix.data', v=[], str='cat ';
+	var vid = CP.data.S0, fn = videos_base + vid + '/matrix.data', v=[], str='cat ';
 	pkg.fs.readFile(fn, {encoding: 'utf-8'}, function(err,data) {
           if(err) {
 	     cbk('Wrong');
@@ -52,10 +52,10 @@ _f['S2'] = function(cbk) {
 		// for (var i =0; i < Math.min(10, v.length); i++) {
 		for (var i =0; i < v.length; i++) {
 			if (v[i] == 1) {
-				str += folder_base + vid + '/' +i+'.mp4  ';
+				str += videos_base + vid + '/' +i+'.mp4  ';
 			}
 		}
-		  str += ' > ' + folder_base + vid + '/N.mp4';
+		  str += ' > ' + videos_base + vid + '/N.mp4';
 
 		//CP.exit = 1;
 		 // return true;
