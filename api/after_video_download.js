@@ -1,15 +1,13 @@
-var ytdl = require(env.space_path + '/api/pkg/ytdl-core/node_modules/ytdl-core');
-var folder_base = '/var/shusiou/videos/';
+var ytdl = require(env.space_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
+var folder_base = '/mnt/shusiou-video/youtube/';
 
-var video_list_file = '/var/shusiou/video_list.data';
+var video_list_file = folder_base + 'video_list.data';
 
 var CP = new pkg.crowdProcess();
 var childProcess = require('child_process');
 var _f = {};
 
 var vurl = req.body.vurl;
-vurl = 'https://www.youtube.com/watch?v=BHesMThS5Lw';
-
  if (!vurl) {
  	res.send('Missing video url');
 	return true;
@@ -35,7 +33,7 @@ _f['S1'] = function(cbk) {
 		CP.exit = 1;
 		return true;
 	}	
-	var folderP = require(env.space_path + '/api/lang_space/inc/folderP/folderP');
+	var folderP = require(env.space_path + '/api/inc/folderP/folderP');
 	var fp = new folderP();
 	fp.build(folder_base + vid + '/', function() {
 		cbk(vid);
