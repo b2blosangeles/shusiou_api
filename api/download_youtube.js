@@ -1,4 +1,4 @@
-var ytdl = require(env.space_path + '/api/pkg/ytdl-core/node_modules/ytdl-core');
+var ytdl = require(env.space_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
 var folder_base = '/mnt/shusiou-video/youtube/';
 
 var CP = new pkg.crowdProcess();
@@ -34,7 +34,7 @@ _f['S1'] = function(cbk) {
 		CP.exit = 1;
 		return true;
 	}	
-	var folderP = require(env.space_path + '/api/lang_space/inc/folderP/folderP');
+	var folderP = require(env.space_path + '/api/inc/folderP/folderP');
 	var fp = new folderP();
 	fp.build(folder_base + vid + '', function() {
 		cbk(folder_base + vid + '');
