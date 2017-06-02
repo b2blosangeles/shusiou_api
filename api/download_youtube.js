@@ -43,10 +43,6 @@ _f['S1'] = function(cbk) {
 	});	
 };
 
-_f['S2'] = function(cbk) {
-	cbk('--2--');
-};
-
 _f['S3'] = function(cbk) {
 	
 	if (!sid && sid !==0) {
@@ -113,7 +109,7 @@ _f['S6'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send({_spent_time:data._spent_time, status:data.status, data:data.results});
+		res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S6});
 	},
 	30000
 );
