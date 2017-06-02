@@ -7,6 +7,7 @@ var _f = {};
 var sid = req.body.sid;
 var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=vrOOwOOJS9Q';
 req.body.vid = 'vrOOwOOJS9Q';
+sid=0;
 // var vurl = req.body.vurl
  if (!vurl) {
  	res.send('Missing video url');
