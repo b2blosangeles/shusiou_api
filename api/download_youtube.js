@@ -106,7 +106,7 @@ _f['S6'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S6});
+		res.send({_spent_time:data._spent_time, status:data.status, data:data.results});
 	},
 	30000
 );
