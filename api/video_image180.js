@@ -1,5 +1,5 @@
 var video = req.query['video'].split('|'), fn;
-var folder_base = '/var/shusiou/';
+var folder_base = '/mnt/shusiou-video/youtube/';
 
 var vid = video[0]; s =  (!video[1])?0:video[1];
 
@@ -24,7 +24,7 @@ _f['S0'] = function(cbk) {
 };
 
 _f['S1'] = function(cbk) {
-	var folderP = require(env.space_path + '/api/lang_space/inc/folderP/folderP');
+	var folderP = require(env.space_path + '/api/inc/folderP/folderP');
 	var fp = new folderP();
 	fp.build(folder_image, function() {
 		cbk(true);
