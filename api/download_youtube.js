@@ -1,5 +1,5 @@
 var ytdl = require(env.space_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
-var folder_base = '/mnt/shusiou-video/youtube/';
+var folder_base = '/mnt/shusiou-video/youtube/videos/';
 
 var CP = new pkg.crowdProcess();
 var _f = {};
