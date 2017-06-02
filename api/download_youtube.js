@@ -5,9 +5,9 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 var sid = req.body.sid;
-// var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=Yq5v6QqruBA';
+var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=vrOOwOOJS9Q';
 
-var vurl = req.body.vurl
+// var vurl = req.body.vurl
  if (!vurl) {
  	res.send('Missing video url');
 	return true;
