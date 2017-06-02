@@ -26,9 +26,7 @@ _f['S0'] = function(cbk) {
 	});	    
   }
 };
-_f['S2'] = function(cbk) {
-	cbk('--2--');
-};
+
 _f['S1'] = function(cbk) {
 	var vid = CP.data.S0;
 	if (!vid) {
@@ -42,6 +40,11 @@ _f['S1'] = function(cbk) {
 		cbk(folder_base + vid + '');
 	});	
 };
+
+_f['S2'] = function(cbk) {
+	cbk('--2--');
+};
+
 _f['S3'] = function(cbk) {
 	
 	if (!sid && sid !==0) {
