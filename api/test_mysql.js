@@ -1,11 +1,6 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 var cfg = require(env.space_path + '/api/cfg/db.json');
-var connection = mysql.createConnection({
-          host     : 'db_dev.qalet.com',
-          user     : 'shusiou',
-          password : 'Montreal107#',
-          database : 'shusiou'
-});
+var connection = mysql.createConnection(cfg);
 
 connection.connect();
 
@@ -19,5 +14,5 @@ connection.query('SHOW TABLES;', function (error, results, fields) {
           for (var i = 0; i < results.length; i++) {
                     v[v.length] = results[i]['Tables_in_shusiou'];
           }
-        res.send(v);
+        res.send(results);
 });
