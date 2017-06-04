@@ -3,13 +3,12 @@ var connection = mysql.createConnection({
           host     : 'db_dev.qalet.com',
           user     : 'shusiou',
           password : 'Montreal107#'
-        //,
-        //  database : 'shusiou'
+          database : 'shusiou'
 });
 
 connection.connect();
 
-connection.query('SHOW DATABASES', function (error, results, fields) {
+connection.query('SHOW TABLES;', function (error, results, fields) {
           if (error) {
                   res.send(error.message);
                   return true;
