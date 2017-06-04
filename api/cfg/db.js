@@ -1,3 +1,6 @@
 {
-    "dbname":"shusiou"
+    host     : 'db_dev.qalet.com',
+    user     : 'shusiou',
+    password : 'Montreal107#',
+    database : 'shusiou'  
 }
