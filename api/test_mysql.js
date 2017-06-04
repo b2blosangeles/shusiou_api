@@ -14,5 +14,9 @@ connection.query('SHOW TABLES;', function (error, results, fields) {
                   return true;
                  // throw error;
           }
-        res.send(results);
+          var v = [];
+          for (var i = 0; i < results.length; i++) {
+                    v[v.length] = results[i]['Tables_in_shusiou'];
+          }
+        res.send(v);
 });
