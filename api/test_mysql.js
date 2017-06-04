@@ -2,7 +2,7 @@ var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 var connection = mysql.createConnection({
           host     : 'db_dev.qalet.com',
           user     : 'shusiou',
-          password : 'Montreal107#'
+          password : 'Montreal107#',
           database : 'shusiou'
 });
 
