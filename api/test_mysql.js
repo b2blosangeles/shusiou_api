@@ -1,4 +1,5 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
+var cfg = require(env.space_path + '/api/cfg/db.js');
 var connection = mysql.createConnection({
           host     : 'db_dev.qalet.com',
           user     : 'shusiou',
