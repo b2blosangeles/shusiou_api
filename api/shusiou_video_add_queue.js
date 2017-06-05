@@ -35,11 +35,11 @@ _f['S1'] = function(cbk) {
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
-				cbk(false);
+				cbk(error.message);
 				return true;
 			} else {
-				// cbk(results);
-				cbk(true);
+				cbk(results);
+				// cbk(true);
 			}
 		});    
 	}
@@ -47,7 +47,7 @@ _f['S1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S0});
+		res.send({_spent_time:data._spent_time, status:data.status, data:data);
 	},
 	30000
 );
