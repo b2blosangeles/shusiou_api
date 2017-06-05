@@ -31,6 +31,20 @@ _f['Q1'] = function(cbk) {
 	});  
 };
 
+function findAfter9(m, idx) {
+	for (var i = idx; i < m.length; i++) {
+		if (m[i] != 9) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function resetAfter9(m, idx) {
+	for (var i = idx; i < m.length; i++) {
+		m[i] = 0;
+	}
+}
 _f['Q2'] = function(cbk) {
 	if (!CP.data.Q1 || !CP.data.Q1.source_code) {
 		cbk(false);
@@ -40,9 +54,18 @@ _f['Q2'] = function(cbk) {
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 0) {
 				cbk(false);
-				break;
+				return true;
 			}
 		}
+		for (var i = 0; i < m.length; i++) {
+			if (m[i] == 9) {
+				if (findAfter9(m, i)) {
+					resetAfter9(m, i);
+					cbk(false);
+					return true;
+				}
+			}
+		}		
 		cbk(CP.data.Q1.code);
 	}
 };
