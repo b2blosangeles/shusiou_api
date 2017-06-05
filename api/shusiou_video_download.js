@@ -91,7 +91,7 @@ _f['Q3'] = function(cbk) {
 			});	
 
 			video.on('error', function() {
-				cbk(false);
+				cbk(9);
 			});			
 			
 		});
@@ -102,7 +102,9 @@ _f['Q3'] = function(cbk) {
 };
 
 _f['Q4'] = function(cbk) {
-	cbk(CP.data.Q3);
+	if (CP.data.Q3 === true) {
+		cbk(CP.data.Q1.matrix);
+	}
 };
 
 /*
