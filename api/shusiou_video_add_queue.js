@@ -19,7 +19,7 @@ _f['S0'] = function(cbk) {
   }
 };
 _f['S1'] = function(cbk) {
-	if (!CP.data.S1) {
+	if (!CP.data.S0) {
 	  cbk(false);
 	} else {
 		var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
