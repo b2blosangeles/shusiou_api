@@ -17,7 +17,7 @@ _f['S0'] = function(cbk) {
 		connection.connect();
 
 		var str = "SELECT * FROM  `video_queue` WHERE `source` = 'youtube' AND " + 
-		    " (`source_code` = '" +  vurl + "'  OR `code` = '" +  vid + "'); ";
+		    " (`source_code` = '11" +  vurl + "'  OR `code` = '11" +  vid + "'); ";
 
 		connection.query(str, function (error, results, fields) {
 			connection.end();
@@ -25,7 +25,7 @@ _f['S0'] = function(cbk) {
 				cbk(error.message);
 				return true;
 			} else {
-				cbk(results);
+				cbk(results[0].info);
 
 			}
 		});  
@@ -46,7 +46,7 @@ _f['S1'] = function(cbk) {
 	cbk({vid:info.video_id, title:info.title, length_seconds:parseInt(info.length_seconds), thumbnail_url:info.thumbnail_url});	    
   }
 };
-_f['S1'] = function(cbk) {
+_f['S11'] = function(cbk) {
 	if (!CP.data.S0) {
 	  cbk(false);
 	} else {
