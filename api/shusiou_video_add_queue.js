@@ -35,7 +35,7 @@ _f['S0'] = function(cbk) {
 		});  
 	}
 };
-
+/*
 
 _f['S1'] = function(cbk) {
   if (!CP.data.S0) {
@@ -99,6 +99,7 @@ _f['S2'] = function(cbk) {
 		});    
 	}
 };
+*/
 CP.serial(
 	_f,
 	function(data) {
