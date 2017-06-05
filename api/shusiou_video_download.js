@@ -74,7 +74,11 @@ _f['Q3'] = function(cbk) {
 	}
 	var start = c_m * step;
 	var end = (c_m + 1) * step - 1;	
-	cbk(folder_base  + vid + '/' + m.length + '.mp4');
+	if (c_m !== null) {
+		cbk(folder_base  + vid + '/' + c_m + '.mp4');
+	} else {
+		cbk(false);
+	}
 };
 /*
 _f['Q4'] = function(cbk) {
