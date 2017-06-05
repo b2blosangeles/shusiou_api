@@ -17,7 +17,7 @@ _f['S0'] = function(cbk) {
 		connection.connect();
 
 		var str = "SELECT * FROM  `video_queue` WHERE `source` = 'youtube' AND " + 
-		    " (`source_code` = '" +  vurl + "'  OR `code` = '" +  vid + "'  OR ); ";
+		    " (`source_code` = '" +  vurl + "'  OR `code` = '" +  vid + "'); ";
 
 		connection.query(str, function (error, results, fields) {
 			connection.end();
