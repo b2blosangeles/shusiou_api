@@ -8,14 +8,16 @@ var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=IvbGKnYAxiE';
 var vid = req.body.vid;
 
 _f['S0'] = function(cbk) {
-	if (req.body.vid) {
-		cbk(req.body.vid);  
+	if (!vid && !vurl) {
+		cbk(false);  
+		CP.skip = true;
 	} else {	
 		var cfg0 = require(env.space_path + '/api/cfg/db.json');
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 
-		var str = "SELECT * FROM  `video_queue` WHERE `source` = 'youtube' AND  `source_code` = '" +  vurl + "'; ";
+		var str = "SELECT * FROM  `video_queue` WHERE `source` = 'youtube' AND " + 
+		    " (`source_code` = '" +  vurl + "'  OR `code` = '" +  vid + "'  OR ); ";
 
 		connection.query(str, function (error, results, fields) {
 			connection.end();
@@ -33,15 +35,15 @@ _f['S0'] = function(cbk) {
 
 _f['S1'] = function(cbk) {
   if (!CP.data.S0) {
-	cbk(req.body.vid);  
-  } else {
 	ytdl.getInfo(vurl, {},  function(err, info){
 	  if (err) {  
 		cbk(false);  
 	  } else {
 		cbk({vid:info.video_id, title:info.title, length_seconds:parseInt(info.length_seconds), thumbnail_url:info.thumbnail_url});
 	  }
-	});	    
+	});	  
+  } else {
+	cbk({vid:info.video_id, title:info.title, length_seconds:parseInt(info.length_seconds), thumbnail_url:info.thumbnail_url});	    
   }
 };
 _f['S1'] = function(cbk) {
