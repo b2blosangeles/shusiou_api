@@ -31,13 +31,13 @@ _f['S1'] = function(cbk) {
 		connection.query('SHOW TABLES;', function (error, results, fields) {
 			// connection.release();
 			if (error) {
-				cbk(error.message);
+				cbk('error.message');
 				return true;
 				// throw error;
 			}
 			var v = [];
 			for (var i = 0; i < results.length; i++) {
-			v[v.length] = results[i]['Tables_in_shusiou'];
+				v[v.length] = results[i]['Tables_in_shusiou'];
 			}
 			cbk(results);
 			
