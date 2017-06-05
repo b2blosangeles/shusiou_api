@@ -24,8 +24,9 @@ _f['S1'] = function(cbk) {
 	} else {
 		var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 		var cfg = require(env.space_path + '/api/cfg/db.json');
+		cfg['multipleStatements'] = true;
 		var connection = mysql.createConnection(cfg);
-		connection.connect({multipleStatements: true});
+		connection.connect();
 
 		var str = 'SHOW TABLES; ';
 		str += 'INSERT INTO viodeo_queue (source, source_code) values ("youtube", "' + vurl + '"); ';
