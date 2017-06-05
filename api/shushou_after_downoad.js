@@ -97,7 +97,7 @@ _f['Q3'] = function(cbk) {
 		var str = 'INSERT INTO videos (`source`, `code`, `created`, `status`, `info`) ' +
 			'values ("youtube", "' + CP.data.Q2 + '", NOW(), 0 , "' +  encodeURIComponent(JSON.stringify(CP.data.Q1.info)) + 
 			'"); ';
-		 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.Q2.code + '"; ';
+		 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.Q2 + '"; ';
 		
 		cbk(str);
 		return true;
