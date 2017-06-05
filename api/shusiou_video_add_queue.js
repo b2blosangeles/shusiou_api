@@ -54,26 +54,30 @@ _f['S2'] = function(cbk) {
 	if (!CP.data.S1 || !CP.data.S1.vid) {
 	  cbk(false);
 	} else {
-		var cfg = require(env.space_path + '/api/cfg/db.json');
-		cfg['multipleStatements'] = true;
-		var connection = mysql.createConnection(cfg);
-		connection.connect();
+		if (!CP.data.S0 || !CP.data.S0.vid) {
+			var cfg = require(env.space_path + '/api/cfg/db.json');
+			cfg['multipleStatements'] = true;
+			var connection = mysql.createConnection(cfg);
+			connection.connect();
 
-		var str = 'TRUNCATE TABLE  `video_queue`; ';
-		str += "INSERT INTO video_queue (`source`, `source_code`, `created`, `status`, `info`, `matrix`, `code`) " +
-			"values ('youtube', '" + vurl + "', NOW(), 0 , '" + JSON.stringify(CP.data.S1) + "', '[]', '" + 
-			CP.data.S1.vid + "'); ";
-		
-		connection.query(str, function (error, results, fields) {
-			connection.end();
-			if (error) {
-				cbk(false);
-				return true;
-			} else {
-				// cbk(results);
-				cbk(true);
-			}
-		});    
+			var str = 'TRUNCATE TABLE  `video_queue`; ';
+			str += "INSERT INTO video_queue (`source`, `source_code`, `created`, `status`, `info`, `matrix`, `code`) " +
+				"values ('youtube', '" + vurl + "', NOW(), 0 , '" + JSON.stringify(CP.data.S1) + "', '[]', '" + 
+				CP.data.S1.vid + "'); ";
+
+			connection.query(str, function (error, results, fields) {
+				connection.end();
+				if (error) {
+					cbk(false);
+					return true;
+				} else {
+					// cbk(results);
+					cbk(true);
+				}
+			}); 
+		} else {
+			cbk(1234);
+		}
 	}
 };
 
