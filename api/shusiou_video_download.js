@@ -100,7 +100,7 @@ _f['Q3'] = function(cbk) {
 				video.on('error', function() {
 					cbk({idx:c_m, status:9});
 				});			
-			}
+			});
 		});
 		
 	} else {
