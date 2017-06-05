@@ -42,8 +42,8 @@ _f['Q1'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			if (results[0]) {
-				cbk(results[0]);
+			if (results.length) {
+				cbk(results);
 				CP.skip = true;
 			} else {
 				cbk(false);
