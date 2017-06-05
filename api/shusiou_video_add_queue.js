@@ -98,7 +98,7 @@ _f['S2'] = function(cbk) {
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
-					cbk('error');
+					cbk(str );
 					return true;
 				} else {
 					// cbk(results);
