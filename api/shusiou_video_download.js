@@ -1,6 +1,8 @@
 var ytdl = require(env.space_path + '/api/inc/ytdl-core/node_modules/ytdl-core');
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 
+var folder_base = '/mnt/shusiou-video/youtube/';
+
 var CP = new pkg.crowdProcess();
 var _f = {};
 
@@ -65,7 +67,15 @@ _f['Q3'] = function(cbk) {
 	var step = 50000000;
 	var start = m.length * step;
 	var end = (m.length + 1) * step - 1;	
-	cbk(vid + '/' + m.length + '.mp4');
+	cbk(folder_base  + vid + '/' + m.length + '.mp4');
+};
+
+_f['Q4'] = function(cbk) {
+	var url = CP.data.Q2, vid = CP.data.Q1.code, m = JSON.parse(CP.data.Q1.matrix);
+	var step = 50000000;
+	var start = m.length * step;
+	var end = (m.length + 1) * step - 1;	
+	cbk(folder_base  + vid + '/' + m.length + '.mp4');
 };
 
 /*
