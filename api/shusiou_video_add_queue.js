@@ -24,9 +24,8 @@ _f['S1'] = function(cbk) {
 	  cbk(false);
 	} else {
 		
-		var cfg = require(env.space_path + '/api/cfg/db.json');
-	//	cfg['multipleStatements'] = true;
-		var connection = mysql.createConnection(cfg);
+		var cfg0 = require(env.space_path + '/api/cfg/db.json');
+		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 		
 		var str = "SELECT * FROM  `video_queue` WHERE `source` = 'youtube' AND  `source_code` = '" +  vurl + "'; ";
