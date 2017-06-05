@@ -12,7 +12,7 @@ _f['Q1'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT * FROM  `video_queue` WHERE `source` = "youtube" AND `status` = 0 ORDER BY `created` ASC LIMIT 100; ';
+	var str = 'SELECT * FROM  `video_queue` WHERE `source` = "youtube" AND `status` = 0 ORDER BY `created` ASC LIMIT 1; ';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
@@ -30,7 +30,7 @@ _f['Q1'] = function(cbk) {
 		}
 	});  
 };
-
+/*
 _f['Q2'] = function(cbk) {
 	if (!CP.data.Q1 || !CP.data.Q1.source_code) {
 		cbk(false);
@@ -47,14 +47,14 @@ _f['Q2'] = function(cbk) {
 	}
 };
 _f['Q3'] = function(cbk) {
-	if (CP.data.Q2 == false) {
+	if (CP.data.Q2 === false) {
 	 	cbk(false);
 	} else {
 		cbk(CP.data.Q2);
 	}
 	
 };
-
+*/
 CP.serial(
 	_f,
 	function(data) {
