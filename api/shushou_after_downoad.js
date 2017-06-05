@@ -37,7 +37,7 @@ _f['Q2'] = function(cbk) {
 		CP.exit = true;
 	} else {
 		var m = JSON.parse(CP.data.Q1.matrix);
-		for (var i = 0; i = m.length; i++) {
+		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 0) {
 				cbk(false);
 				break;
