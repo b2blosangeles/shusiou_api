@@ -18,7 +18,14 @@ _f['S0'] = function(cbk) {
 	});	    
   }
 };
-
+_f['S0'] = function(cbk) {
+  if (!CP.data.S1) {
+	  cbk(false);
+  } else {
+	  cbk(CP.data.S1.vid);
+	});	    
+  }
+};
 CP.serial(
 	_f,
 	function(data) {
