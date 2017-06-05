@@ -26,7 +26,7 @@ _f['S0'] = function(cbk) {
 				return true;
 			} else {
 				if (results[0]) {
-					cbk(results[0]);
+					cbk(JSON.parse(results[0].info));
 				} else {
 					cbk(false);
 				}
