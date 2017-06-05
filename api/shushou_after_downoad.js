@@ -58,7 +58,23 @@ _f['Q2'] = function(cbk) {
 					for (var j = i; j < m.length; j++) {
 						m[j] = 0;
 					}
-					cbk(false);
+					/--- Save adjusted matrix ---*/
+					var cfg0 = require(env.space_path + '/api/cfg/db.json');
+					var connection = mysql.createConnection(cfg0);
+					connection.connect();
+
+					var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
+					    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + CP.data.Q1.code + '"; ';
+
+					connection.query(str, function (error, results, fields) {
+						connection.end();
+						if (error) {
+							cbk(error.message);
+							return true;
+						} else {
+							cbk(false);
+						}
+					}); 						
 					return true;
 				}
 			}
