@@ -61,7 +61,9 @@ _f['Q2'] = function(cbk) {
 	}
 };
 _f['Q3'] = function(cbk) {
-	cbk(CP.data.Q2 + '===');
+	var url = CP.data.Q2, m = JSON.stringify(CP.data.Q1.matrix);
+	
+	cbk(m);
 };
 
 /*
