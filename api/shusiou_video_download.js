@@ -43,7 +43,7 @@ _f['Q1'] = function(cbk) {
 			return true;
 		} else {
 			if (results.length) {
-				cbk(results[0].code);
+				cbk(results[0]);
 				CP.skip = true;
 			} else {
 				cbk(false);
@@ -51,6 +51,13 @@ _f['Q1'] = function(cbk) {
 
 		}
 	});  
+};
+_f['Q2'] = function(cbk) {
+	if (!CP.data.Q1 || CP.data.Q1.source_code) {
+		cbk(CP.data.Q1.source_code);
+	} else {
+		cbk(false);
+	}
 };
 /*
 	if (!sid && sid !==0) {
