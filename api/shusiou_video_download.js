@@ -109,9 +109,26 @@ _f['Q3'] = function(cbk) {
 };
 
 _f['Q4'] = function(cbk) {
-	var m = JSON.parse(CP.data.Q1.matrix);
+	var m = JSON.parse(CP.data.Q1.matrix), vid = CP.data.Q1.code;
 	m[CP.data.Q3.idx] = CP.data.Q3.status;
-	cbk(m);
+	
+	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var connection = mysql.createConnection(cfg0);
+	connection.connect();
+
+	var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
+	    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
+
+	connection.query(str, function (error, results, fields) {
+		connection.end();
+		if (error) {
+			cbk(error.message);
+			return true;
+		} else {
+			cbk(m);
+		}
+	}); 	
+	
 };
 
 /*
