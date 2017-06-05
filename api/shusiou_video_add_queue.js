@@ -5,6 +5,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=IvbGKnYAxiE';
+var vid = req.body.vid;
 
 _f['S0'] = function(cbk) {
   if (req.body.vid) {
