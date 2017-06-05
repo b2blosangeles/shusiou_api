@@ -102,7 +102,7 @@ _f['Q3'] = function(cbk) {
 };
 
 _f['Q4'] = function(cbk) {
-	var m = JSON.stringify(CP.data.Q1.matrix);
+	var m = JSON.parse(CP.data.Q1.matrix);
 	m[CP.data.Q3.idx] = CP.data.Q3.status;
 	cbk(m);
 };
