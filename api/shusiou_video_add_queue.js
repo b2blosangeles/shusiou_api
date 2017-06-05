@@ -43,7 +43,7 @@ _f['S1'] = function(cbk) {
 	}
 };
 _f['S2'] = function(cbk) {
-	if (!CP.data.S0 && (CP.data.S1)) {
+	if (!CP.data.S0 || (CP.data.S1)) {
 	  cbk(false);
 	} else {
 		var cfg = require(env.space_path + '/api/cfg/db.json');
