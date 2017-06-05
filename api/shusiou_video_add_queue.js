@@ -29,7 +29,7 @@ _f['S1'] = function(cbk) {
 		var connection = mysql.createConnection(cfg);
 		connection.connect();
 		
-		str += "SELECT * FROM  `video_queue` WHERE `source` = 'youtube' AND  `source_code` = '" vurl + "'; ";
+		var str = "SELECT * FROM  `video_queue` WHERE `source` = 'youtube' AND  `source_code` = '" vurl + "'; ";
 		
 		connection.query(str, function (error, results, fields) {
 			connection.end();
