@@ -28,7 +28,7 @@ _f['S1'] = function(cbk) {
 		var connection = mysql.createConnection(cfg);
 		connection.connect();
 
-		var str = 'TRUNCATE TABLE  `viodeo_queue`; ';
+		var str = 'TRUNCATE TABLE  `video_queue`; ';
 		str += 'INSERT INTO video_queue (`source`, `source_code`, `created`, `status`, `info`) '+
 			'values ("youtube", "' + vurl + '", NOW(), 0 , "' + JSON.stringify(CP.data.S0) + '"); ';
 		
