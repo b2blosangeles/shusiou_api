@@ -13,7 +13,8 @@ _f['S0'] = function(cbk) {
 	  if (err) {  
 		cbk(false);  
 	  } else {
-		cbk(info.video_id);
+		cbk(info);
+		// cbk(info.video_id);
 	  }
 	});	    
   }
