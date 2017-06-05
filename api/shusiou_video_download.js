@@ -45,7 +45,7 @@ _f['Q1'] = function(cbk) {
 			return true;
 		} else {
 			if (results.length) {
-				cbk(results);
+				cbk(results[0]);
 				CP.skip = true;
 			} else {
 				cbk(false);
@@ -54,7 +54,7 @@ _f['Q1'] = function(cbk) {
 		}
 	});  
 };
-/*
+
 _f['Q2'] = function(cbk) {
 	if (!CP.data.Q1 || !CP.data.Q1.source_code) {
 		cbk(false);
@@ -64,13 +64,19 @@ _f['Q2'] = function(cbk) {
 	}
 };
 _f['Q3'] = function(cbk) {
-	var url = CP.data.Q2, vid = CP.data.Q1.code, m = JSON.parse(CP.data.Q1.matrix);
+	var url = CP.data.Q2, vid = CP.data.Q1.code, m = JSON.parse(CP.data.Q1.matrix), c_m = null;
 	var step = 50000000;
-	var start = m.length * step;
-	var end = (m.length + 1) * step - 1;	
+	for (var i = 0; i < m.length; i++) {
+		if (m[i] == 0) {
+			c_m = i;
+			break;
+		}
+	}
+	var start = c_m * step;
+	var end = (c_m + 1) * step - 1;	
 	cbk(folder_base  + vid + '/' + m.length + '.mp4');
 };
-
+/*
 _f['Q4'] = function(cbk) {
 	var url = CP.data.Q2, vid = CP.data.Q1.code, m = JSON.parse(CP.data.Q1.matrix);
 	var step = 50000000;
