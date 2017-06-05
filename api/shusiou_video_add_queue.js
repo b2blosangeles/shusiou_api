@@ -29,7 +29,7 @@ _f['S1'] = function(cbk) {
 
 		var str = 'INSERT INTO viodeo_queue (source, source_code) values ("youtube", "' + vurl + '"); ';
 		
-		connection.query('INSERT', function (error, results, fields) {
+		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
 				cbk(error.message);
