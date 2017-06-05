@@ -106,7 +106,7 @@ _f['S2'] = function(cbk) {
 				}
 			}); 
 		} else {
-			cbk(1234);
+			cbk(2);
 		}
 	}
 };
