@@ -37,9 +37,9 @@ _f['S1'] = function(cbk) {
 			if (error) {
 				cbk(error.message);
 				return true;
+			} else {
+				cbk(results);
 			}
-			cbk(results);
-			
 		});    
 	}
 };
