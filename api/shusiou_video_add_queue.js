@@ -4,7 +4,7 @@ var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=UzbRwICWODk';
+var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=fKMWTWP8qAg';
 var vid = req.body.vid;
 
 _f['Q'] = function(cbk) {
@@ -84,16 +84,16 @@ _f['S2'] = function(cbk) {
 	if (!CP.data.S1 || !CP.data.S1.vid) {
 	  cbk(false);
 	} else {
-		// if (!CP.data.S0 || !CP.data.S0.vid) {
+		 if (!CP.data.S0 || !CP.data.S0.vid) {
 			var cfg = require(env.space_path + '/api/cfg/db.json');
-			cfg['multipleStatements'] = true;
+		//	cfg['multipleStatements'] = true;
 			var connection = mysql.createConnection(cfg);
 			connection.connect();
 			
 			var matrix = [];
 			for (var j=0; j < 30; j++) {   matrix[ matrix .length] = 0; }
-			var str = 'TRUNCATE TABLE  `video_queue`; ';
-			str += 'INSERT INTO video_queue (`source`, `source_code`, `created`, `status`, `info`, `matrix`, `code`) ' +
+		//	var str = 'TRUNCATE TABLE  `video_queue`; ';
+			var str = 'INSERT INTO video_queue (`source`, `source_code`, `created`, `status`, `info`, `matrix`, `code`) ' +
 				'values ("youtube", "' + vurl + '", NOW(), 0 , "' +  encodeURIComponent(JSON.stringify(CP.data.S1)) + 
 				'", "' + JSON.stringify(matrix) + '", "' + CP.data.S1.vid + '"); ';
 
@@ -107,9 +107,9 @@ _f['S2'] = function(cbk) {
 					cbk(true);
 				}
 			}); 
-		// } else {
-		//	cbk(2);
-		//}
+		 } else {
+			cbk(2);
+		}
 	}
 };
 _f['S3'] = function(cbk) {
