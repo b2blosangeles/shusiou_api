@@ -29,8 +29,8 @@ _f['S1'] = function(cbk) {
 		connection.connect();
 
 		var str = 'TRUNCATE TABLE  `viodeo_queue`; ';
-		str += 'INSERT INTO viodeo_queue (`source`, `source_code`, `created`) '+
-			'values ("youtube", "' + vurl + '", NOW() ); ';
+		str += 'INSERT == INTO viodeo_queue (`source`, `source_code`, `created`, `status`) '+
+			'values ("youtube", "' + vurl + '", NOW(), 0 ); ';
 		
 		connection.query(str, function (error, results, fields) {
 			connection.end();
@@ -38,11 +38,6 @@ _f['S1'] = function(cbk) {
 				cbk(error.message);
 				return true;
 			}
-			/*
-			var v = [];
-			for (var i = 0; i < results.length; i++) {
-				v[v.length] = results[i]['Tables_in_shusiou'];
-			}*/
 			cbk(results);
 			
 		});    
