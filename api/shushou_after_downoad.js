@@ -86,7 +86,7 @@ _f['Q3'] = function(cbk) {
 	if (CP.data.Q2 === false) {
 	 	cbk(false);
 	} else {
-		cbk(CP.data.Q1);
+		cbk(CP.data.Q1.code);
 	}
 	
 };
