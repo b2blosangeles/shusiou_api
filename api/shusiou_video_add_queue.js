@@ -28,7 +28,7 @@ _f['S1'] = function(cbk) {
 		var connection = mysql.createConnection(cfg);
 		connection.connect();
 
-		var str = 'SHOW TABLES; ';
+		var str = 'TRUNCATE TABLE  viodeo_queue; ';
 		str += 'INSERT INTO viodeo_queue (source, source_code) values ("youtube", "' + vurl + '"); ';
 		
 		connection.query(str, function (error, results, fields) {
