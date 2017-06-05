@@ -54,7 +54,7 @@ _f['S0'] = function(cbk) {
 				return true;
 			} else {
 				if (results[0]) {
-					cbk(JSON.parse(results[0].info));
+					cbk( decodeURIComponent(JSON.parse(results[0].info)));
 				} else {
 					cbk(false);
 				}
@@ -92,7 +92,7 @@ _f['S2'] = function(cbk) {
 
 		//	var str = 'TRUNCATE TABLE  `video_queue`; ';
 			var str = "INSERT INTO video_queue (`source`, `source_code`, `created`, `status`, `info`, `matrix`, `code`) " +
-				"values ('youtube', '" + vurl + "', NOW(), 0 , '" + JSON.stringify(CP.data.S1) + "', '[]', '" + 
+				"values ('youtube', '" + vurl + "', NOW(), 0 , '" +  encodeURIComponent(JSON.stringify(CP.data.S1)) + "', '[]', '" + 
 				CP.data.S1.vid + "'); ";
 
 			connection.query(str, function (error, results, fields) {
