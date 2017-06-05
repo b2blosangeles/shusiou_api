@@ -9,7 +9,7 @@ _f['Q0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT * FROM  `video_queue` WHERE `source` = "youtube" AND `status` = 1 ORDER BY `created` ASC; ';
+	var str = 'SELECT `id`, `vode` FROM  `video_queue` WHERE `source` = "youtube" AND `status` = 1 ORDER BY `created` ASC; ';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
