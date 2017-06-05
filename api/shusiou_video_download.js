@@ -43,7 +43,7 @@ _f['Q1'] = function(cbk) {
 			return true;
 		} else {
 			if (results.length) {
-				cbk(results);
+				cbk(results[0].code);
 				CP.skip = true;
 			} else {
 				cbk(false);
@@ -52,6 +52,35 @@ _f['Q1'] = function(cbk) {
 		}
 	});  
 };
+/*
+	if (!sid && sid !==0) {
+		cbk(false);
+		CP.exit = 1;
+	}
+	var vid = CP.data.S0;
+	if (!vid) {
+		cbk(false);
+		CP.exit = 1;
+		return true;
+	}
+	var step = 50000000;
+	var start = sid * step;
+	var end = (sid + 1) * step -1;
+	
+ 	var video = ytdl(vurl, {range: {start:start, end:end}, quality:'18'});	
+	video.pipe(pkg.fs.createWriteStream(folder_base + vid + '/' + sid+'.mp4'));
+
+	video.on('data', function(info) {}); 
+
+	video.on('end', function(info) {
+		cbk({sid:sid, value:1});
+	});	
+
+	video.on('error', function() {
+		cbk({sid:sid, value:9});
+	});
+
+*/
 
 CP.serial(
 	_f,
