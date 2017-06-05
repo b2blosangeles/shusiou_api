@@ -81,19 +81,26 @@ _f['Q3'] = function(cbk) {
 		var folderP = require(env.space_path + '/api/inc/folderP/folderP');
 		var fp = new folderP();
 		fp.build(folder_base  + vid, function() {
-			var video = ytdl(url+'niu', {range: {start:start, end:end}, quality:'18'});	
-			video.pipe(pkg.fs.createWriteStream(folder_base + vid + '/' + c_m +'.mp4'));	
-			video.on('data', function(info) {}); 
+			ytdl.getInfo(url+'niu', function(err) {
+				if (err) {
+					cbk({idx:c_m, status:7});
+					return true;
+				}
+				var video = ytdl(url+'niu', {range: {start:start, end:end}, quality:'18'});
 
-			video.on('end', function(info) {
-				// cbk(url + '-**-' + folder_base  + vid + '/' + c_m + '.mp4');
-				cbk({idx:c_m, status:1});
-			});	
 
-			video.on('error', function() {
-				cbk({idx:c_m, status:9});
-			});			
-			
+				video.pipe(pkg.fs.createWriteStream(folder_base + vid + '/' + c_m +'.mp4'));	
+				video.on('data', function(info) {}); 
+
+				video.on('end', function(info) {
+					// cbk(url + '-**-' + folder_base  + vid + '/' + c_m + '.mp4');
+					cbk({idx:c_m, status:1});
+				});	
+
+				video.on('error', function() {
+					cbk({idx:c_m, status:9});
+				});			
+			}
 		});
 		
 	} else {
