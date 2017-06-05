@@ -45,7 +45,7 @@ _f['Q1'] = function(cbk) {
 			return true;
 		} else {
 			if (results.length) {
-				cbk(results[0]);
+				cbk(results);
 				CP.skip = true;
 			} else {
 				cbk(false);
@@ -54,6 +54,7 @@ _f['Q1'] = function(cbk) {
 		}
 	});  
 };
+/*
 _f['Q2'] = function(cbk) {
 	if (!CP.data.Q1 || !CP.data.Q1.source_code) {
 		cbk(false);
@@ -77,7 +78,7 @@ _f['Q4'] = function(cbk) {
 	var end = (m.length + 1) * step - 1;	
 	cbk(folder_base  + vid + '/' + m.length + '.mp4');
 };
-
+*/
 /*
 	if (!sid && sid !==0) {
 		cbk(false);
