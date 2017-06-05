@@ -43,7 +43,7 @@ _f['Q2'] = function(cbk) {
 				break;
 			}
 		}
-		cbk(CP.data.Q1.source_code);
+		cbk(CP.data.Q1.code);
 	}
 };
 _f['Q3'] = function(cbk) {
