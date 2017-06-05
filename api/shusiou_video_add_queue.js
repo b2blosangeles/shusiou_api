@@ -25,9 +25,10 @@ _f['S1'] = function(cbk) {
 		var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 		var cfg = require(env.space_path + '/api/cfg/db.json');
 		var connection = mysql.createConnection(cfg);
-		connection.connect();
+		connection.connect({multipleStatements: true});
 
-		var str = 'INSERT INTO viodeo_queue (source, source_code) values ("youtube", "' + vurl + '"); ';
+		var str = 'SHOW TABLES; ';
+		str += 'INSERT INTO viodeo_queue (source, source_code) values ("youtube", "' + vurl + '"); ';
 		
 		connection.query(str, function (error, results, fields) {
 			connection.end();
@@ -35,10 +36,11 @@ _f['S1'] = function(cbk) {
 				cbk(error.message);
 				return true;
 			}
+			/*
 			var v = [];
 			for (var i = 0; i < results.length; i++) {
 				v[v.length] = results[i]['Tables_in_shusiou'];
-			}
+			}*/
 			cbk(results);
 			
 		});    
