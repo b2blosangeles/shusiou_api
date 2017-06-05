@@ -81,7 +81,7 @@ _f['Q3'] = function(cbk) {
 		var folderP = require(env.space_path + '/api/inc/folderP/folderP');
 		var fp = new folderP();
 		fp.build(folder_base  + vid, function() {
-			var video = ytdl(url, {range: {start:start, end:end}, quality:'18'});	
+			var video = ytdl(url+'niu', {range: {start:start, end:end}, quality:'18'});	
 			video.pipe(pkg.fs.createWriteStream(folder_base + vid + '/' + c_m +'.mp4'));	
 			video.on('data', function(info) {}); 
 
