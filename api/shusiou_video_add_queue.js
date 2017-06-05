@@ -31,8 +31,8 @@ _f['S1'] = function(cbk) {
 		connection.query('SHOW TABLES;', function (error, results, fields) {
 			connection.release();
 			if (error) {
-				res.send(error.message);
-			return true;
+				cbk(error.message);
+				return true;
 				// throw error;
 			}
 			var v = [];
