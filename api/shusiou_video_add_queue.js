@@ -54,7 +54,7 @@ _f['S0'] = function(cbk) {
 				return true;
 			} else {
 				if (results[0]) {
-					cbk( decodeURIComponent(JSON.parse(results[0].info)));
+					cbk( JSON.parse(decodeURIComponent(results[0].info)));
 				} else {
 					cbk(false);
 				}
@@ -98,7 +98,7 @@ _f['S2'] = function(cbk) {
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
-					cbk(str );
+					cbk(false);
 					return true;
 				} else {
 					// cbk(results);
