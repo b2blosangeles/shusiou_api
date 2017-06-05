@@ -29,8 +29,8 @@ _f['S1'] = function(cbk) {
 		connection.connect();
 
 		var str = 'TRUNCATE TABLE  `viodeo_queue`; ';
-		str += 'INSERT INTO viodeo_queue (`source`, `source_code`, `created`, `status`) '+
-			'values ("youtube", "' + vurl + '", NOW(), 0 ); ';
+		str += 'INSERT INTO viodeo_queue (`source`, `source_code`, `created`, `status`, `info`) '+
+			'values ("youtube", "' + vurl + '", NOW(), 0 , "' + JSON.stringify(CP.data.S0) + '"); ';
 		
 		connection.query(str, function (error, results, fields) {
 			connection.end();
