@@ -22,14 +22,14 @@ _f['S1'] = function(cbk) {
 	if (!CP.data.S0) {
 	  cbk(false);
 	} else {
-
 		var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 		var cfg = require(env.space_path + '/api/cfg/db.json');
 		var connection = mysql.createConnection(cfg);
-
 		connection.connect();
 
-		connection.query('SHOW TABLES;', function (error, results, fields) {
+		var str = 'INSERT INTO viodeo_queue (source, source_code) values ("youtube", "' + vurl + '"); ';
+		
+		connection.query('INSERT', function (error, results, fields) {
 			connection.end();
 			if (error) {
 				cbk(error.message);
