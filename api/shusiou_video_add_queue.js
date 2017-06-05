@@ -35,10 +35,9 @@ _f['S0'] = function(cbk) {
 		});  
 	}
 };
-/*
 
 _f['S1'] = function(cbk) {
-  if (!CP.data.S0) {
+  if (!CP.data.S0 || !CP.data.S0.vid) {
 	ytdl.getInfo(vurl, {},  function(err, info){
 	  if (err) {  
 		cbk(false);  
@@ -47,9 +46,11 @@ _f['S1'] = function(cbk) {
 	  }
 	});	  
   } else {
-	cbk({vid:info.video_id, title:info.title, length_seconds:parseInt(info.length_seconds), thumbnail_url:info.thumbnail_url});	    
+	cbk(CP.data.S0);	    
   }
 };
+
+/*
 _f['S11'] = function(cbk) {
 	if (!CP.data.S0) {
 	  cbk(false);
