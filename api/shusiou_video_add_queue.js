@@ -52,8 +52,9 @@ _f['S2'] = function(cbk) {
 		connection.connect();
 
 		var str = 'TRUNCATE TABLE  `video_queue`; ';
-		str += "INSERT INTO video_queue (`source`, `source_code`, `created`, `status`, `info`, `matrix`) " +
-			"values ('youtube', '" + vurl + "', NOW(), 0 , '" + JSON.stringify(CP.data.S0) + "', '[]'); ";
+		str += "INSERT INTO video_queue (`source`, `source_code`, `created`, `status`, `info`, `matrix`, `code`) " +
+			"values ('youtube', '" + vurl + "', NOW(), 0 , '" + JSON.stringify(CP.data.S0) + "', '[]', '" + 
+			CP.data.S0.vid + "'); ";
 		
 		connection.query(str, function (error, results, fields) {
 			connection.end();
