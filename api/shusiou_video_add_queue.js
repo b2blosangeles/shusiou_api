@@ -25,7 +25,7 @@ _f['S1'] = function(cbk) {
 	} else {
 		
 		var cfg = require(env.space_path + '/api/cfg/db.json');
-		cfg['multipleStatements'] = true;
+	//	cfg['multipleStatements'] = true;
 		var connection = mysql.createConnection(cfg);
 		connection.connect();
 		
@@ -37,7 +37,7 @@ _f['S1'] = function(cbk) {
 				cbk(error.message);
 				return true;
 			} else {
-				cbk(results);
+				cbk(results[0]);
 				// cbk(true);
 			}
 		});    
