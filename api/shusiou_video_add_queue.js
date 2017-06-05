@@ -25,7 +25,11 @@ _f['S0'] = function(cbk) {
 				cbk(error.message);
 				return true;
 			} else {
-				cbk(results[0].info);
+				if (results[0]) {
+					cbk(results[0].info);
+				} else {
+					cbk(false);
+				}
 
 			}
 		});  
