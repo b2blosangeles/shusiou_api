@@ -25,7 +25,7 @@ _f['S0'] = function(cbk) {
 				cbk(error.message);
 				return true;
 			} else {
-				cbk(results[0]);
+				cbk(results);
 
 			}
 		});  
