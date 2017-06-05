@@ -30,7 +30,7 @@ _f['Q1'] = function(cbk) {
 		}
 	});  
 };
-/*
+
 _f['Q2'] = function(cbk) {
 	if (!CP.data.Q1 || !CP.data.Q1.source_code) {
 		cbk(false);
@@ -54,7 +54,7 @@ _f['Q3'] = function(cbk) {
 	}
 	
 };
-*/
+
 CP.serial(
 	_f,
 	function(data) {
