@@ -30,7 +30,7 @@ _f['S1'] = function(cbk) {
 		connection.connect();
 
 		connection.query('SHOW TABLES;', function (error, results, fields) {
-			connection.release();
+			connection.end();
 			if (error) {
 				cbk(error.message);
 				return true;
