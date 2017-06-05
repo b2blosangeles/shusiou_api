@@ -63,6 +63,9 @@ _f['Q2'] = function(cbk) {
 		cbk(CP.data.Q1.source_code);
 	}
 };
+
+
+
 _f['Q3'] = function(cbk) {
 	var url = CP.data.Q2, vid = CP.data.Q1.code, m = JSON.parse(CP.data.Q1.matrix), c_m = null;
 	var step = 50000000;
@@ -75,10 +78,14 @@ _f['Q3'] = function(cbk) {
 	var start = c_m * step;
 	var end = (c_m + 1) * step - 1;	
 	if (c_m !== null) {
+		var folderP = require(env.space_path + '/api/inc/folderP/folderP');
+		var fp = new folderP();
+		fp.build(folder_base  + vid, function() {
+			cbk(url + '-==-' + folder_base  + vid + '/' + c_m + '.mp4');
+		});		
  		//var video = ytdl(url, {range: {start:start, end:end}, quality:'18'});	
-		//video.pipe(pkg.fs.createWriteStream(folder_base + vid + '/' + sid+'.mp4'));		
+		//video.pipe(pkg.fs.createWriteStream(folder_base + vid + '/' + sid+'.mp4'));	
 		
-		cbk(url + '--' + folder_base  + vid + '/' + c_m + '.mp4');
 	} else {
 		cbk(false);
 	}
