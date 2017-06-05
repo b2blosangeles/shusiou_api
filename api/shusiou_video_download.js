@@ -53,12 +53,17 @@ _f['Q1'] = function(cbk) {
 	});  
 };
 _f['Q2'] = function(cbk) {
-	if (!CP.data.Q1 || CP.data.Q1.source_code) {
-		cbk(CP.data.Q1.source_code);
-	} else {
+	if (!CP.data.Q1 || !CP.data.Q1.source_code) {
 		cbk(false);
+		CP.exit = true;
+	} else {
+		cbk(CP.data.Q1.source_code);
 	}
 };
+_f['Q3'] = function(cbk) {
+	cbk(CP.data.Q2 + '===');
+};
+
 /*
 	if (!sid && sid !==0) {
 		cbk(false);
