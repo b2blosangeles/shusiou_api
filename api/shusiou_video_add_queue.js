@@ -29,13 +29,13 @@ _f['S1'] = function(cbk) {
 		connection.connect();
 
 		var str = 'TRUNCATE TABLE  `viodeo_queue`; ';
-		str += 'INSERT == INTO viodeo_queue (`source`, `source_code`, `created`, `status`) '+
+		str += 'INSERT INTO viodeo_queue (`source`, `source_code`, `created`, `status`) '+
 			'values ("youtube", "' + vurl + '", NOW(), 0 ); ';
 		
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
-				cbk(error.message);
+				cbk(false);
 				return true;
 			} else {
 				cbk(results);
