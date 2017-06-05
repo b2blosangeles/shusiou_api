@@ -22,8 +22,7 @@ _f['S1'] = function(cbk) {
 	if (!CP.data.S0) {
 	  cbk(false);
 	} else {
-		cbk('error.message');
-		return true;
+
 		var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 		var cfg = require(env.space_path + '/api/cfg/db.json');
 		var connection = mysql.createConnection(cfg);
@@ -31,7 +30,8 @@ _f['S1'] = function(cbk) {
 		connection.connect();
 
 		connection.query('SHOW TABLES;', function (error, results, fields) {
-			// connection.release();
+			cbk('error.message aa');
+			return true;
 			if (error) {
 				cbk('error.message');
 				return true;
