@@ -103,7 +103,8 @@ _f['Q3'] = function(cbk) {
 
 _f['Q4'] = function(cbk) {
 	if (CP.data.Q3 === true) {
-		cbk(CP.data.Q1.matrix);
+		var m = CP.data.Q1.matrix;
+		cbk(m);
 	}
 };
 
