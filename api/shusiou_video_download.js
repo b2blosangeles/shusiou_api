@@ -61,11 +61,11 @@ _f['Q2'] = function(cbk) {
 	}
 };
 _f['Q3'] = function(cbk) {
-	var url = CP.data.Q2, vid = CP.data.Q1.vid, m = JSON.parse(CP.data.Q1.matrix);
+	var url = CP.data.Q2, vid = CP.data.Q1.code, m = JSON.parse(CP.data.Q1.matrix);
 	var step = 50000000;
 	var start = m.length * step;
-	var end = (m.length + 1) * step -1;	
-	cbk(vid + '/' + sid+'.mp4');
+	var end = (m.length + 1) * step - 1;	
+	cbk(vid + '/' + m.length + '.mp4');
 };
 
 /*
