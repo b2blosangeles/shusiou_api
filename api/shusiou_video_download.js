@@ -86,11 +86,12 @@ _f['Q3'] = function(cbk) {
 			video.on('data', function(info) {}); 
 
 			video.on('end', function(info) {
-				cbk(url + '-**-' + folder_base  + vid + '/' + c_m + '.mp4');
+				// cbk(url + '-**-' + folder_base  + vid + '/' + c_m + '.mp4');
+				cbk(true);
 			});	
 
 			video.on('error', function() {
-				cbk(url + '-vv-' + folder_base  + vid + '/' + c_m + '.mp4');
+				cbk(false);
 			});			
 			
 		});
@@ -99,15 +100,11 @@ _f['Q3'] = function(cbk) {
 		cbk(false);
 	}
 };
-/*
+
 _f['Q4'] = function(cbk) {
-	var url = CP.data.Q2, vid = CP.data.Q1.code, m = JSON.parse(CP.data.Q1.matrix);
-	var step = 50000000;
-	var start = m.length * step;
-	var end = (m.length + 1) * step - 1;	
-	cbk(folder_base  + vid + '/' + m.length + '.mp4');
+	cbk(CP.data.Q3);
 };
-*/
+
 /*
 	if (!sid && sid !==0) {
 		cbk(false);
