@@ -7,6 +7,34 @@ var _f = {};
 var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=IvbGKnYAxiE';
 var vid = req.body.vid;
 
+_f['Q'] = function(cbk) {
+	if (!vid && !vurl) {
+		cbk(false);
+	} else {	
+		var cfg0 = require(env.space_path + '/api/cfg/db.json');
+		var connection = mysql.createConnection(cfg0);
+		connection.connect();
+
+		var str = "SELECT * FROM  `videos` WHERE `source` = 'youtube' AND  `code` = '" +  vid + "'; ";
+
+		connection.query(str, function (error, results, fields) {
+			connection.end();
+			if (error) {
+				cbk(error.message);
+				return true;
+			} else {
+				if (results[0]) {
+					cbk(results[0]);
+					CP.skip = true;
+				} else {
+					cbk(false);
+				}
+
+			}
+		});  
+	}
+};
+
 _f['S0'] = function(cbk) {
 	if (!vid && !vurl) {
 		cbk(false);  
@@ -50,35 +78,9 @@ _f['S1'] = function(cbk) {
   }
 };
 
+
+
 _f['S2'] = function(cbk) {
-	if (!vid && !vurl) {
-		cbk(false);
-	} else {	
-		var cfg0 = require(env.space_path + '/api/cfg/db.json');
-		var connection = mysql.createConnection(cfg0);
-		connection.connect();
-
-		var str = "SELECT * FROM  `video_queue` WHERE `source` = 'youtube' AND " + 
-		    " (`source_code` = '" +  vurl + "'  OR `code` = '" +  vid + "'); ";
-
-		connection.query(str, function (error, results, fields) {
-			connection.end();
-			if (error) {
-				cbk(error.message);
-				return true;
-			} else {
-				if (results[0]) {
-					cbk(results[0]);
-				} else {
-					cbk(false);
-				}
-
-			}
-		});  
-	}
-};
-
-_f['S3'] = function(cbk) {
 	if (!CP.data.S1 || !CP.data.S1.vid) {
 	  cbk(false);
 	} else {
@@ -108,7 +110,7 @@ _f['S3'] = function(cbk) {
 		}
 	}
 };
-_f['S4'] = function(cbk) {
+_f['S3'] = function(cbk) {
 	if (!vid && !vurl) {
 		cbk(false);
 	} else {	
