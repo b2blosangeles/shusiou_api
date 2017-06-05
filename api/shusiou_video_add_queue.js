@@ -4,7 +4,7 @@ var folder_base = '/mnt/shusiou-video/youtube/';
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=TtrymitI_Cw';
+var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=IvbGKnYAxiE';
 
 _f['S0'] = function(cbk) {
   if (req.body.vid) {
