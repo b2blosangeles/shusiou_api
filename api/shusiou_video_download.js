@@ -87,11 +87,11 @@ _f['Q3'] = function(cbk) {
 
 			video.on('end', function(info) {
 				// cbk(url + '-**-' + folder_base  + vid + '/' + c_m + '.mp4');
-				cbk(c_m);
+				cbk({idx:c_m, status:1});
 			});	
 
 			video.on('error', function() {
-				cbk(false);
+				cbk({idx:c_m, status:9});
 			});			
 			
 		});
@@ -102,13 +102,9 @@ _f['Q3'] = function(cbk) {
 };
 
 _f['Q4'] = function(cbk) {
-	cbk(CP.data.Q3);
-	return true;
-	
-	if (CP.data.Q3 === true) {
-		var m = CP.data.Q1.matrix;
-		cbk(m);
-	}
+	var m = JSON.stringify(CP.data.Q1.matrix);
+	m[CP.data.Q3.idx] = CP.data.Q3.status;
+	cbk(m);
 };
 
 /*
