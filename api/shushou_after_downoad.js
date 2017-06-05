@@ -86,7 +86,33 @@ _f['Q3'] = function(cbk) {
 	if (CP.data.Q2 === false) {
 	 	cbk(false);
 	} else {
-		cbk(CP.data.Q1.code);
+		
+
+		var cfg = require(env.space_path + '/api/cfg/db.json');
+		cfg['multipleStatements'] = true;
+		var connection = mysql.createConnection(cfg);
+		connection.connect();
+		
+	//	var str = 'TRUNCATE TABLE  `video_queue`; ';
+		var str = 'INSERT INTO videos (`source`, `code`, `created`, `status`, `info`) ' +
+			'values ("youtube", "' + CP.data.Q2.code + '", NOW(), 0 , "' +  encodeURIComponent(JSON.stringify(CP.data.Q2.cinfo)) + 
+			'"); ';
+		 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.Q2.code + '"; ';
+		
+		cbk(str);
+		return true;
+		connection.query(str, function (error, results, fields) {
+			connection.end();
+			if (error) {
+				cbk(false);
+				return true;
+			} else {
+				// cbk(results);
+				cbk(true);
+			}
+		}); 		
+		
+		
 	}
 	
 };
