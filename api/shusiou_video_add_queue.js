@@ -38,7 +38,8 @@ _f['S1'] = function(cbk) {
 				cbk(false);
 				return true;
 			} else {
-				cbk(results);
+				// cbk(results);
+				cbk(true);
 			}
 		});    
 	}
@@ -46,7 +47,7 @@ _f['S1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send({_spent_time:data._spent_time, status:data.status, data:data.results});
+		res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S0});
 	},
 	30000
 );
