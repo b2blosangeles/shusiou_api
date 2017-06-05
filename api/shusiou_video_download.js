@@ -81,10 +81,19 @@ _f['Q3'] = function(cbk) {
 		var folderP = require(env.space_path + '/api/inc/folderP/folderP');
 		var fp = new folderP();
 		fp.build(folder_base  + vid, function() {
-			cbk(url + '-==-' + folder_base  + vid + '/' + c_m + '.mp4');
-		});		
- 		//var video = ytdl(url, {range: {start:start, end:end}, quality:'18'});	
-		//video.pipe(pkg.fs.createWriteStream(folder_base + vid + '/' + sid+'.mp4'));	
+			var video = ytdl(url, {range: {start:start, end:end}, quality:'18'});	
+			video.pipe(pkg.fs.createWriteStream(folder_base + vid + '/' + c_m +'.mp4'));	
+			video.on('data', function(info) {}); 
+
+			video.on('end', function(info) {
+				cbk(url + '-**-' + folder_base  + vid + '/' + c_m + '.mp4');
+			});	
+
+			video.on('error', function() {
+				cbk(url + '-vv-' + folder_base  + vid + '/' + c_m + '.mp4');
+			});			
+			
+		});
 		
 	} else {
 		cbk(false);
