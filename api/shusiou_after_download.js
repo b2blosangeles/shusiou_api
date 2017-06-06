@@ -106,7 +106,7 @@ _f['Q3'] = function(cbk) {
 		return true;
 		
 		var childProcess = require('child_process');
-		var ls = childProcess.exec(cmd_str), 		   
+		var ls = childProcess.exec(cmd_str, 		   
 			function (error, stdout, stderr) {
 				if (error) cbk(false);
 				else {
