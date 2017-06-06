@@ -95,7 +95,7 @@ _f['Q3'] = function(cbk) {
 		
 		var info = JSON.parse(decodeURIComponent(CP.data.Q1.info));
 		var m = JSON.parse(decodeURIComponent(CP.data.Q1.matrix));
-		var code = JSON.parse(decodeURIComponent(CP.data.Q1.code));
+		var code = CP.data.Q1.code;
 		
 		cbk(folder_base + code + '/');
 		return true;
