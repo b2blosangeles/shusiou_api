@@ -95,8 +95,8 @@ _f['Q3'] = function(cbk) {
 		
 		var info = JSON.parse(decodeURIComponent(CP.data.Q1.info));
 		
-		//cbk(info);
-		//return true;
+		cbk(info);
+		return true;
 	//	var str = 'TRUNCATE TABLE  `video_queue`; ';
 		var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
 			'values ("youtube", "' + CP.data.Q2 + '", "' + info.title + '","' + info.length_seconds +  
@@ -120,7 +120,34 @@ _f['Q3'] = function(cbk) {
 	}
 	
 };
+/*
+_f['Q6'] = function(cbk) {
+	var vid = CP.data.Q2, fn = folder_base + vid + '/', v=[], str='cat ';
+	pkg.fs.readFile(fn, {encoding: 'utf-8'}, function(err,data) {
+          if(err) {
+	     cbk('Wrong');
+	  } else { 
+		v = JSON.parse(data);
+		// for (var i =0; i < Math.min(10, v.length); i++) {
+		for (var i =0; i < v.length; i++) {
+			if (v[i] == 1) {
+				str += videos_base + vid + '/' +i+'.mp4  ';
+			}
+		}
+		  str += ' > ' + videos_base + vid + '/N.mp4';
 
+		//CP.exit = 1;
+		 // return true;
+		var ls = childProcess.exec(str, 		   
+			function (error, stdout, stderr) {
+				if (error) cbk(false);
+				else cbk(true);
+			});		  
+			
+          }
+      });	
+};
+*/
 CP.serial(
 	_f,
 	function(data) {
