@@ -93,7 +93,7 @@ _f['Q3'] = function(cbk) {
 		var connection = mysql.createConnection(cfg);
 		connection.connect();
 		
-		var info = CP.data.Q1.info;
+		var info = encodeURIComponent(CP.data.Q1.info);
 		
 		cbk(info);
 		/*
