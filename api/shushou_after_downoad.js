@@ -103,8 +103,8 @@ _f['Q3'] = function(cbk) {
 			'", 0); ';
 		 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.Q2 + '"; ';
 		
-	//	cbk(str);
-	//	return true;
+		cbk(str);
+		return true;
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
