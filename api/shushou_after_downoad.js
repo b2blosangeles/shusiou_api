@@ -93,7 +93,7 @@ _f['Q3'] = function(cbk) {
 		var connection = mysql.createConnection(cfg);
 		connection.connect();
 		
-		var info = decodeURIComponent(CP.data.Q1.info);
+		var info = JSON.parse(decodeURIComponent(CP.data.Q1.info));
 		
 		cbk(info);
 		/*
