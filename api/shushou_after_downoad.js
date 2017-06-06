@@ -95,7 +95,9 @@ _f['Q3'] = function(cbk) {
 		
 		var info = JSON.parse(decodeURIComponent(CP.data.Q1.info));
 		var m = JSON.parse(decodeURIComponent(CP.data.Q1.matrix));
-		cbk(m);
+		var code = JSON.parse(decodeURIComponent(CP.data.Q1.code));
+		
+		cbk(code);
 		return true;
 		
 		
