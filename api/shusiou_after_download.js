@@ -97,21 +97,31 @@ _f['Q3'] = function(cbk) {
 		var m = JSON.parse(decodeURIComponent(CP.data.Q1.matrix));
 		var code = CP.data.Q1.code;
 		
-		var cmd_str = 'cd' + folder_base + code + '/tmp && cat ';
+		var cmd_str = 'cd ' + folder_base + code + '/tmp && cat ';
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 1) cmd_str += i + '.mp4 ';	
 		}
-		cmd_str += ' >> '+ folder_base + code + '/video.mp4';
+		cmd_str += ' > '+ folder_base + code + '/video.mp4 && rm -fr ' + folder_base + code + '/tmp;
 		cbk(cmd_str);
 		return true;
+		
+		var childProcess = require('child_process');
+		var ls = childProcess.exec(cmd_str), 		   
+			function (error, stdout, stderr) {
+				if (error) cbk(false);
+				else {
+					var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
+						'values ("youtube", "' + CP.data.Q2 + '", "' + info.title + '","' + info.length_seconds +  
+						'", 0); ';
+					 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.Q2 + '"; ';				
+				}
+			});		
+		
 		
 		
 		
 	//	var str = 'TRUNCATE TABLE  `video_queue`; ';
-		var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
-			'values ("youtube", "' + CP.data.Q2 + '", "' + info.title + '","' + info.length_seconds +  
-			'", 0); ';
-		 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.Q2 + '"; ';
+
 		
 		cbk(str);
 		return true;
