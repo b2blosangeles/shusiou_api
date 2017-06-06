@@ -97,7 +97,12 @@ _f['Q3'] = function(cbk) {
 		var m = JSON.parse(decodeURIComponent(CP.data.Q1.matrix));
 		var code = CP.data.Q1.code;
 		
-		cbk(folder_base + code + '/');
+		var cmd_str = 'cd' + folder_base + code + '/tmp && cat ';
+		for (var i = 0; i < m.length; i++) {
+			if (m[i] == 1) cmd_str += i + '.mp4 ';	
+		}
+		cmd_str += ' >> '+ folder_base + code + '/video.mp4';
+		cbk(cmd_str);
 		return true;
 		
 		
