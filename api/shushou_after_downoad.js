@@ -95,8 +95,8 @@ _f['Q3'] = function(cbk) {
 		
 		var info = JSON.parse(decodeURIComponent(CP.data.Q1.info));
 		
-		//cbk(info);
-		
+		cbk(info);
+		return true;
 	//	var str = 'TRUNCATE TABLE  `video_queue`; ';
 		var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
 			'values ("youtube", "' + CP.data.Q2 + '", "' + info.title + '","' + info.length +  
