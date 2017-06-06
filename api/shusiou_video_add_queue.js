@@ -4,7 +4,7 @@ var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=fKMWTWP8qAg';
+var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=iEt3jdQaaMI';
 var vid = req.body.vid;
 
 _f['Q'] = function(cbk) {
