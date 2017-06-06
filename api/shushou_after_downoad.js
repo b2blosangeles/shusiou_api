@@ -100,7 +100,7 @@ _f['Q3'] = function(cbk) {
 	//	var str = 'TRUNCATE TABLE  `video_queue`; ';
 		var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
 			'values ("youtube", "' + CP.data.Q2 + '", "' + info.title + '","' + info.length_seconds +  
-			'"); ';
+			'", 0); ';
 		 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.Q2 + '"; ';
 		
 		cbk(str);
