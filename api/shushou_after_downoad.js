@@ -93,10 +93,10 @@ _f['Q3'] = function(cbk) {
 		var connection = mysql.createConnection(cfg);
 		connection.connect();
 		
-		var info = JSON.parse(CP.data.Q1.info);
+		var info = CP.data.Q1.info;
 		
 		cbk(info);
-		
+		/*
 	//	var str = 'TRUNCATE TABLE  `video_queue`; ';
 		var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
 		//	'values ("youtube", "' + CP.data.Q2 + '", info.title, info.length,  + 
@@ -116,7 +116,7 @@ _f['Q3'] = function(cbk) {
 			}
 		}); 		
 		
-		
+		*/
 	}
 	
 };
