@@ -33,7 +33,7 @@ _f['Q1'] = function(cbk) {
 
 function findAfter9(m, idx) {
 	for (var i = idx; i < m.length; i++) {
-		if (m[i] != 9) {
+		if (m[i] == 1) {
 			return true;
 		}
 	}
@@ -56,7 +56,7 @@ _f['Q2'] = function(cbk) {
 			if (m[i] == 9) {
 				if (findAfter9(m, i)) {
 					for (var j = i; j < m.length; j++) {
-						m[j] = 0;
+						if (m[j] == 9) m[j] = 0;
 					}
 					/--- Save adjusted matrix ---*/
 					var cfg0 = require(env.space_path + '/api/cfg/db.json');
