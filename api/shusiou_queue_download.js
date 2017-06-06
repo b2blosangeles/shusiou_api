@@ -55,7 +55,7 @@ _f['Q3'] = function(cbk) {
 	if (c_m !== null) {
 		var folderP = require(env.space_path + '/api/inc/folderP/folderP');
 		var fp = new folderP();
-		fp.build(folder_base  + vid, function() {
+		fp.build(folder_base  + vid + '/tmp', function() {
 			ytdl.getInfo(url, function(err) {
 				if (err) {
 					cbk({idx:c_m, status:9});
@@ -64,7 +64,7 @@ _f['Q3'] = function(cbk) {
 				var video = ytdl(url, {range: {start:start, end:end}, quality:'18'});
 
 
-				video.pipe(pkg.fs.createWriteStream(folder_base + vid + '/' + c_m +'.mp4'));	
+				video.pipe(pkg.fs.createWriteStream(folder_base + vid + '/tmp/' + c_m +'.mp4'));	
 				video.on('data', function(info) {}); 
 
 				video.on('end', function(info) {
