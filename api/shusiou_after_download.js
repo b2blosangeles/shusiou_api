@@ -121,7 +121,7 @@ _f['Q3'] = function(cbk) {
 				}
 			});		
 		
-		
+		});
 		
 		
 	//	var str = 'TRUNCATE TABLE  `video_queue`; ';
