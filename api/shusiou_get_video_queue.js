@@ -22,7 +22,7 @@ _f['Q1'] = function(cbk) {
 				for (var j=0; j < matrix; j++) {
 					if (matrix[j] == 1) matrix_success++;
 				}
-				results[i].perc = matrix.length;
+				results[i].perc = matrix_success;
 				//ath.round((matrix_success * 10000 )/matrix.length) * 0.1;
 			}
 			cbk(results);
