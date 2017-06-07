@@ -22,7 +22,8 @@ _f['Q1'] = function(cbk) {
 				for (var j=0; j < matrix.length; j++) {
 					if (parseInt(matrix[j]) == 1) matrix_success++;
 				}
-				results[i].perc = Math.round(matrix_success * 100 / matrix.length);
+				var rate = Math.round(matrix_success * 1000 / matrix.length)
+				results[i].perc = rate * 0.1;
 			}
 			cbk(results);
 		}
