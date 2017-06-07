@@ -4,12 +4,13 @@ var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-var vurl = req.body.vurl || 'https://www.youtube.com/watch?v=iEt3jdQaaMI';
+var vurl = req.body.vurl;
 var vid = req.body.vid;
 
 _f['Q'] = function(cbk) {
 	if (!vid && !vurl) {
 		cbk(false);
+		CP.exit  = 1;
 	} else {	
 		var cfg0 = require(env.space_path + '/api/cfg/db.json');
 		var connection = mysql.createConnection(cfg0);
