@@ -6,6 +6,7 @@ var _f = {};
 
 var vurl = req.body.vurl;
 var vid = req.body.vid;
+var icon_url = req.body.icon_url;
 
 _f['Q'] = function(cbk) {
 	if (!vid && !vurl) {
@@ -94,8 +95,8 @@ _f['S2'] = function(cbk) {
 			var matrix = [];
 			for (var j=0; j < 30; j++) {   matrix[ matrix .length] = 0; }
 		//	var str = 'TRUNCATE TABLE  `video_queue`; ';
-			var str = 'INSERT INTO video_queue (`source`, `source_code`, `created`, `status`, `info`, `matrix`, `code`) ' +
-				'values ("youtube", "' + vurl + '", NOW(), 0 , "' +  encodeURIComponent(JSON.stringify(CP.data.S1)) + 
+			var str = 'INSERT INTO video_queue (`source`, `source_code`, `icon_url`, `created`, `status`, `info`, `matrix`, `code`) ' +
+				'values ("youtube", "' + vurl + '", "' + icon_url + '" NOW(), 0 , "' +  encodeURIComponent(JSON.stringify(CP.data.S1)) + 
 				'", "' + JSON.stringify(matrix) + '", "' + CP.data.S1.vid + '"); ';
 
 			connection.query(str, function (error, results, fields) {
