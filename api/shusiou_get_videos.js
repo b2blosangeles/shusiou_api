@@ -53,11 +53,11 @@ CP.serial(
 	_f,
 	function(data) {
 		var list = [];
-		for (o in data.results.Q1) {
-			list[list.length] = o;
-		}
 		for (o in data.results.Q0) {
-			list[list.length] = o;
+			list[list.length] = data.results.Q0[o];
+		}
+		for (o in data.results.Q1) {
+			list[list.length] = data.results.Q1[o];
 		}		
 		res.send({_spent_time:data._spent_time, status:data.status, data:list});
 	},
