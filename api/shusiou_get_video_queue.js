@@ -20,7 +20,7 @@ _f['Q1'] = function(cbk) {
 				var matrix = JSON.parse(results[i].matrix);
 				var matrix_success = 0;
 				for (var j=0; j < matrix; j++) {
-					if (matrix[j] == 1) matrix_success++;
+					if (matrix[j] == '1') matrix_success++;
 				}
 				results[i].perc = matrix_success;
 				//ath.round((matrix_success * 10000 )/matrix.length) * 0.1;
