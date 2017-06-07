@@ -54,9 +54,11 @@ CP.serial(
 	function(data) {
 		var list = [];
 		for (o in data.results.Q0) {
+			data.results.Q0[o].type = 'local';
 			list[list.length] = data.results.Q0[o];
 		}
 		for (o in data.results.Q1) {
+			data.results.Q1[o].type = 'remote';
 			list[list.length] = data.results.Q1[o];
 		}		
 		res.send({_spent_time:data._spent_time, status:data.status, data:list});
