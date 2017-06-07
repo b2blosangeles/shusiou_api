@@ -3,7 +3,7 @@ var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-_f['Q'] = function(cbk) {
+_f['Q0'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
@@ -52,7 +52,14 @@ _f['Q1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send({_spent_time:data._spent_time, status:data.status, data:data.results.Q1});
+		var list = [];
+		for (o in data.results.Q1) {
+			list[list.length] = o;
+		}
+		for (o in data.results.Q0) {
+			list[list.length] = o;
+		}		
+		res.send({_spent_time:data._spent_time, status:data.status, data:list});
 	},
 	30000
 );
