@@ -23,7 +23,7 @@ _f['Q1'] = function(cbk) {
 					if (parseInt(matrix[j]) == 1) matrix_success++;
 				}
 				var rate = Math.round(matrix_success * 1000 / matrix.length)
-				results[i].perc =parseInt(rate) * 0.1;
+				results[i].perc = rate.toFixed(1);
 			}
 			cbk(results);
 		}
