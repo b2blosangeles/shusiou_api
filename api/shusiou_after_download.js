@@ -112,13 +112,20 @@ _f['Q3'] = function(cbk) {
 			function (error, stdout, stderr) {
 				if (error) cbk(false);
 				else {
-					cbk(stdout);
-					/*
+		
 					var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
 						'values ("youtube", "' + CP.data.Q2 + '", "' + info.title + '","' + info.length_seconds +  
 						'", 0); ';
 					 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.Q2 + '"; ';
-					 */
+					connection.query(str, function (error, results, fields) {
+						connection.end();
+						if (error) {
+							cbk(error.message);
+							return true;
+						} else {
+							cbk(true);
+						}
+					}); 					
 				}
 			});		
 		
