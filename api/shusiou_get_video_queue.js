@@ -17,7 +17,12 @@ _f['Q1'] = function(cbk) {
 			return true;
 		} else {
 			for (var i = 0; i < results.length; i++) {
-				results[i].title = "test title";
+				var matrix = JSON.parse(results[i].matrix);
+				var matrix_success = 0;
+				for (var j=0; j < matrix; j++) {
+					if (matrix[j] == 1) matrix_success++;
+				}
+				results[i].perc = Math.round((matrix_success * 1000 )/matrix.length) * 0.1;
 			}
 			cbk(results);
 		}
