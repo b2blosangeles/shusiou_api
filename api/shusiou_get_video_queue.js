@@ -19,11 +19,10 @@ _f['Q1'] = function(cbk) {
 			for (var i = 0; i < results.length; i++) {
 				var matrix = JSON.parse(results[i].matrix);
 				var matrix_success = 0;
-				for (var j=0; j < matrix; j++) {
-					if (matrix[j] == '1') matrix_success++;
+				for (var j=0; j < matrix.length; j++) {
+					if (parseIn(matrix[j]) == 1) matrix_success++;
 				}
-				results[i].perc = matrix_success;
-				//ath.round((matrix_success * 10000 )/matrix.length) * 0.1;
+				results[i].perc = Math.round((matrix_success * 10000 )/matrix.length) * 0.1;
 			}
 			cbk(results);
 		}
