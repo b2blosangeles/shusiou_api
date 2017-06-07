@@ -105,13 +105,14 @@ _f['Q3'] = function(cbk) {
 		cmd_str += ' > '+ folder_base + code + '/video.mp4 ';
 		// cbk(cmd_str);
 		//return true;
+		cmd_str += 'ls -l '+ folder_base + code + '/video.mp4 ';
 		
 		var childProcess = require('child_process');
 		var ls = childProcess.exec(cmd_str, 		   
 			function (error, stdout, stderr) {
 				if (error) cbk(false);
 				else {
-					cbk('===niu===');
+					cbk(stdout);
 					/*
 					var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
 						'values ("youtube", "' + CP.data.Q2 + '", "' + info.title + '","' + info.length_seconds +  
