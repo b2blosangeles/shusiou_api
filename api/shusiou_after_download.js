@@ -103,18 +103,21 @@ _f['Q3'] = function(cbk) {
 		}
 		//cmd_str += ' > '+ folder_base + code + '/video.mp4 && rm -fr ' + folder_base + code + '/tmp';
 		cmd_str += ' > '+ folder_base + code + '/video.mp4 ';
-		cbk(cmd_str);
-		return true;
+		// cbk(cmd_str);
+	//	return true;
 		
 		var childProcess = require('child_process');
 		var ls = childProcess.exec(cmd_str, 		   
 			function (error, stdout, stderr) {
 				if (error) cbk(false);
 				else {
+					cbk('===niu===');
+					/*
 					var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
 						'values ("youtube", "' + CP.data.Q2 + '", "' + info.title + '","' + info.length_seconds +  
 						'", 0); ';
-					 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.Q2 + '"; ';				
+					 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.Q2 + '"; ';
+					 */
 				}
 			});		
 		
