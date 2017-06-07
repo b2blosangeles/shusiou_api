@@ -103,8 +103,9 @@ _f['Q3'] = function(cbk) {
 		}
 		//cmd_str += ' > '+ folder_base + code + '/video.mp4 && rm -fr ' + folder_base + code + '/tmp';
 		cmd_str += ' > '+ folder_base + code + '/video.mp4 ';
-		 cbk(cmd_str);
-		return true;
+		// cbk(cmd_str);
+		//return true;
+		cmd_str = 'ls =l';
 		
 		var childProcess = require('child_process');
 		var ls = childProcess.exec(cmd_str, 		   
@@ -126,7 +127,7 @@ _f['Q3'] = function(cbk) {
 	//	var str = 'TRUNCATE TABLE  `video_queue`; ';
 
 		
-		cbk(str);
+	//	cbk(str);
 		return true;
 		connection.query(str, function (error, results, fields) {
 			connection.end();
