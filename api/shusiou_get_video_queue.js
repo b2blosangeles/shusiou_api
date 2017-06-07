@@ -16,6 +16,9 @@ _f['Q1'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
+			for (var i = 0; i < results.length; i++) {
+				results[i].title = "test title";
+			}
 			cbk(results);
 		}
 	});  
