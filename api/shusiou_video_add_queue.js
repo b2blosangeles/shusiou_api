@@ -96,7 +96,7 @@ _f['S2'] = function(cbk) {
 			for (var j=0; j < 30; j++) {   matrix[ matrix .length] = 0; }
 		//	var str = 'TRUNCATE TABLE  `video_queue`; ';
 			var str = 'INSERT INTO video_queue (`source`, `source_code`, `thumbnail_url`, `created`, `status`, `info`, `matrix`, `code`) ' +
-				'values ("youtube", "' + vurl + '", "' + thumbnail_url + '" NOW(), 0 , "' +  encodeURIComponent(JSON.stringify(CP.data.S1)) + 
+				'values ("youtube", "' + vurl + '", "' + thumbnail_url + '", NOW(), 0 , "' +  encodeURIComponent(JSON.stringify(CP.data.S1)) + 
 				'", "' + JSON.stringify(matrix) + '", "' + CP.data.S1.vid + '"); ';
 
 			connection.query(str, function (error, results, fields) {
