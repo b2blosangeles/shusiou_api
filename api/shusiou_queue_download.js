@@ -148,6 +148,8 @@ _f['AF2'] = function(cbk) {
 		CP.exit = true;
 	} else {
 		var m = JSON.parse(CP.data.AF1.matrix);
+		cbk(false);
+		CP.exit = true;		
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 9) {
 				var v = matrixAfter9(m, i);
