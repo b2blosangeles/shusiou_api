@@ -38,7 +38,7 @@ _f['Q1'] = function(cbk) {
 				var matrix = JSON.parse(results[i].matrix);
 				var matrix_success = 0;
 				for (var j=0; j < matrix.length; j++) {
-					if (parseInt(matrix[j]) == 1) matrix_success++;
+					if (parseInt(matrix[j]) == 1 || parseInt(matrix[j]) == 9) matrix_success++;
 				}
 				var rate = Math.round(matrix_success * 1000 / matrix.length)
 				results[i].perc = rate/10;
