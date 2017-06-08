@@ -134,7 +134,7 @@ function matrixAfter9(m, idx) {
 	if (idx === 0 || idx === 1 ) return m;
 	var v = [];
 	if (m[idx-1] == 9 && m[idx-2] == 9) {
-		for (var i = 0; i < idx-2; i++) {	
+		for (var i = 0; i < (idx-2); i++) {	
 			v[v.length] = m[i];  
 		}
 		return v;
