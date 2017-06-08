@@ -1,11 +1,7 @@
-var video = req.param('video').split('|'), fn;
+var video = req.request['video'].split('|'), fn;
 var folder_base = '/mnt/shusiou-video/youtube/';
 
 var vid = video[0]; s =  (!video[1])?0:video[1];
-
-
-res.send(video);
-return true;
 
 var file_video = folder_base + 'videos/' +  vid + '/video.mp4';
 var folder_image = folder_base + 'images/' +  vid;
