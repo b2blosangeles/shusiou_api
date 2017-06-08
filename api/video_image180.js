@@ -6,6 +6,8 @@ var vid = video[0]; s =  (!video[1])?0:video[1];
 var file_video = folder_base + 'videos/' +  vid + '/video.mp4';
 var folder_image = folder_base + 'images/' +  vid;
 
+res.send(folder_image);
+return true;
 
 fn = folder_image + '/180_' + s + '.png';
 var CP = new pkg.crowdProcess();
