@@ -129,7 +129,7 @@ _f['AF1'] = function(cbk) {
 		}
 	});  
 };
-
+/*
 function matrixAfter9(m, idx) {
 	if (idx === 0 || idx === 1 ) return m;
 	var v = [];
@@ -141,7 +141,7 @@ function matrixAfter9(m, idx) {
 	}
 	return m; 
 }
-
+*/
 _f['AF2'] = function(cbk) {
 	if (!CP.data.AF1 || !CP.data.AF1.source_code) {
 		cbk(false);
