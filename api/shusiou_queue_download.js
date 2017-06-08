@@ -148,18 +148,19 @@ _f['AF2'] = function(cbk) {
 		cbk(false);
 		CP.exit = true;
 	} else {
-		var m = JSON.parse(CP.data.AF1.matrix);	
+		var m = JSON.parse(CP.data.AF1.matrix), sts=0;	
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 0) {
 				cbk(false);
 				return true;
 			}
 		}	
-				cbk('v==');
+				cbk(m);
 				CP.exit = true;
 				return true;		
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 9) {
+				sts++;
 				// var v = matrixAfter9(m, i);
 				cbk('v');
 				CP.exit = true;
@@ -187,7 +188,11 @@ _f['AF2'] = function(cbk) {
 				} 
 			}
 		}		
-
+		if (!sts) {
+			cbk('kkk');
+			CP.exit = true;
+				return true;
+		}
 		
 	//	cbk(CP.data.AF1.code);
 	}
