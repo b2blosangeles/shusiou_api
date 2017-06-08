@@ -177,10 +177,11 @@ _f['AF2'] = function(cbk) {
 						}
 					}); 						
 					return true;
-				} 
-			} else {
-				cbk(false);
-			}
+				} else {
+					cbk(false);
+					return true;
+				}
+			} 
 		}
 		
 		cbk(CP.data.AF1.code);
