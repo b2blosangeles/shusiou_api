@@ -143,6 +143,8 @@ function matrixAfter9(m, idx) {
 }
 */
 _f['AF2'] = function(cbk) {
+		cbk(false);
+		CP.exit = true;	
 	if (!CP.data.AF1 || !CP.data.AF1.source_code) {
 		cbk(false);
 		CP.exit = true;
