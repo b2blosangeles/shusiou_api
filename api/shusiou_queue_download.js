@@ -25,11 +25,9 @@ _f['matrix_change0'] = function(cbk) {
 					connection.end();
 					if (error) {
 						cbk(error.message);
-						CP.exit = true;	
 						return true;
 					} else {
 						cbk(m);
-						CP.exit = true;	
 					}
 				}); 	
 
