@@ -41,7 +41,7 @@ function findAfter9(m, idx) {
 }
 
 _f['AF2'] = function(cbk) {
-	if (!CP.data.AF || !CP.data.AF1.source_code) {
+	if (!CP.data.AF1 || !CP.data.AF1.source_code) {
 		cbk(false);
 		CP.exit = true;
 	} else {
