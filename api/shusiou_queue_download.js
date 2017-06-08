@@ -156,7 +156,7 @@ _f['AF2'] = function(cbk) {
 		}
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 9) {
-				 v = matrixAfter9(m, i);
+				var v = matrixAfter9(m, i);
 				if (v.length != m.length) {
 					/--- Save adjusted matrix ---*/
 					var cfg0 = require(env.space_path + '/api/cfg/db.json');
