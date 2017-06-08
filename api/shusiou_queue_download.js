@@ -129,12 +129,33 @@ _f['AF1'] = function(cbk) {
 		}
 	});  
 };
+function matrixAfter9(m, idx) {
+	if (idx === 0 || idx === 1 ) return m;
+	var v = [];
+	if (m[idx-1] == 9 && m[idx-2] == 9) {
+		for (var i = 0; i < idx-2; i++) {	
+			v[v.length] = m[i];  
+		}
+		return v;
+	}
+	return m; 
+}
+
 _f['matrix_change'] = function(cbk) {
 	if (!CP.data.AF1 || !CP.data.AF1.source_code) {
 		cbk(false);
 		CP.exit = true;
 	} else {
-		var m = JSON.parse(CP.data.AF1.matrix);	
+		var m = JSON.parse(CP.data.AF1.matrix), v = [];	
+		
+		for (var i = 0; i < m.length; i++) {
+			if (m[i] == 9) {
+				if (m[i+1] == 1 && m[idx+2] == 1) {
+					
+				} 
+			}
+		}	
+		
 		cbk(m);
 		CP.exit = true;
 		for (var i = 0; i < m.length; i++) {
