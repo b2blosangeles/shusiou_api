@@ -142,6 +142,33 @@ function matrixAfter9(m, idx) {
 }
 
 _f['matrix_change'] = function(cbk) {
+	var m = JSON.parse(CP.data.AF1.matrix), v = [];
+					/--- Save adjusted matrix ---*/
+					var cfg0 = require(env.space_path + '/api/cfg/db.json');
+					var connection = mysql.createConnection(cfg0);
+					connection.connect();	
+			//	if (m[i+1] == 0 && m[i+2] == 0) {
+					for (var j = i; j < m.length; j++) {
+						m[j] = 0;
+					}
+			//	} 				
+				var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
+				    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
+
+				connection.query(str, function (error, results, fields) {
+					connection.end();
+					if (error) {
+						cbk(error.message);
+						return true;
+					} else {
+						cbk(m);
+					}
+				}); 				
+				return true;	
+	
+	
+	
+	
 	if (!CP.data.AF1 || !CP.data.AF1.source_code) {
 		cbk(false);
 		CP.exit = true;
@@ -150,11 +177,24 @@ _f['matrix_change'] = function(cbk) {
 		
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 9) {
-				if (m[i+1] == 0 && m[i+2] == 0) {
+			//	if (m[i+1] == 0 && m[i+2] == 0) {
 					for (var j = i; j < m.length; j++) {
 						m[j] = 0;
 					}
-				} 
+			//	} 				
+				var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
+				    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
+
+				connection.query(str, function (error, results, fields) {
+					connection.end();
+					if (error) {
+						cbk(error.message);
+						return true;
+					} else {
+						cbk(m);
+					}
+				}); 				
+				return true;
 			}
 		}	
 		
