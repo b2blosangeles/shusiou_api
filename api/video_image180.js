@@ -16,7 +16,8 @@ _f['S0'] = function(cbk) {
 		 if(!err) {
 			cbk(true);
 		 } else {
-			cbk(file_video);	
+			cbk(false);
+			CP.exit = 1;
 		}
 	});	
 };
@@ -47,8 +48,8 @@ _f['S2'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {	
-			res.send(data);
-			return true;		
+		//	res.send(data);
+		//	return true;		
 		pkg.fs.stat(fn, function(err, data) {
 
 		      if (err) {
