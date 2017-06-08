@@ -159,11 +159,12 @@ _f['AF2'] = function(cbk) {
 			if (m[i] == 9) {
 				sts++;
 				var v = matrixAfter9(m, i);
-				cbk(v);
-				CP.exit = true;
-				return true;
+	
 				
 				if (v.length != m.length) {
+					cbk(v);
+					CP.exit = true;
+					return true;					
 					/--- Save adjusted matrix ---*/
 					var cfg0 = require(env.space_path + '/api/cfg/db.json');
 					var connection = mysql.createConnection(cfg0);
