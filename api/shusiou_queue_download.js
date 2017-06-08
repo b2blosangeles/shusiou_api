@@ -181,14 +181,12 @@ _f['AF2'] = function(cbk) {
 						}
 					}); 						
 					return true;
-				} else {
-					cbk(false);
-				}
+				} 
 			}
 		}		
 
 		
-		cbk(CP.data.AF1.code);
+	//	cbk(CP.data.AF1.code);
 	}
 };
 _f['AF3'] = function(cbk) {
