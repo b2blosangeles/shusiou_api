@@ -101,8 +101,8 @@ _f['Q3'] = function(cbk) {
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 1) cmd_str += i + '.mp4 ';	
 		}
-		//cmd_str += ' > '+ folder_base + code + '/video.mp4 && rm -fr ' + folder_base + code + '/tmp';
-		cmd_str += ' > '+ folder_base + code + '/video.mp4 ';
+		cmd_str += ' > '+ folder_base + code + '/video.mp4 && rm -fr ' + folder_base + code + '/tmp';
+	//	cmd_str += ' > '+ folder_base + code + '/video.mp4 ';
 	//	cbk(cmd_str);
 	//	return true;
 	//	cmd_str = 'ls -l '+ folder_base + code + '/video.mp4 ';
