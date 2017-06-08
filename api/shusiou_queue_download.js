@@ -8,16 +8,18 @@ var _f = {};
 
 _f['matrix_change0'] = function(cbk) {
 //	var m = JSON.parse(CP.data.AF1.matrix), v = [];
-					/--- Save adjusted matrix ---*/
-					var cfg0 = require(env.space_path + '/api/cfg/db.json');
-					var connection = mysql.createConnection(cfg0);
-					connection.connect();	
+	/--- Save adjusted matrix ---*/
+	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var connection = mysql.createConnection(cfg0);
+	connection.connect();	
+	var m = [];
 			//	if (m[i+1] == 0 && m[i+2] == 0) {
 					for (var j = 0; j < 30; j++) {
 						m[j] = 0;
 					}
 			//	} 
 	cbk(m);
+	return true;
 	CP.exit = true;
 				var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
 				    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
