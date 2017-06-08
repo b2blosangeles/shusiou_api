@@ -6,6 +6,36 @@ var folder_base = '/mnt/shusiou-video/youtube/video/';
 var CP = new pkg.crowdProcess();
 var _f = {};
 
+_f['matrix_change0'] = function(cbk) {
+//	var m = JSON.parse(CP.data.AF1.matrix), v = [];
+					/--- Save adjusted matrix ---*/
+					var cfg0 = require(env.space_path + '/api/cfg/db.json');
+					var connection = mysql.createConnection(cfg0);
+					connection.connect();	
+			//	if (m[i+1] == 0 && m[i+2] == 0) {
+					for (var j = 0; j < 30; j++) {
+						m[j] = 0;
+					}
+			//	} 
+	cbk(m);
+	CP.exit = true;
+				var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
+				    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
+
+				connection.query(str, function (error, results, fields) {
+					connection.end();
+					if (error) {
+						cbk(error.message);
+						
+						return true;
+					} else {
+						cbk(m);
+					}
+				}); 	
+	
+
+};
+
 _f['Q0'] = function(cbk) {
 	cbk(1);
 	CP.exit = 1;
@@ -238,17 +268,7 @@ _f['matrix_change'] = function(cbk) {
 		}
 	}
 };
-function matrixAfter9(m, idx) {
-	if (idx === 0 || idx === 1 ) return m;
-	var v = [];
-	if (m[idx-1] == 9 && m[idx-2] == 9) {
-		for (var i = 0; i < idx-2; i++) {	
-			v[v.length] = m[i];  
-		}
-		return v;
-	}
-	return m; 
-}
+
 
 _f['AF2'] = function(cbk) {
 
