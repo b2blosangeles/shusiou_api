@@ -105,7 +105,7 @@ _f['Q3'] = function(cbk) {
 		cmd_str += ' > '+ folder_base + code + '/video.mp4 ';
 		// cbk(cmd_str);
 		//return true;
-		cmd_str = 'ls -l '+ folder_base + code + '/video.mp4 ';
+	//	cmd_str = 'ls -l '+ folder_base + code + '/video.mp4 ';
 		
 		var childProcess = require('child_process');
 		var ls = childProcess.exec(cmd_str, 		   
