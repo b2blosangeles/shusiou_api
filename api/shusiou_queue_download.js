@@ -130,13 +130,16 @@ _f['AF1'] = function(cbk) {
 	});  
 };
 
-function findAfter9(m, idx) {
-	for (var i = idx; i < m.length; i++) {
-		if (m[i] == 1) {
-			return true;
+function matrixAfter9(m, idx) {
+	if (idx === 0 || idx === 1 ) return m;
+	var v = [];
+	if (m[idx-1] == 9 && m[idx-2] == 9) {
+		for (var i = 0; i < idx-2; i++) {	
+			v[v.length] = m[i];  
 		}
+		return v;
 	}
-	return false;
+	return[m]; 
 }
 
 _f['AF2'] = function(cbk) {
@@ -153,16 +156,14 @@ _f['AF2'] = function(cbk) {
 		}
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 9) {
-				if (findAfter9(m, i)) {
-					for (var j = i; j < m.length; j++) {
-						if (m[j] == 9) m[j] = 0;
-					}
+				 v = matrixAfter9(m, i);
+				if (v.length != m.length) {
 					/--- Save adjusted matrix ---*/
 					var cfg0 = require(env.space_path + '/api/cfg/db.json');
 					var connection = mysql.createConnection(cfg0);
 					connection.connect();
 
-					var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
+					var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(v) + '" '+
 					    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + CP.data.AF1.code + '"; ';
 
 					connection.query(str, function (error, results, fields) {
