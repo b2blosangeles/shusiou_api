@@ -6,6 +6,11 @@ var folder_base = '/mnt/shusiou-video/youtube/video/';
 var CP = new pkg.crowdProcess();
 var _f = {};
 
+_f['Q0'] = function(cbk) {
+	cbk(1);
+	CP.exit = 1;
+};
+
 _f['Q1'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
