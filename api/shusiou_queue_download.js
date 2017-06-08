@@ -149,12 +149,6 @@ _f['AF2'] = function(cbk) {
 	} else {
 		var m = JSON.parse(CP.data.AF1.matrix);
 		for (var i = 0; i < m.length; i++) {
-			if (m[i] == 0) {
-				cbk(false);
-				return true;
-			}
-		}
-		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 9) {
 				var v = matrixAfter9(m, i);
 				if (v.length != m.length) {
@@ -179,6 +173,13 @@ _f['AF2'] = function(cbk) {
 				}
 			}
 		}		
+		for (var i = 0; i < m.length; i++) {
+			if (m[i] == 0) {
+				cbk(false);
+				return true;
+			}
+		}
+		
 		cbk(CP.data.AF1.code);
 	}
 };
