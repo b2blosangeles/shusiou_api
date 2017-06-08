@@ -151,7 +151,8 @@ _f['matrix_change'] = function(cbk) {
 					for (var j = i; j < m.length; j++) {
 						m[j] = 0;
 					}
-			//	} 				
+			//	} 	
+	CP.exit = true;
 				var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
 				    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
 
@@ -159,11 +160,13 @@ _f['matrix_change'] = function(cbk) {
 					connection.end();
 					if (error) {
 						cbk(error.message);
+						
 						return true;
 					} else {
 						cbk(m);
 					}
-				}); 				
+				}); 	
+	
 				return true;	
 	
 	
