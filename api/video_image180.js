@@ -10,6 +10,8 @@ var folder_image = folder_base + 'images/' +  vid;
 fn = folder_image + '/180_' + s + '.png';
 var CP = new pkg.crowdProcess();
 
+res.send(fn);
+return true;
 
 var _f = {};
 _f['S0'] = function(cbk) {
