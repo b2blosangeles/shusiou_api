@@ -178,6 +178,8 @@ _f['AF2'] = function(cbk) {
 					}); 						
 					return true;
 				} 
+			} else {
+				cbk(false);
 			}
 		}
 		
