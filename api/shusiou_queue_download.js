@@ -12,12 +12,11 @@ _f['matrix_change0'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();	
+	var vid = '2lHWSIbf6gg';
 	var m = [];
-			//	if (m[i+1] == 0 && m[i+2] == 0) {
-					for (var j = 0; j < 30; j++) {
-						m[j] = 0;
-					}
-			//	} 
+	for (var j = 0; j < 30; j++) {
+		m[j] = 0;
+	}
 
 				var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
 				    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
