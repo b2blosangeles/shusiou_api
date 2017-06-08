@@ -8,7 +8,7 @@ var _f = {};
 
 _f['matrix_change0'] = function(cbk) {
 //	var m = JSON.parse(CP.data.AF1.matrix), v = [];
-	/--- Save adjusted matrix ---*/
+	//--- Save adjusted matrix ---
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();	
@@ -17,6 +17,7 @@ _f['matrix_change0'] = function(cbk) {
 	for (var j = 0; j < 30; j++) {
 		m[j] = 0;
 	}
+	m[0] = 1; m[1] = 1; m[2] = 9; m[3] = 9; m[4] = 9;
 
 				var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
 				    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
