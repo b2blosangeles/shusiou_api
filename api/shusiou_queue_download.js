@@ -148,23 +148,12 @@ _f['AF2'] = function(cbk) {
 		cbk(false);
 		CP.exit = true;
 	} else {
-		var m = JSON.parse(CP.data.AF1.matrix), sts=0;	
-		for (var i = 0; i < m.length; i++) {
-			if (m[i] == 0) {
-				cbk(false);
-				return true;
-			}
-		}			
+		var m = JSON.parse(CP.data.AF1.matrix);	
+			
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 9) {
-				sts++;
 				var v = matrixAfter9(m, i);
-	
-				
-				if (v.length != m.length) {
-					cbk(v);
-					CP.exit = true;
-					return true;					
+				if (v.length != m.length) {					
 					/--- Save adjusted matrix ---*/
 					var cfg0 = require(env.space_path + '/api/cfg/db.json');
 					var connection = mysql.createConnection(cfg0);
@@ -185,14 +174,14 @@ _f['AF2'] = function(cbk) {
 					return true;
 				} 
 			}
-		}		
-		if (!sts) {
-			cbk('kkk');
-			CP.exit = true;
-				return true;
 		}
-		
-	//	cbk(CP.data.AF1.code);
+		for (var i = 0; i < m.length; i++) {
+			if (m[i] == 0) {
+				cbk(false);
+				return true;
+			}
+		}		
+		cbk(CP.data.AF1.code);
 	}
 };
 _f['AF3'] = function(cbk) {
