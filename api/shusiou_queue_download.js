@@ -156,8 +156,8 @@ _f['AF2'] = function(cbk) {
 		}		
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 9) {
-				var v = matrixAfter9(m, i);
-				cbk(v);
+			//	var v = matrixAfter9(m, i);
+				cbk('v');
 				CP.exit = true;
 				return true;
 				
