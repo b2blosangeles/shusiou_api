@@ -150,7 +150,7 @@ _f['matrix_change'] = function(cbk) {
 		
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 9) {
-				if (m[i+1] == 0 && m[idx+2] == 0) {
+				if (m[i+1] == 0 && m[i+2] == 0) {
 					m[i] = 0;
 				} 
 			}
