@@ -148,7 +148,7 @@ _f['matrix_change'] = function(cbk) {
 					var connection = mysql.createConnection(cfg0);
 					connection.connect();	
 			//	if (m[i+1] == 0 && m[i+2] == 0) {
-					for (var j = i; j < m.length; j++) {
+					for (var j = 0; j < m.length; j++) {
 						m[j] = 0;
 					}
 			//	} 	
