@@ -149,10 +149,6 @@ _f['AF2'] = function(cbk) {
 		CP.exit = true;
 	} else {
 		var m = JSON.parse(CP.data.AF1.matrix);	
-		
-		cbk(m);
-		CP.exit = true;
-		return true;
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 0) {
 				cbk(false);
