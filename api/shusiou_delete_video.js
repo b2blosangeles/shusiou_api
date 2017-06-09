@@ -5,7 +5,6 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 var vid =  req.body.vid;
-vid = 'emJlgM3DhnQ';
 
 _f['D0'] = function(cbk) {
 	if (!vid) {
