@@ -6,6 +6,7 @@ var _f = {};
 
 var vid =  req.body.vid;
 vid = 'emJlgM3DhnQ';
+
 _f['D0'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
@@ -21,7 +22,6 @@ _f['D0'] = function(cbk) {
 		} else {
 			if (results.length) {
 				cbk(results[0]);
-				CP.skip = true;
 			} else {
 				cbk(false);
 			}
@@ -31,7 +31,7 @@ _f['D0'] = function(cbk) {
 };
 
 _f['D1'] = function(cbk) {
-	var cmd_str = 'rm -fr ' + folder_base + 'video/' +  vid ' && rm -fr ' + folder_base + 'images/' +  vid;
+	var cmd_str = 'rm -fr ' + folder_base + 'video/' +  vid + ' && rm -fr ' + folder_base + 'images/' +  vid;
 	var ls = childProcess.exec(cmd_str, 		   
 		function (error, stdout, stderr) {
 			if (error) cbk(false);
