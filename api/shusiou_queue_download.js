@@ -176,8 +176,12 @@ function matrixAfter9(m, idx) {
 
 _f['matrix_change'] = function(cbk) {
 	var m = JSON.parse(CP.data.AF1.matrix), v = [];
-		cbk(m);
-	CP.exit = 1;
+	var vid = CP.data.AF1.code;
+
+	cbk(vid);
+	CP.exit = true;
+	return true;
+	
 	/--- Save adjusted matrix ---*/
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
