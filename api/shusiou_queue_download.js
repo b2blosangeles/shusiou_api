@@ -138,10 +138,7 @@ _f['Q4'] = function(cbk) {
 	}); 	
 	
 };
-_f['Q0'] = function(cbk) {
-	cbk(1);
-	CP.exit = 1;
-};
+
 _f['AF1'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
@@ -176,7 +173,10 @@ function matrixAfter9(m, idx) {
 	}
 	return m; 
 }
-
+_f['Q0'] = function(cbk) {
+	cbk(1);
+	CP.exit = 1;
+};
 _f['matrix_change'] = function(cbk) {
 	var m = JSON.parse(CP.data.AF1.matrix), v = [];
 		cbk(m);
