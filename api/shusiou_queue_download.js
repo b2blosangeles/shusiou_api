@@ -173,10 +173,7 @@ function matrixAfter9(m, idx) {
 	}
 	return m; 
 }
-_f['Q0'] = function(cbk) {
-	cbk(1);
-	CP.exit = 1;
-};
+
 _f['matrix_change'] = function(cbk) {
 	var m = JSON.parse(CP.data.AF1.matrix), v = [];
 		cbk(m);
@@ -271,7 +268,10 @@ _f['matrix_change'] = function(cbk) {
 		}
 	}
 };
-
+_f['Q0'] = function(cbk) {
+	cbk(1);
+	CP.exit = 1;
+};
 
 _f['AF2'] = function(cbk) {
 
