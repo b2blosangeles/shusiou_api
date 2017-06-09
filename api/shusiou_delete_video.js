@@ -20,20 +20,19 @@ _f['D0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			if (results.length) {
-				cbk(results);
-			} else {
-				cbk(false);
-			}
-
+			cbk(true);
 		}
 	});  
 };
 
 _f['D1'] = function(cbk) {
-		cbk(111);
-	return true;
+	
+	var childProcess = require('child_process');
+	
 	var cmd_str = 'rm -fr ' + folder_base + 'video/' +  vid + ' && rm -fr ' + folder_base + 'images/' +  vid;
+	cbk(cmd_str);
+	return true;	
+	
 	var ls = childProcess.exec(cmd_str, 		   
 		function (error, stdout, stderr) {
 			if (error) cbk(false);
