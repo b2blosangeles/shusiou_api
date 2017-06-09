@@ -8,6 +8,11 @@ var vid =  req.body.vid;
 vid = 'emJlgM3DhnQ';
 
 _f['D0'] = function(cbk) {
+	if (!vid) {
+		cbk(false);
+		CP.exit = true;
+		return true;		
+	}
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
