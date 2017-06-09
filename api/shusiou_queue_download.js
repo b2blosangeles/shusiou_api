@@ -182,13 +182,17 @@ _f['matrix_change'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();	
-		for (var i = 0; i < m.length; i++) {
-			if (m[i] == 9 &&  m[i+1] == 9 && m[i+2] == 9) {
-				for (var j = i; j < m.length; j++) {
-					m[j] = 9;
-				}
-			} 
+	for (var i = 0; i < m.length; i++) {
+		if (m[i] == 9 && m[i+1] == 9 && m[i+2] == 9) {
+			break;
+		} else {
+			v[v.length] = m[i];
 		}
+		
+	}	
+	cbk(v);
+	CP.exit = true;
+	return true;
 				var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
 				    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
 
