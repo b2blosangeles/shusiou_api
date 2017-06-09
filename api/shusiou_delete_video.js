@@ -5,7 +5,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 var vid =  req.body.vid;
-
+vid = 'emJlgM3DhnQ';
 _f['D0'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
