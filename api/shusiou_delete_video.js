@@ -8,8 +8,6 @@ var vid =  req.body.vid;
 vid = 'emJlgM3DhnQ';
 
 _f['D0'] = function(cbk) {
-	cbk(111);
-	return true;
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
@@ -23,7 +21,7 @@ _f['D0'] = function(cbk) {
 			return true;
 		} else {
 			if (results.length) {
-				cbk(results[0]);
+				cbk(results);
 			} else {
 				cbk(false);
 			}
@@ -32,9 +30,7 @@ _f['D0'] = function(cbk) {
 	});  
 };
 
-_f['D1'] = function(cbk) {
-	cbk(2222);
-	return true;	
+_f['D1'] = function(cbk) {	
 	var cmd_str = 'rm -fr ' + folder_base + 'video/' +  vid + ' && rm -fr ' + folder_base + 'images/' +  vid;
 	var ls = childProcess.exec(cmd_str, 		   
 		function (error, stdout, stderr) {
