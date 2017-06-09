@@ -7,7 +7,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 
-_f['AF1'] = function(cbk) {
+_f['D0'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
