@@ -42,7 +42,7 @@ _f['Q2'] = function(cbk) {
 
 _f['Q3'] = function(cbk) {
 	var url = CP.data.Q2, vid = CP.data.Q1.code, m = JSON.parse(CP.data.Q1.matrix), c_m = null;
-	var step = 50000000;
+	var step = 15000000;
 	for (var i = 0; i < m.length; i++) {
 		if (m[i] == 0) {
 			c_m = i;
