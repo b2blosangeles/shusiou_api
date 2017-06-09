@@ -198,7 +198,7 @@ _f['matrix_change'] = function(cbk) {
 		if (error) {
 			cbk(error.message);
 		} else {
-			cbk(m);
+			cbk(v);
 		}
 	}); 	
 	return true;	
