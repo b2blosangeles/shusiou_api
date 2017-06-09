@@ -30,7 +30,9 @@ _f['D0'] = function(cbk) {
 	});  
 };
 
-_f['D1'] = function(cbk) {	
+_f['D1'] = function(cbk) {
+		cbk(111);
+	return true;
 	var cmd_str = 'rm -fr ' + folder_base + 'video/' +  vid + ' && rm -fr ' + folder_base + 'images/' +  vid;
 	var ls = childProcess.exec(cmd_str, 		   
 		function (error, stdout, stderr) {
