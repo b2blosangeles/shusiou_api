@@ -190,88 +190,18 @@ _f['matrix_change'] = function(cbk) {
 		}
 		
 	}	
-	cbk(v);
-	CP.exit = true;
-	return true;
-				var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
-				    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
+	var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(v) + '" '+
+	    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
 
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					if (error) {
-						cbk(error.message);
-						
-						return true;
-					} else {
-						cbk(m);
-					}
-				}); 	
-	
-				return true;	
-	
-	
-	
-	
-	if (!CP.data.AF1 || !CP.data.AF1.source_code) {
-		cbk(false);
-		CP.exit = true;
-	} else {
-		var m = JSON.parse(CP.data.AF1.matrix), v = [];	
-		
-		for (var i = 0; i < m.length; i++) {
-			if (m[i] == 9) {
-			//	if (m[i+1] == 0 && m[i+2] == 0) {
-					for (var j = i; j < m.length; j++) {
-						m[j] = 0;
-					}
-			//	} 				
-				var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(m) + '" '+
-				    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
-
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					if (error) {
-						cbk(error.message);
-						return true;
-					} else {
-						cbk(m);
-					}
-				}); 				
-				return true;
-			}
-		}	
-		
-		cbk(m);
-		CP.exit = true;
-		for (var i = 0; i < m.length; i++) {
-			if (m[i] == 9) {
-				var v = matrixAfter9(m, i);
-				if (v.length != m.length) {					
-					/--- Save adjusted matrix ---*/
-					var cfg0 = require(env.space_path + '/api/cfg/db.json');
-					var connection = mysql.createConnection(cfg0);
-					connection.connect();
-
-					var str = 'UPDATE `video_queue` SET `matrix` = "' + JSON.stringify(v) + '" '+
-					    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + CP.data.AF1.code + '"; ';
-
-					connection.query(str, function (error, results, fields) {
-						connection.end();
-						if (error) {
-							cbk(error.message);
-							return true;
-						} else {
-							cbk(false);
-						}
-					}); 						
-					return true;
-				} else {
-					cbk(false);
-					return true;
-				}
-			} 
+	connection.query(str, function (error, results, fields) {
+		connection.end();
+		if (error) {
+			cbk(error.message);
+		} else {
+			cbk(m);
 		}
-	}
+	}); 	
+	return true;	
 };
 _f['Q0'] = function(cbk) {
 	cbk(1);
