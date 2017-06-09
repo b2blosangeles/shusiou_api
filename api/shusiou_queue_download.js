@@ -183,7 +183,7 @@ _f['matrix_change'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();	
 	for (var i = 0; i < m.length; i++) {
-		if (m[i] == 9 && m[i+1] == 9 && m[i+2] == 9) {
+		if (m[i] == 9) {
 			break;
 		} else {
 			v[v.length] = m[i];
