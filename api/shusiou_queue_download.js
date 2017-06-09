@@ -94,6 +94,7 @@ _f['Q4'] = function(cbk) {
 	    'WHERE `source` = "youtube" AND `status` = 0 AND code = "' + vid + '"; ';
 
 	connection.query(str, function (error, results, fields) {
+		
 		connection.end();
 		if (error) {
 			cbk(error.message);
@@ -198,27 +199,44 @@ _f['AF3'] = function(cbk) {
 			function (error, stdout, stderr) {
 				if (error) cbk(false);
 				else {
-		
-					var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
-						'values ("youtube", "' + CP.data.AF2 + '", "' + info.title + '","' + info.length_seconds +  
-						'", 0); ';
-					 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.AF2 + '"; ';
-					connection.query(str, function (error, results, fields) {
-						connection.end();
-						if (error) {
-							cbk(error.message);
-							return true;
+					var fn = folder_base + code + '/video.mp4';
+					pkg.fs.stat(fn, function(err, stats) {
+						if (err) {
+							cbk(false);
 						} else {
-							cbk(true);
+							//var size = 1234;
+							var size =  stats["size"];
+							
+							var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
+								'values ("youtube", "' + CP.data.AF2 + '", "' + info.title + '","' + info.length_seconds +  
+								'", "' + size + '"); ';
+							 str += 'DELETE FROM video_queue WHERE `source` = "youtube" AND  `code` = "' + CP.data.AF2 + '"; ';
+							connection.query(str, function (error, results, fields) {
+								connection.end();
+								if (error) {
+									cbk(error.message);
+									return true;
+								} else {
+									cbk(true);
+								}
+							});
 						}
-					}); 					
+					});			
+					
 				}
 			});		
 		return true;	
 	}
 	
 };
+_f['AF4'] = function(cbk) {
+	var code = CP.data.AF1.code;
+	var fn = folder_base + code + '/video.mp4';
+	pkg.fs.stat(fn, function(err, stats) {
 
+		cbk(stats["size"]);
+	});	
+}
 
 CP.serial(
 	_f,
