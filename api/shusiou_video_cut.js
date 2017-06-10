@@ -59,32 +59,6 @@ pkg.fs.stat(fn, function(err, stat) {
 	// if(err == null) {
 	//	stream();  -async 1 -strict -2
 	// } else {  -vcodec copy -acodec copy
-	/*
-		var ls = pkg.spawn('ffmpeg', ['-i', s_file, '-ss', s,  '-to', l,  
-					     '-c', 'copy',
-					    //  '-c:v:1', 'copy',
-					   //   '-c:v', 'libx264', 
-					    //  '-preset', 'ultrafast', '-threads', '5',
-					   //   '-acodec', 'copy', '-vcodec', 'libx264',
-			//	'-vcodec','copy', 
-			//	 '-acodec','copy', 
-					  //    '-async', 1, 
-					   //   '-strict', '-2',
-					//       '-preset', 'ultrafast',
-				fn, '-y']);	
-		ls.stdout.on('data', (data) => {
-			// console.log(`stdout: ${data}`);
-		});
-
-		ls.stderr.on('data', (data) => {
-			// console.log(`stderr: ${data}`);
-		});
-
-		ls.on('close', (code) => {
-			// console.log(`child process exited with code ${code}`);
-			stream();  
-		}); 	
-	*/
 //	res.send('ffmpeg  -i ' + s_file + ' -ss ' + s + ' -to ' + l + ' -c copy ' + fn +' -y ');
 //	return true;
 	
