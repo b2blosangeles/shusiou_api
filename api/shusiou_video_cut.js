@@ -1,9 +1,16 @@
+if (!req.query['video']) {
+	res.send('Url error');
+	return true;
+}
 var video = req.query['video'].split('|'), fn;
 
 var folder_base = '/mnt/shusiou-video/youtube/';
+var c_folder = folder_base + video[0] + '/cut/';
+
+
 
 var s_file = folder_base + 'video/' + video[0],  s =  video[1], l =  video[2];
-var c_folder = folder_base + 'cut/' + video[0] + '/';
+
 
 var fn = c_folder + s + '_' + l + '.mp4';
 
