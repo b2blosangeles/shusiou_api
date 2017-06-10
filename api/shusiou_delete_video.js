@@ -57,7 +57,7 @@ _f['D2'] = function(cbk) {
 	
 	var childProcess = require('child_process');
 	
-	var cmd_str = 'rm -fr ' + folder_base + 'video/' +  vid + ' && rm -fr ' + folder_base + 'images/' +  vid;
+	var cmd_str = 'rm -fr ' + folder_base +  vid;
 
 	var ls = childProcess.exec(cmd_str, 		   
 		function (error, stdout, stderr) {
