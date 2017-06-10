@@ -1,7 +1,10 @@
 var video = req.query['video'].split('|'), fn;
-var s_file = '/var/vv/vr/' + video[0],  s =  video[1], l =  video[2];
 
-fn = '/var/vv/vr/icona/' + 'out_'+s+'_'+l+ '_' +  video[0];
+var folder_base = '/mnt/shusiou-video/youtube/';
+
+var s_file = folder_base + 'video/' + video[0],  s =  video[1], l =  video[2];
+
+var fn = folder_base + 'cut/'  + video[0] '/' + s + '_' + l + '.mp4';
 
 var childProcess = require('child_process');
 
