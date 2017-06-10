@@ -2,6 +2,7 @@ var ytdl = require(env.space_path + '/api/inc/ytdl-core/node_modules/ytdl-core')
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 
 var folder_base = '/mnt/shusiou-video/youtube/';
+var step = 30000000;
 
 var CP = new pkg.crowdProcess();
 var _f = {};
@@ -42,7 +43,6 @@ _f['Q2'] = function(cbk) {
 
 _f['Q3'] = function(cbk) {
 	var url = CP.data.Q2, vid = CP.data.Q1.code, m = JSON.parse(CP.data.Q1.matrix), c_m = null;
-	var step = 15000000;
 	for (var i = 0; i < m.length; i++) {
 		if (m[i] == 0) {
 			c_m = i;
