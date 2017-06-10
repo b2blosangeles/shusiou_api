@@ -191,14 +191,14 @@ _f['AF3'] = function(cbk) {
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 1) cmd_str += i + '.mp4 ';	
 		}
-		cmd_str += ' > '+ folder_base + code + '/video.mp4 && rm -fr ' + folder_base + code + '/tmp';
+		cmd_str += ' > '+ folder_base + code + '/video/video.mp4 && rm -fr ' + folder_base + code + '/video/tmp';
 		
 		var childProcess = require('child_process');
 		var ls = childProcess.exec(cmd_str, 		   
 			function (error, stdout, stderr) {
 				if (error) cbk(false);
 				else {
-					var fn = folder_base + code + '/video.mp4';
+					var fn = folder_base + code + '/video/video.mp4';
 					pkg.fs.stat(fn, function(err, stats) {
 						if (err) {
 							cbk(false);
@@ -230,7 +230,7 @@ _f['AF3'] = function(cbk) {
 };
 _f['AF4'] = function(cbk) {
 	var code = CP.data.AF1.code;
-	var fn = folder_base + code + '/video.mp4';
+	var fn = folder_base + code + '/video/video.mp4';
 	pkg.fs.stat(fn, function(err, stats) {
 
 		cbk(stats["size"]);
