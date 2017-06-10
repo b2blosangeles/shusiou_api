@@ -8,6 +8,25 @@ var fn = folder_base + 'cut/'  + video[0] '/' + s + '_' + l + '.mp4';
 
 var childProcess = require('child_process');
 
+var CP = new pkg.crowdProcess();
+var _f = {};
+
+_f['S0'] = function(cbk) {
+	cbk(true);
+};
+_f['S1'] = function(cbk) {
+	cbk(true);
+}
+
+CP.serial(
+	_f,
+	function(data) {
+		res.send(data);
+	},
+	30000
+);
+return true;
+
 var stream = function() {
 	//res.send(fn+'=s==');
 	//return true;
