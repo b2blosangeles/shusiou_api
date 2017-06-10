@@ -227,14 +227,6 @@ _f['AF3'] = function(cbk) {
 	}
 	
 };
-_f['AF4'] = function(cbk) {
-	var code = CP.data.AF1.code;
-	var fn = folder_base + code + '/video/video.mp4';
-	pkg.fs.stat(fn, function(err, stats) {
-
-		cbk(stats["size"]);
-	});	
-}
 
 CP.serial(
 	_f,
