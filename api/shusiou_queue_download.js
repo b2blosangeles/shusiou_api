@@ -187,7 +187,7 @@ _f['AF3'] = function(cbk) {
 		var m = JSON.parse(decodeURIComponent(CP.data.AF1.matrix));
 		var code = CP.data.AF1.code;
 		
-		var cmd_str = 'cd ' + folder_base + code + '/tmp && cat ';
+		var cmd_str = 'cd ' + folder_base + code + '/video/tmp && cat ';
 		for (var i = 0; i < m.length; i++) {
 			if (m[i] == 1) cmd_str += i + '.mp4 ';	
 		}
