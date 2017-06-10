@@ -54,7 +54,7 @@ _f['Q3'] = function(cbk) {
 	if (c_m !== null) {
 		var folderP = require(env.space_path + '/api/inc/folderP/folderP');
 		var fp = new folderP();
-		fp.build(folder_base  + vid + '/video/tmp', function() {
+		fp.build(folder_base  + vid + '/video/tmp/', function() {
 			ytdl.getInfo(url, function(err) {
 				if (err) {
 					cbk({idx:c_m, status:9});
@@ -203,7 +203,6 @@ _f['AF3'] = function(cbk) {
 						if (err) {
 							cbk(false);
 						} else {
-							//var size = 1234;
 							var size =  stats["size"];
 							
 							var str = 'INSERT INTO videos (`source`, `code`, `title`, `length`, `size`) ' +
