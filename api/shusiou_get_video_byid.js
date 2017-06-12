@@ -3,12 +3,14 @@ var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 var CP = new pkg.crowdProcess();
 var _f = {};
 
+var code = res.body.vid;
+
 _f['Q0'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT * FROM  `videos` WHERE 1 ';
+	var str = 'SELECT * FROM  `videos` WHERE `code` = "' + code + '"';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
@@ -23,17 +25,8 @@ _f['Q0'] = function(cbk) {
 
 CP.serial(
 	_f,
-	function(data) {
-		var list = [];
-		for (o in data.results.Q0) {
-			data.results.Q0[o].type = 'local';
-			list[list.length] = data.results.Q0[o];
-		}
-		for (o in data.results.Q1) {
-			data.results.Q1[o].type = 'remote';
-			list[list.length] = data.results.Q1[o];
-		}		
-		res.send({_spent_time:data._spent_time, status:data.status, data:list});
+	function(data) {	
+		res.send({_spent_time:data._spent_time, status:data.status, data:data.results.Q0});
 	},
 	30000
 );
