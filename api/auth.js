@@ -1,6 +1,6 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 
-
+res.send(req.body);
 
 
 return true;
