@@ -1,5 +1,5 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
-switch(req.body.opt) {
+switch(req.body.cmd) {
     case 'login':
         res.send(req.body);
         break;
