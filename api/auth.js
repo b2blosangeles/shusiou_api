@@ -1,7 +1,39 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
+var cfg0 = require(env.space_path + '/api/cfg/db.json');
+var connection = mysql.createConnection(cfg0);
+connection.connect();
+
+
+var CP = new pkg.crowdProcess();
+
 switch(req.body.cmd) {
     case 'login':
-        res.send(req.body);
+	var _f = {};
+	_f['S1'] = function() {
+		var str = 'SELECT FROM  `users` WHERE `email` = "' + req.body.email + '" AND `password`  = "' + req.body.password + '" ; ';
+		connection.query(str, function (error, results, fields) {
+			connection.end();
+			if (!error) {
+				res.send({status:true});
+				return true;
+			} else {
+				res.send({status:false});
+			}
+		}); 		
+	};
+	_f['S2'] = function() {
+		var str = 'INSERT INTO `sessions` (); ';
+		connection.query(str, function (error, results, fields) {
+			connection.end();
+			if (!error) {
+				res.send({status:true});
+				return true;
+			} else {
+				res.send({status:false});
+			}
+		}); 		
+	};		
+		
         break;
     case 'registration':
         res.send(req.body);
