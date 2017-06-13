@@ -123,7 +123,7 @@ switch(req.body.cmd) {
 		_f['S1'] = function(cbk) {
 			connection.connect();
 			
-			var str = 'DELETE FROM  `auth_sessions` WHERE `uid` = "' + req.body.uid + '" AND ' + 
+			var str = 'DELETE FROM  `auth_session` WHERE `uid` = "' + req.body.uid + '" AND ' + 
 			    '`token` = "' +  req.body.token + '"';
 			
 			connection.query(str, function (error, results, fields) {
