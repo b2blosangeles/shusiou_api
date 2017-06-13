@@ -8,9 +8,6 @@ var CP = new pkg.crowdProcess();
 
 if (req.param('cmd')) req.body.cmd = req.param('cmd');
 
-res.send(req.body);
-return true;
-
 switch(req.body.cmd) {
 	case 'adduser':
 		var _f = {};
