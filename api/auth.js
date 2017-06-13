@@ -40,16 +40,15 @@ switch(req.body.cmd) {
 		var _f = {};
 		_f['S1'] = function() {
 			var str = 'SELECT * FROM `auth_users` WHERE 1; ';
-			res.send(str);
-			return true;
+
 			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (!error) {
-					cbk({status: results});
+					cbk('{status: results}');
 					return true;
 				} else {
-					cbk(error.message);
+					cbk('error.message');
 				}
 			}); 
 		};
