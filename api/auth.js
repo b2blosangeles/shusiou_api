@@ -82,7 +82,7 @@ switch(req.body.cmd) {
 			}); 
 		}
 		_f['S2'] = function(cbk) {
-			var token = MD5(new Date());
+			var token = MD5(new Date().getTime());
 			cbk([CP.data.S1, token]); 
 		}		
 		CP.serial(
