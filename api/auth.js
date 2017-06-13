@@ -40,7 +40,7 @@ case 'getusers':
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT * FROM  `videos` WHERE 1 ';
+	var str = 'SELECT * FROM  `auth_users` WHERE 1 ';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
