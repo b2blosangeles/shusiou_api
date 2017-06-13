@@ -16,6 +16,14 @@ switch(req.body.cmd) {
 		connection.connect();
 		var _f = {};
 		_f['S0'] = function(cbk) {
+			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			if (!re.test(req.body.email)) {
+				cbk({err:true, msg:'Wrong email address'});
+				CP.exit = 1;
+				return true;
+			}			
+			
+			
 			var str = 'INSERT INTO  `auth_registration` ( `email`, `source`, `created`, `status`) VALUES '+
 			    '("' + req.body.email + '", "", NOW(), 1); ';
 			
