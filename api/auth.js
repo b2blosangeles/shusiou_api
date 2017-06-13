@@ -12,6 +12,49 @@ req.body.password = 'Montreal107#';
 
 
 switch(req.body.cmd) {	
+	case 'registration':		
+		connection.connect();
+		var _f = {};
+		_f['S0'] = function(cbk) {
+			var str = 'INSERT INTO  `auth_registration` ( `email`, `source`, `created`, `status`) VALUES '+
+			    '("' + req.body.email + '", "", NOW(), 1); ';
+			
+			connection.query(str, function (error, results, fields) {
+				
+				if (!error) {
+					cbk({status: results});
+					return true;
+				} else {
+					cbk(error.message);
+				}
+			}); 
+		};		
+		_f['S2'] = function(cbk) {
+			var str = 'INSERT INTO  `auth_registration` ( `email`, `source`, `created`, `status`) VALUES '+
+			    '("' + req.body.email + '", "", NOW(), 1); ';
+			
+			connection.query(str, function (error, results, fields) {
+				
+				if (!error) {
+					cbk({status: results});
+					return true;
+				} else {
+					cbk(error.message);
+				}
+			}); 
+		};
+		
+		CP.serial(
+			_f,
+			function(data) {
+				connection.end();
+				res.send({_spent_time:data._spent_time, status:data.status, data:data});
+			},
+			30000
+		);		
+		
+		
+		break;			
 	case 'adduser':
 		connection.connect();
 		var _f = {};
