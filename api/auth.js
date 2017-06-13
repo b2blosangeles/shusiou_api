@@ -37,6 +37,8 @@ switch(req.body.cmd) {
 		break;	
 	case 'getusers':
 		var _f = {};
+		res.send(req.body.cmd);
+		break;
 		_f['S1'] = function() {
 			var str = 'SELECT * FROM `auth_users` WHERE 1; ';
 			connection.query(str, function (error, results, fields) {
