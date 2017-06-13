@@ -74,13 +74,16 @@ switch(req.body.cmd) {
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
-					cbk(error.message);
+					cbk(false);
 					return true;
 				} else {
-					cbk(results);
+					if (results.length) cbk(results[0].uid);
 				}
 			}); 
 		}
+		_f['S2'] = function(cbk) {
+			cbk(CP.data.S1); 
+		}		
 		CP.serial(
 			_f,
 			function(data) {
