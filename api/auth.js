@@ -70,7 +70,7 @@ switch(req.body.cmd) {
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			var str = 'SELECT `uid` FROM  `auth_users` WHERE `email` = "' + req.body.email + '" AND ' + 
-			    `password` = "' +  MD5(req.body.password) + '"';
+			    '`password` = "' +  MD5(req.body.password) + '"';
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
