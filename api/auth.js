@@ -90,7 +90,7 @@ switch(req.body.cmd) {
 			function(data) {
 				res.send({_spent_time:data._spent_time, status:data.status, data:data});
 			},
-			30000
+			3000
 		);	
 	
 		break;	
