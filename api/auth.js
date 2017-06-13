@@ -1,7 +1,5 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
-var cfg0 = require(env.space_path + '/api/cfg/db.json');
 
-var connection = mysql.createConnection(cfg0);
 /*
 			var str = 'SELECT * FROM  `auth_users` WHERE 1 ';
 
@@ -51,6 +49,8 @@ switch(req.body.cmd) {
 		
 		break;	
 	case 'getusers':
+		var cfg0 = require(env.space_path + '/api/cfg/db.json');
+		var connection = mysql.createConnection(cfg0);		
 		var CP = new pkg.crowdProcess();
 
 		var _f = {};
@@ -74,7 +74,7 @@ switch(req.body.cmd) {
 			function(data) {
 				res.send({_spent_time:data._spent_time, status:data.status, data:data});
 			},
-			30000
+			3000
 		);		
 		
 		
