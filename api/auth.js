@@ -66,11 +66,11 @@ switch(req.body.cmd) {
 	
 		break;	
 	case 'login':
-		connection.connect();
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			var str = 'SELECT `uid` FROM  `auth_users` WHERE `email` = "' + req.body.email + '" AND ' + 
 			    '`password` = "' +  MD5(req.body.password) + '"';
+			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
@@ -90,8 +90,8 @@ switch(req.body.cmd) {
 			 
 			var str = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
 			    '("' +  CP.data.S1 + '","' +  token + '", NOW())';
-			cbk(str);
-					return true;
+			
+			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
@@ -112,10 +112,11 @@ switch(req.body.cmd) {
 	
 		break;	
 	case 'getSessions':
-		connection.connect();
+		
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			var str = 'SELECT * FROM  `auth_session` WHERE 1 ';
+			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
