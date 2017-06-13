@@ -113,6 +113,38 @@ switch(req.body.cmd) {
 		);	
 	
 		break;	
+	case 'logoff':
+		connection.connect();
+		
+		req.body.uid = 1;
+		req.body.token = '1_905b8e8170e2c2d68fceee3b064c6dc5';
+		
+		var _f = {};
+		_f['S1'] = function(cbk) {
+			connection.connect();
+			
+			var str = 'DELETE FROM `uid` FROM  `auth_sessions` WHERE `uid` = "' + req.body.uid + '" AND ' + 
+			    '`token` = "' +  req.body.token + '"';
+			
+			connection.query(str, function (error, results, fields) {
+				if (error) {
+					cbk(false);
+					return true;
+				} else {
+					cbk(true);
+				}
+			}); 
+		}
+		CP.serial(
+			_f,
+			function(data) {
+				connection.end();
+				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S2});
+			},
+			3000
+		);		
+	
+		break;			
 	case 'getSessions':
 		connection.connect();
 		var _f = {};
@@ -164,7 +196,8 @@ switch(req.body.cmd) {
 			30000
 		);	
 	
-		break;		
+		break;	
+		
     default:
         res.send('req.body');
 }
