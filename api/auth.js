@@ -20,6 +20,7 @@ var MD5 = function(s){function L(k,d){return(k<<d)|(k>>>(32-d))}function K(G,k){
 if (req.param('cmd')) req.body.cmd = req.param('cmd');
 
 switch(req.body.cmd) {
+/*		
 	case 'adduser':
 		
 		var _f = {};
@@ -48,6 +49,7 @@ switch(req.body.cmd) {
 		
 		
 		break;	
+*/		
 	case 'getusers':
 		var cfg0 = require(env.space_path + '/api/cfg/db.json');
 		var connection = mysql.createConnection(cfg0);		
@@ -80,42 +82,7 @@ switch(req.body.cmd) {
 		
 		break;	
 		
-    case 'login':
-	
-	_f['S1'] = function() {
-		var str = 'SELECT * FROM  `users` WHERE `email` = "' + req.body.email + '" AND `password`  = "' + req.body.password + '" ; ';
-		connection.connect();
-		connection.query(str, function (error, results, fields) {
-			connection.end();
-			if (!error) {
-				res.send({status:true});
-				return true;
-			} else {
-				res.send({status:false});
-			}
-		}); 		
-	};
-	_f['S2'] = function() {
-		var str = 'INSERT INTO `sessions` (); ';
-		connection.connect();
-		connection.query(str, function (error, results, fields) {
-			connection.end();
-			if (!error) {
-				res.send({status:true});
-				return true;
-			} else {
-				res.send({status:false});
-			}
-		}); 		
-	};		
-		
-        break;
-    case 'registration':
-        res.send(req.body);
-        break;
-    case 'logoff':
-        res.send(req.body);
-        break;		
+
     default:
         res.send('req.body');
 }
