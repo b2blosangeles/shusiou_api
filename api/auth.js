@@ -7,6 +7,9 @@ var cfg0 = require(env.space_path + '/api/cfg/db.json');
 var connection = mysql.createConnection(cfg0);
 
 if (req.param('cmd')) req.body.cmd = req.param('cmd');
+req.body.email = req.param('email');
+req.body.password = req.param('password');
+
 
 switch(req.body.cmd) {	
 	case 'adduser':
@@ -66,7 +69,8 @@ switch(req.body.cmd) {
 		connection.connect();
 		var _f = {};
 		_f['S1'] = function(cbk) {
-			var str = 'SELECT * FROM  `auth_users` WHERE 1 ';
+			var str = 'SELECT `uid` FROM  `auth_users` WHERE `email` = "' + req.body.email + '" AND ' + 
+			    `email` = "' +  MD5(req.body.email) + '";
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
