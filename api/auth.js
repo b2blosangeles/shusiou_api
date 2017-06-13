@@ -45,10 +45,10 @@ case 'getusers':
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		if (error) {
-			cbk(error.message);
+			res.send(error.message);
 			return true;
 		} else {
-			cbk(results);
+			res.send(results);
 		}
 	}); 
 	break;	
