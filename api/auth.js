@@ -123,7 +123,7 @@ switch(req.body.cmd) {
 		_f['S1'] = function(cbk) {
 			connection.connect();
 			
-			var str = 'DELETE FROM `uid` FROM  `auth_sessions` WHERE `uid` = "' + req.body.uid + '" AND ' + 
+			var str = 'DELETE FROM  `auth_sessions` WHERE `uid` = "' + req.body.uid + '" AND ' + 
 			    '`token` = "' +  req.body.token + '"';
 			
 			connection.query(str, function (error, results, fields) {
@@ -139,7 +139,7 @@ switch(req.body.cmd) {
 			_f,
 			function(data) {
 				connection.end();
-				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S2});
+				res.send({_spent_time:data._spent_time, status:data.status, data:data});
 			},
 			3000
 		);		
