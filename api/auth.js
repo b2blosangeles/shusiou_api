@@ -109,6 +109,30 @@ switch(req.body.cmd) {
 		);	
 	
 		break;	
+	case 'getSessions':
+		connection.connect();
+		var _f = {};
+		_f['S1'] = function(cbk) {
+			var str = 'SELECT * FROM  `auth_session` WHERE 1 ';
+			connection.query(str, function (error, results, fields) {
+				connection.end();
+				if (error) {
+					cbk(error.message);
+					return true;
+				} else {
+					cbk(results);
+				}
+			}); 
+		}
+		CP.serial(
+			_f,
+			function(data) {
+				res.send({_spent_time:data._spent_time, status:data.status, data:data});
+			},
+			30000
+		);	
+	
+		break;		
     default:
         res.send('req.body');
 }
