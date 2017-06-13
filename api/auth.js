@@ -4,9 +4,6 @@ var MD5 = function(s){function L(k,d){return(k<<d)|(k>>>(32-d))}function K(G,k){
 
 if (req.param('cmd')) req.body.cmd = req.param('cmd');
 
-res.send(req.body.cmd);
-return true;
-
 switch(req.body.cmd) {
 /*		
 	case 'adduser':
