@@ -3,7 +3,7 @@ var cfg0 = require(env.space_path + '/api/cfg/db.json');
 
 var connection = mysql.createConnection(cfg0);
 
-			var str = 'SELECT * FROM  `video_queue` WHERE 1 ';
+			var str = 'SELECT * FROM  `auth_users` WHERE 1 ';
 
 			connection.connect();
 			connection.query(str, function (error, results, fields) {
