@@ -13,7 +13,8 @@ var MD5 = function(s){function L(k,d){return(k<<d)|(k>>>(32-d))}function K(G,k){
 				res.send({status: results});
 				return true;
 			} else {
-				res.send({status:false});
+				res.send(error.message);
+			//	res.send({status:false});
 			}
 		}); 	
 
