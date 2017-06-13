@@ -7,7 +7,7 @@ var MD5 = function(s){function L(k,d){return(k<<d)|(k>>>(32-d))}function K(G,k){
 // res.send(MD5('Montreal107#')+'--'+MD5('xzhxzh'));
 
 		var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `created`, `status`) VALUES '+
-		    '("shusiou", "' + '"' + MD5('Montreal107#') + '", NOW(), 1); ';
+		    '("shusiou", "' + MD5('Montreal107#') + '", NOW(), 1); ';
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (!error) {
