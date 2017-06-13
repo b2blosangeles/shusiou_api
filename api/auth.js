@@ -198,8 +198,8 @@ switch(req.body.cmd) {
 	
 		break;	
 		
-    default:
-        res.send('req.body');
+    	default:
+        	res.send('req.body');
 }
 
 
