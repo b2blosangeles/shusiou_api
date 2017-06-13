@@ -9,10 +9,10 @@ var connection = mysql.createConnection(cfg0);
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (!error) {
-					cbk('{status: results}');
+					res.send({status: results});
 					return true;
 				} else {
-					cbk('error.message');
+					res.send(error.message);
 				}
 			}); 
 return true;
