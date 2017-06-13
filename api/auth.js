@@ -13,14 +13,14 @@ req.body.password = 'Montreal107#';
 
 switch(req.body.cmd) {	
 	case 'adduser':
-		
+		connection.connect();
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `created`, `status`) VALUES '+
 			    '("shusiou", "' + MD5('Montreal107#') + '", NOW(), 1); ';
-			connection.connect();
+			
 			connection.query(str, function (error, results, fields) {
-				connection.end();
+				
 				if (!error) {
 					cbk({status: results});
 					return true;
@@ -33,6 +33,7 @@ switch(req.body.cmd) {
 		CP.serial(
 			_f,
 			function(data) {
+				connection.end();
 				res.send({_spent_time:data._spent_time, status:data.status, data:data});
 			},
 			30000
@@ -47,7 +48,7 @@ switch(req.body.cmd) {
 		_f['S1'] = function(cbk) {
 			var str = 'SELECT * FROM  `auth_users` WHERE 1 ';
 			connection.query(str, function (error, results, fields) {
-				connection.end();
+				
 				if (error) {
 					cbk(error.message);
 					return true;
@@ -59,6 +60,7 @@ switch(req.body.cmd) {
 		CP.serial(
 			_f,
 			function(data) {
+				connection.end();
 				res.send({_spent_time:data._spent_time, status:data.status, data:data});
 			},
 			30000
@@ -112,13 +114,13 @@ switch(req.body.cmd) {
 	
 		break;	
 	case 'getSessions':
-		
+		connection.connect();
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			var str = 'SELECT * FROM  `auth_session` WHERE 1 ';
-			connection.connect();
+			
 			connection.query(str, function (error, results, fields) {
-				connection.end();
+				
 				if (error) {
 					cbk(error.message);
 					return true;
@@ -130,6 +132,7 @@ switch(req.body.cmd) {
 		CP.serial(
 			_f,
 			function(data) {
+				connection.end();
 				res.send({_spent_time:data._spent_time, status:data.status, data:data});
 			},
 			30000
