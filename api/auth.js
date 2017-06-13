@@ -90,6 +90,10 @@ switch(req.body.cmd) {
 			 
 			var str = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
 			    '("' +  CP.data.S1 + '","' +  token + '", NOW())';
+			
+			cbk(str);
+			return true;
+			
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
