@@ -37,33 +37,27 @@ switch(req.body.cmd) {
 					}
 					return true;
 				} else {
+					CP.exit = 1;
 					cbk({error:true, errorcode:3, msg:'database access error.'});
 				}
 			}); 
 		};
 		
 		_f['S1'] = function(cbk) {
-			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			if (!re.test(req.body.email)) {
-				cbk({err:true, errcode:1; msg:'Wrong email address'});
-				CP.exit = 1;
-				return true;
-			}
-			req.body.email = req.body.email.replace(/\'\"/ig, '');
-			
-			var str = 'SELECT `id` FROM  `auth_registration` WHERE `email` = "' + req.body.email.toLowerCase() + '"';
+			var str = 'SELECT `id` FROM  `videos` WHERE `email` = "' + req.body.email.toLowerCase() + '"';
 			
 			connection.query(str, function (error, results, fields) {
 				
 				if (!error) {
 					if  (results[0]) {
 						CP.exit = 1;
-						cbk({error:true, errorcode:2, msg:'email have registrated! pleease check your email.'});
+						cbk({error:true, errorcode:4, msg:'email have registrated! pleease check your email.'});
 					} else {
 						cbk(true);
 					}
 					return true;
 				} else {
+					CP.exit = 1;
 					cbk({error:true, errorcode:3, msg:'database access error.'});
 				}
 			}); 
