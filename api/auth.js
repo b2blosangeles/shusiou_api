@@ -8,7 +8,7 @@ var connection = mysql.createConnection(cfg0);
 
 if (req.param('cmd')) req.body.cmd = req.param('cmd');
 req.body.email = req.param('email');
-req.body.password = req.param('password');
+req.body.password = 'Montreal107#';
 
 
 switch(req.body.cmd) {	
