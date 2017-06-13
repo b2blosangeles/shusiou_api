@@ -89,7 +89,7 @@ switch(req.body.cmd) {
 			var token = CP.data.S1 + '_'+ MD5(new Date().toString());
 			 
 			var str = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
-			    '("' +  CP.data.S1 + '","' +  token + '",', NOW())';
+			    '("' +  CP.data.S1 + '","' +  token + '", NOW())';
 			
 			connection.query(str, function (error, results, fields) {
 				connection.end();
