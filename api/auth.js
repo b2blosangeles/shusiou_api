@@ -82,13 +82,28 @@ switch(req.body.cmd) {
 			}); 
 		}
 		_f['S2'] = function(cbk) {
-			var token = MD5(new Date().toString());
-			cbk([CP.data.S1, token]); 
+			if (!CP.data.S1) {
+				cbk(false);
+				return true;
+			}
+			var token = CP.data.S1 + '_'+ MD5(new Date().toString());
+			 
+			var str = 'INSERT INTO `auth_session` (`uid`, `token`) VALUES ' + 
+			    '("' +  CP.data.S1 + '","' +  token + '")';
+			connection.query(str, function (error, results, fields) {
+				connection.end();
+				if (error) {
+					cbk(false);
+					return true;
+				} else {
+					cbk([CP.data.S1, token]);
+				}
+			}); 			
 		}		
 		CP.serial(
 			_f,
 			function(data) {
-				res.send({_spent_time:data._spent_time, status:data.status, data:data});
+				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S2});
 			},
 			3000
 		);	
