@@ -38,23 +38,23 @@ switch(req.body.cmd) {
 		
 		break;	
 */		
-	case 'getusers':
-		var cfg0 = require(env.space_path + '/api/cfg/db.json');
-		var connection = mysql.createConnection(cfg0);
-		connection.connect();
+case 'getusers':
+	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var connection = mysql.createConnection(cfg0);
+	connection.connect();
 
-		var str = 'SELECT * FROM  `videos` WHERE 1 ';
+	var str = 'SELECT * FROM  `videos` WHERE 1 ';
 
-		connection.query(str, function (error, results, fields) {
-			connection.end();
-			if (error) {
-				cbk(error.message);
-				return true;
-			} else {
-				cbk(results);
-			}
-		}); 
-		
+	connection.query(str, function (error, results, fields) {
+		connection.end();
+		if (error) {
+			cbk(error.message);
+			return true;
+		} else {
+			cbk(results);
+		}
+	}); 
+	break;	
 
     default:
         res.send('req.body');
