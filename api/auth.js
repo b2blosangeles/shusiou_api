@@ -138,6 +138,32 @@ switch(req.body.cmd) {
 			30000
 		);	
 	
+		break;	
+	case 'cleanSessions':
+		connection.connect();
+		var _f = {};
+		_f['S1'] = function(cbk) {
+			var str = 'Truncate table  `auth_session` ';
+			
+			connection.query(str, function (error, results, fields) {
+				
+				if (error) {
+					cbk(error.message);
+					return true;
+				} else {
+					cbk(results);
+				}
+			}); 
+		}
+		CP.serial(
+			_f,
+			function(data) {
+				connection.end();
+				res.send({_spent_time:data._spent_time, status:data.status, data:data});
+			},
+			30000
+		);	
+	
 		break;		
     default:
         res.send('req.body');
