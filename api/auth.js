@@ -8,12 +8,11 @@ var connection = mysql.createConnection(cfg0);
 
 if (req.param('cmd')) req.body.cmd = req.param('cmd');
 
-switch(req.body.cmd) {
-/*		
+switch(req.body.cmd) {	
 	case 'adduser':
 		
 		var _f = {};
-		_f['S1'] = function() {
+		_f['S1'] = function(cbk) {
 			var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `created`, `status`) VALUES '+
 			    '("shusiou", "' + MD5('Montreal107#') + '", NOW(), 1); ';
 			connection.connect();
@@ -38,14 +37,12 @@ switch(req.body.cmd) {
 		
 		
 		break;	
-*/		
+		
 	case 'getusers':
-
 		connection.connect();
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			var str = 'SELECT * FROM  `auth_users` WHERE 1 ';
-
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
@@ -65,7 +62,30 @@ switch(req.body.cmd) {
 		);	
 	
 		break;	
-
+	case 'login':
+		connection.connect();
+		var _f = {};
+		_f['S1'] = function(cbk) {
+			var str = 'SELECT * FROM  `auth_users` WHERE 1 ';
+			connection.query(str, function (error, results, fields) {
+				connection.end();
+				if (error) {
+					cbk(error.message);
+					return true;
+				} else {
+					cbk(results);
+				}
+			}); 
+		}
+		CP.serial(
+			_f,
+			function(data) {
+				res.send({_spent_time:data._spent_time, status:data.status, data:data});
+			},
+			30000
+		);	
+	
+		break;	
     default:
         res.send('req.body');
 }
