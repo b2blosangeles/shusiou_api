@@ -10,7 +10,7 @@ _f['S1'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	
 
-	var str = 'SELECT * FROM  `curriculums` WHERE 1; ';
+	var str = 'SELECT A.*, B.code FROM  `curriculums` A LEFT JOIN `videos` B ON A.vid = B.id; ';
 	
 	connection.query(str, function (error, results, fields) {
 		
