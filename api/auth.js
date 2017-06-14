@@ -205,17 +205,15 @@ switch(req.body.cmd) {
 	
 		break;	
 	case 'signout':
-		connection.connect();
-		
-		res.send(req.body);
-		return true;
-		
+		if (!req.body.data || req.body.data.uid || !req.body.data.token) {
+			res.send(false);
+			return true;
+		}
 		var _f = {};
 		_f['S1'] = function(cbk) {
-			connection.connect();
 			
-			var str = 'DELETE FROM  `auth_session` WHERE `uid` = "' + req.body.uid + '" AND ' + 
-			    '`token` = "' +  req.body.token + '"';
+			var str = 'DELETE FROM  `auth_session` WHERE `uid` = "' +  req.body.data.uid  + '" AND ' + 
+			    '`token` = "' +  req.body.data.token + '"';
 			
 			connection.query(str, function (error, results, fields) {
 				if (error) {
@@ -226,6 +224,7 @@ switch(req.body.cmd) {
 				}
 			}); 
 		}
+		connection.connect();
 		CP.serial(
 			_f,
 			function(data) {
