@@ -145,10 +145,9 @@ switch(req.body.cmd) {
 		connection.connect();
 		var _f = {};
 		_f['S1'] = function(cbk) {
-			var str = 'SELECT `uid` FROM  `auth_users` WHERE `email` = "' + req.body.email + '" AND ' + 
+			var str = 'SELECT `uid` FROM  `auth_users` WHERE `email` = "' + req.body.username + '" AND ' + 
 			    '`password` = "' +  MD5(req.body.password) + '"';
-			cbk(str);
-			return true;
+	
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(false);
