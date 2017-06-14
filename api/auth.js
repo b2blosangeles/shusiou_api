@@ -147,7 +147,8 @@ switch(req.body.cmd) {
 		_f['S1'] = function(cbk) {
 			var str = 'SELECT `uid` FROM  `auth_users` WHERE `email` = "' + req.body.email + '" AND ' + 
 			    '`password` = "' +  MD5(req.body.password) + '"';
-			
+			cbk(str);
+			return true;
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(false);
@@ -166,7 +167,8 @@ switch(req.body.cmd) {
 			 
 			var str = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
 			    '("' +  CP.data.S1 + '","' +  token + '", NOW())';
-			
+			cbk(str);
+			return true;
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(false);
