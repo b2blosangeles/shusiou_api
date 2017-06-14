@@ -7,14 +7,7 @@ _f['S1'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'INSERT INTO  curriculums (`uid`,`vid`,`name`,`mother_lang`,`learning_lang`,`created`) VALUES (' +
-	'"' + req.body.uid + '",' +
-	'"' + req.body.vid + '",' +
-	'"' + req.body.name + '",' +
-	'"' + '' + '",' +
-	'"' + '' + '",' +
-	'NOW()' +	
-	'); ';
+	var str = 'DELETE FROM curriculums WHERE `id` = "' + req.body.cid + '"); ';
 	
 	connection.query(str, function (error, results, fields) {
 		connection.end();
