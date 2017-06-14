@@ -26,5 +26,5 @@ CP.serial(
 		connection.end();
 		res.send(data);
 	},
-	30000
+	3000
 );
