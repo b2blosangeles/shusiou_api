@@ -24,7 +24,7 @@ CP.serial(
 	_f,
 	function(data) {
 		connection.end();
-		res.send({_spent_time:data._spent_time, status:data.status, data:results.S1});
+		res.send({_spent_time:data._spent_time, status:data.status, data:data});
 	},
 	30000
 );
