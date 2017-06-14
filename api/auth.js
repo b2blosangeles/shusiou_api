@@ -204,11 +204,11 @@ switch(req.body.cmd) {
 		);	
 	
 		break;	
-	case 'logoff':
+	case 'signOut':
 		connection.connect();
 		
-		req.body.uid = 1;
-		req.body.token = '1_905b8e8170e2c2d68fceee3b064c6dc5';
+		res.send(req.body.data);
+		return true;
 		
 		var _f = {};
 		_f['S1'] = function(cbk) {
