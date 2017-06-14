@@ -6,7 +6,9 @@ var MD5 = function(s){function L(k,d){return(k<<d)|(k>>>(32-d))}function K(G,k){
 var cfg0 = require(env.space_path + '/api/cfg/db.json');
 var connection = mysql.createConnection(cfg0);
 
-if (req.param('cmd')) req.body.cmd = req.param('cmd');
+// if (req.param('cmd')) req.body.cmd = req.param('cmd');
+res.send(req.body.cmd)
+return true;
 
 switch(req.body.cmd) {	
 	case 'registration':
@@ -273,7 +275,7 @@ switch(req.body.cmd) {
 		break;	
 		
     	default:
-        	res.send('req.body');
+        	res.send('Wrong request!!');
 }
 
 
