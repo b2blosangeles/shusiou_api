@@ -141,7 +141,7 @@ switch(req.body.cmd) {
 		);	
 	
 		break;	
-	case 'login':
+	case 'signin':
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			connection.connect();
