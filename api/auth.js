@@ -207,7 +207,7 @@ switch(req.body.cmd) {
 	case 'signout':
 		connection.connect();
 		
-		res.send(req.body.data);
+		res.send(req.body);
 		return true;
 		
 		var _f = {};
