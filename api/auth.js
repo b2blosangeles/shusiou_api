@@ -175,14 +175,30 @@ switch(req.body.cmd) {
 					cbk([CP.data.S1, token]);
 				}
 			}); 			
+		}
+		_f['S3'] = function(cbk) {
+			if (!CP.data.S2) {
+				cbk(false);
+				return true;
+			}
+			var str = 'SELECT email FROM `FROM  `auth_users` WHERE `uid` ="' +  CP.data.S1 + '"';
+		
+			connection.query(str, function (error, results, fields) {
+				if (error) {
+					cbk(false);
+					return true;
+				} else {
+					cbk({uid:CP.data.S1, token:token, name:(results[0])?results[0].email:''});
+				}
+			}); 			
 		}		
 		CP.serial(
 			_f,
 			function(data) {
 				connection.end();
-				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S2});
+				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S3});
 			},
-			3000
+			6000
 		);	
 	
 		break;	
