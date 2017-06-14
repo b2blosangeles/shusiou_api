@@ -11,6 +11,7 @@ res.send(req.body.cmd)
 return true;
 
 switch(req.body.cmd) {	
+	/*	
 	case 'registration':
 		connection.connect();
 		var _f = {};
@@ -87,7 +88,8 @@ switch(req.body.cmd) {
 		);		
 		
 		
-		break;			
+		break;	
+	*/	
 	case 'adduser':
 		connection.connect();
 		var _f = {};
