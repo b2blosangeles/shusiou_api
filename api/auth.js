@@ -204,7 +204,7 @@ switch(req.body.cmd) {
 		);	
 	
 		break;	
-	case 'signOut':
+	case 'signout':
 		connection.connect();
 		
 		res.send(req.body.data);
