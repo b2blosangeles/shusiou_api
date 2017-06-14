@@ -7,7 +7,7 @@ _f['S1'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = "INSERT INTO  curriculums (`uiv`,`vid`,`name`,`mother_lang`,`learning_lang`,`created`) VALUES (' +
+	var str = 'INSERT INTO  curriculums (`uiv`,`vid`,`name`,`mother_lang`,`learning_lang`,`created`) VALUES (' +
 	'"' + req.body.uid + '",' +
 	'"' + req.body.vid + '",' +
 	'"' + req.body.name + '",' +
