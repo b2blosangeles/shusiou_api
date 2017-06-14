@@ -7,7 +7,7 @@ _f['S1'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	
 
-	var str = 'SELECT * FROM  curriculums WHERE 1; ';
+	var str = 'SELECT * FROM  `curriculums` WHERE 1; ';
 	
 	connection.query(str, function (error, results, fields) {
 		
@@ -24,7 +24,7 @@ CP.serial(
 	_f,
 	function(data) {
 		connection.end();
-		res.send({_spent_time:data._spent_time, status:data.status, data:data});
+		res.send(data);
 	},
 	30000
 );
