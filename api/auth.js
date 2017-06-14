@@ -151,9 +151,9 @@ switch(req.body.cmd) {
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(false);
-					return true;
 				} else {
 					if (results.length) cbk(results[0].uid);
+					else cbk(false);
 				}
 			}); 
 		}
