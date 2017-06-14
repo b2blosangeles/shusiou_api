@@ -172,7 +172,7 @@ switch(req.body.cmd) {
 					cbk(false);
 					return true;
 				} else {
-					cbk([CP.data.S1, token]);
+					cbk({uid:CP.data.S1, token:token});
 				}
 			}); 			
 		}
@@ -188,8 +188,9 @@ switch(req.body.cmd) {
 					cbk(false);
 					return true;
 				} else {
-					//cbk({uid:CP.data.S1, token:token, name:(results[0])?results[0].email:''});
-					cbk({uid:CP.data.S1, token:token, name:results});
+					var r = CP.data.S2; 
+					r.name = (results[0])?results[0].email:'';
+					cbk(r);
 				}
 			}); 			
 		}		
