@@ -142,10 +142,9 @@ switch(req.body.cmd) {
 	
 		break;	
 	case 'signin':
+		connection.connect();
 		var _f = {};
 		_f['S1'] = function(cbk) {
-			connection.connect();
-			
 			var str = 'SELECT `uid` FROM  `auth_users` WHERE `email` = "' + req.body.email + '" AND ' + 
 			    '`password` = "' +  MD5(req.body.password) + '"';
 			
