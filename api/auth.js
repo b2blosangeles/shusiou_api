@@ -189,7 +189,7 @@ switch(req.body.cmd) {
 					return true;
 				} else {
 					//cbk({uid:CP.data.S1, token:token, name:(results[0])?results[0].email:''});
-					cbk({uid:CP.data.S1, token:token, name:results[0]});
+					cbk({uid:CP.data.S1, token:token, name:results});
 				}
 			}); 			
 		}		
@@ -197,7 +197,7 @@ switch(req.body.cmd) {
 			_f,
 			function(data) {
 				connection.end();
-				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S3});
+				res.send({_spent_time:data._spent_time, status:data.status, data:data.results});
 			},
 			6000
 		);	
