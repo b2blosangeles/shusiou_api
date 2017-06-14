@@ -182,7 +182,7 @@ switch(req.body.cmd) {
 			_f,
 			function(data) {
 				connection.end();
-				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S2});
+				res.send({_spent_time:data._spent_time, status:data.status, data:data.results});
 			},
 			3000
 		);	
