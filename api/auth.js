@@ -7,9 +7,6 @@ var cfg0 = require(env.space_path + '/api/cfg/db.json');
 var connection = mysql.createConnection(cfg0);
 
 if (req.param('cmd')) req.body.cmd = req.param('cmd');
-req.body.email = req.param('email');
-req.body.password = 'Montreal107#';
-
 
 switch(req.body.cmd) {	
 	case 'registration':
