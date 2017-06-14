@@ -13,7 +13,7 @@ _f['S1'] = function(cbk) {
 	'"' + req.body.name + '",' +
 	'"' + '' + '",' +
 	'"' + '' + '",' +
-	'NOW(),' +	
+	'NOW()' +	
 	'); ';
 	
 	connection.query(str, function (error, results, fields) {
