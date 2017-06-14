@@ -14,7 +14,7 @@ _f['S1'] = function(cbk) {
 	'"' + '' + '",' +
 	'"' + '' + '",' +
 	'NOW(),' +	
-	+ '); ";
+	+ '); ';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
