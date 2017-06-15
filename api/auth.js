@@ -190,14 +190,14 @@ switch(req.body.cmd) {
 		connection.connect();
 		var _f = {};
 		_f['S1'] = function(cbk) {
-			var str = 'SELECT `uid` FROM  `auth_users` WHERE `email` = "' + req.body.username + '" AND ' + 
+			var str = 'SELECT `uid`,`roles` FROM  `auth_users` WHERE `email` = "' + req.body.username + '" AND ' + 
 			    '`password` = "' +  MD5(req.body.password) + '"';
 	
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(false);
 				} else {
-					if (results.length) cbk(results[0].uid);
+					if (results.length) cbk(results[0]);
 					else cbk(false);
 				}
 			}); 
@@ -207,17 +207,17 @@ switch(req.body.cmd) {
 				cbk(false);
 				return true;
 			}
-			var token = CP.data.S1 + '_'+ MD5(new Date().toString());
+			var token = CP.data.S1.uid + '_'+ MD5(new Date().toString());
 			 
 			var str = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
-			    '("' +  CP.data.S1 + '","' +  token + '", NOW())';
+			    '("' +  CP.data.S1.uid + '","' +  token + '", NOW())';
 		
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(false);
 					return true;
 				} else {
-					cbk({uid:CP.data.S1, token:token});
+					cbk({uid:CP.data.S1.uid, token:token, roles:JSON.parse(CP.data.S1.roles)});
 				}
 			}); 			
 		}
