@@ -226,7 +226,7 @@ switch(req.body.cmd) {
 				cbk(false);
 				return true;
 			}
-			var str = 'SELECT `email` FROM `auth_users` WHERE `uid` ="' +  CP.data.S1 + '"';
+			var str = 'SELECT `email` FROM `auth_users` WHERE `uid` ="' +  CP.data.S1.uid + '"';
 		
 			connection.query(str, function (error, results, fields) {
 				if (error) {
