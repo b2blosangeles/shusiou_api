@@ -217,7 +217,7 @@ switch(req.body.cmd) {
 					cbk(false);
 					return true;
 				} else {
-					cbk({uid:CP.data.S1.uid, token:token, roles:JSON.parse(CP.data.S1.roles)});
+					cbk({uid:CP.data.S1.uid, token:token, roles:CP.data.S1.roles});
 				}
 			}); 			
 		}
@@ -243,7 +243,7 @@ switch(req.body.cmd) {
 			_f,
 			function(data) {
 				connection.end();
-				res.send({_spent_time:data._spent_time, status:data.status, data:data.results});
+				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S3});
 			},
 			6000
 		);	
