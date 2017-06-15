@@ -251,7 +251,7 @@ switch(req.body.cmd) {
 		break;	
 	case 'signout':
 		if (!req.body.data || !req.body.data.uid || !req.body.data.token) {
-			res.send(false);
+			res.send(true);
 			return true;
 		}
 		var _f = {};
