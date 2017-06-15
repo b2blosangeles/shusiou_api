@@ -90,8 +90,8 @@ switch(req.body.cmd) {
 		connection.connect();
 		var _f = {};
 		_f['S1'] = function(cbk) {
-			var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `created`, `status`) VALUES '+
-			    '("shusiou", "' + MD5('Montreal107#') + '", NOW(), 1); ';
+			var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `roles`, `created`, `status`) VALUES '+
+			    '("shusiou", "' + MD5('Montreal107#') + '", "learner,teacher,advisor", NOW(), 1); ';
 			
 			connection.query(str, function (error, results, fields) {
 				
@@ -103,7 +103,48 @@ switch(req.body.cmd) {
 				}
 			}); 
 		};
-		
+		_f['S2'] = function(cbk) {
+			var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `roles`, `created`, `status`) VALUES '+
+			    '("shusiou_learner", "' + MD5('Montreal107#') + '", "learner", NOW(), 1); ';
+			
+			connection.query(str, function (error, results, fields) {
+				
+				if (!error) {
+					cbk({status: results});
+					return true;
+				} else {
+					cbk(error.message);
+				}
+			}); 
+		};
+		_f['S3'] = function(cbk) {
+			var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `roles`, `created`, `status`) VALUES '+
+			    '("shusiou_teacher", "' + MD5('Montreal107#') + '", "teacher", NOW(), 1); ';
+			
+			connection.query(str, function (error, results, fields) {
+				
+				if (!error) {
+					cbk({status: results});
+					return true;
+				} else {
+					cbk(error.message);
+				}
+			}); 
+		};
+		_f['S4'] = function(cbk) {
+			var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `roles`, `created`, `status`) VALUES '+
+			    '("shusiou_advisor", "' + MD5('Montreal107#') + '", "advisor", NOW(), 1); ';
+			
+			connection.query(str, function (error, results, fields) {
+				
+				if (!error) {
+					cbk({status: results});
+					return true;
+				} else {
+					cbk(error.message);
+				}
+			}); 
+		};			
 		CP.serial(
 			_f,
 			function(data) {
