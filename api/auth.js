@@ -6,6 +6,11 @@ var MD5 = function(s){function L(k,d){return(k<<d)|(k>>>(32-d))}function K(G,k){
 var cfg0 = require(env.space_path + '/api/cfg/db.json');
 var connection = mysql.createConnection(cfg0);
 
+if (req.params('cmd')) {
+	res.send(req.params('cmd'));	
+	return true;
+}
+
 switch(req.body.cmd) {	
 	/*	
 	case 'registration':
