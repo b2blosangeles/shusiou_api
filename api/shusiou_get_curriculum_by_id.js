@@ -29,7 +29,8 @@ _f['S2'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 
-	var str = 'SELECT *  FROM  `videos` WHERE id = "' + CP.data.S1.vid + '"; ';
+	// var str = 'SELECT *  FROM  `videos` WHERE id = "' + CP.data.S1.vid + '"; ';
+	var str = 'SELECT *  FROM  `videos`; ';
 	
 	connection.query(str, function (error, results, fields) {
 		
