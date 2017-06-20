@@ -9,7 +9,7 @@ _f['S1'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 
-	var str = 'SELECT A.* FROM  `curriculums` WHERE id = "' + req.body.cid + '"; ';
+	var str = 'SELECT * FROM  `curriculums` WHERE id = "' + req.body.cid + '"; ';
 	
 	connection.query(str, function (error, results, fields) {
 		
