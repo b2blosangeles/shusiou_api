@@ -17,7 +17,7 @@ _f['S1'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(results);
+			cbk(results[0]);
 		}
 	});  
 };
@@ -38,7 +38,7 @@ _f['S2'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(results);
+			cbk(results[0]);
 		}
 	});  
 };
