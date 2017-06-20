@@ -9,7 +9,9 @@ _f['S1'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 
-	var str = 'SELECT A.*, B.* FROM  `curriculums` A LEFT JOIN `videos` B ON A.vid = B.id AND A.id = "' + req.body.cid + '"; ';
+	var str = 'SELECT A.*, B.id as video_id, ' +
+	    ' B.name as video_title,  B.length as video_length, ' +
+	    ' FROM  `curriculums` A LEFT JOIN `videos` B ON A.vid = B.id AND A.id = "' + req.body.cid + '"; ';
 	
 	connection.query(str, function (error, results, fields) {
 		
