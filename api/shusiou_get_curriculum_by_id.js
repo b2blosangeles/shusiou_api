@@ -22,6 +22,10 @@ _f['S1'] = function(cbk) {
 	});  
 };
 _f['S2'] = function(cbk) {
+	if (!CP.data.S1.vid) {
+		cbk({});
+		return true;
+	}
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 
