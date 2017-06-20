@@ -9,10 +9,7 @@ _f['S1'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 
-	var str = 'SELECT A.*, B.id as video_id, ' +
-	    ' B.title as video_title,  B.length as video_length, ' +
-	    ' B.size as video_size ' +
-	    ' FROM  `curriculums` A LEFT JOIN `videos` B ON A.vid = B.id AND A.id = "' + req.body.cid + '"; ';
+	var str = 'SELECT A.* FROM  `curriculums` WHERE id = "' + req.body.cid + '"; ';
 	
 	connection.query(str, function (error, results, fields) {
 		
@@ -45,7 +42,7 @@ CP.serial(
 	_f,
 	function(data) {
 		connection.end();
-		res.send({_spent_time:data._spent_time, status:data.status, video:data.results.S1});
+		res.send({_spent_time:data._spent_time, status:data.status, curriculum: data.results.S1, video:data.results.S2});
 	},
 	3000
 );
