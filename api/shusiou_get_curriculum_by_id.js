@@ -11,6 +11,7 @@ _f['S1'] = function(cbk) {
 
 	var str = 'SELECT A.*, B.id as video_id, ' +
 	    ' B.name as video_title,  B.length as video_length, ' +
+	    ' B.size as video_size ' +
 	    ' FROM  `curriculums` A LEFT JOIN `videos` B ON A.vid = B.id AND A.id = "' + req.body.cid + '"; ';
 	
 	connection.query(str, function (error, results, fields) {
