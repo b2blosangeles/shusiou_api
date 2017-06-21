@@ -78,14 +78,10 @@ switch(req.body.cmd) {
 		var _f = {};
 
 		_f['S1'] = function(cbk) {
-			var str = 'INSERT INTO  curriculums (`uid`,`vid`,`name`,`mother_lang`,`learning_lang`,`created`) VALUES (' +
-			'"' + req.body.uid + '",' +
-			'"' + req.body.vid + '",' +
-			'"' + req.body.name + '",' +
-			'"' + '' + '",' +
-			'"' + '' + '",' +
-			'NOW()' +	
-			'); ';
+			var str = 'UPDATE  `curriculums` SET ' +
+			'`name` = "' + req.body.name + '",' +
+			'`created` = NOW() ' +
+			'WHERE `id` ="' + req.body.id + '" '; ';
 
 			connection.query(str, function (error, results, fields) {
 
