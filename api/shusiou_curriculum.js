@@ -114,7 +114,7 @@ switch(req.body.cmd) {
 		var _f = {};
 
 		_f['S1'] = function(cbk) {
-			var str = 'INSERT INTOasd  curriculums (`uid`,`vid`,`name`,`mother_lang`,`learning_lang`,`created`) VALUES (' +
+			var str = 'INSERT INTO  curriculums (`uid`,`vid`,`name`,`mother_lang`,`learning_lang`,`created`) VALUES (' +
 			'"' + req.body.uid + '",' +
 			'"' + req.body.vid + '",' +
 			'"' + req.body.name + '",' +
