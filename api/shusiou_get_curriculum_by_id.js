@@ -25,7 +25,6 @@ _f['S2'] = function(cbk) {
 		return true;
 	}
 	var str = 'SELECT *  FROM  `videos` WHERE id = "' + CP.data.S1.vid + '"; ';
-	cbk(str); return true;
 	connection.query(str, function (error, results, fields) {
 		
 		if (error) {
