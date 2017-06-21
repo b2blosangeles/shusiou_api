@@ -128,10 +128,10 @@ switch(req.body.cmd) {
 					cbk(error.message);
 					return true;
 				} else {
-					if ((results) && (results.S1)) {
-						cbk(results.S1.insertId);
+					if (results) {
+						cbk(results);
 					} else {
-						cbk(888);
+						cbk(false);
 					}
 
 				}
@@ -142,7 +142,7 @@ switch(req.body.cmd) {
 			_f,
 			function(data) {
 				connection.end();
-				res.send({_spent_time:data._spent_time, status:data.status, data:data});
+				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S1});
 			},
 			30000
 		);
