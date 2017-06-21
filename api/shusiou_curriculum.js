@@ -125,33 +125,16 @@ switch(req.body.cmd) {
 			connection.query(str, function (error, results, fields) {
 
 				if (error) {
-					cbk(error.message);
+					cbk(false);
 					CP.skip = true;
 					return true;
 					
 				} else {
-					if (results) {
-						cbk(results);
+					if ((results) && (results.insertId)) {
+						cbk(results.insertId);
 					} else {
 						cbk(false);
 						CP.skip = true;
-					}
-
-				}
-			});  
-		};
-		_f['S2'] = function(cbk) {
-			var str = 'SELECT LAST_INSERT_ID() AS ID; ';
-			connection.query(str, function (error, results, fields) {
-
-				if (error) {
-					cbk(error.message);
-					return true;
-				} else {
-					if (results[0]) {
-						cbk(results[0]);
-					} else {
-						cbk(false);
 					}
 
 				}
@@ -162,7 +145,7 @@ switch(req.body.cmd) {
 			_f,
 			function(data) {
 				connection.end();
-				res.send({_spent_time:data._spent_time, status:data.status, data:data});
+				res.send({_spent_time:data._spent_time, status:data.status, data:data.S1);
 			},
 			30000
 		);
