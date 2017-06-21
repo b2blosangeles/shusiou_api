@@ -121,7 +121,7 @@ switch(req.body.cmd) {
 			'"' + '' + '",' +
 			'"' + '' + '",' +
 			'NOW()' +	
-			'); ';
+			'); SELECT LAST_INSERT_ID(); ';
 
 			connection.query(str, function (error, results, fields) {
 
