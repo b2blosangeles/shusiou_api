@@ -114,7 +114,7 @@ switch(req.body.cmd) {
 		var _f = {};
 
 		_f['S1'] = function(cbk) {
-			var str = 'INSERT INTO  curriculums (`uid`,`vid`,`name`,`mother_lang`,`learning_lang`,`created`) VALUES (' +
+			var str = 'INSERT INTOasd  curriculums (`uid`,`vid`,`name`,`mother_lang`,`learning_lang`,`created`) VALUES (' +
 			'"' + req.body.uid + '",' +
 			'"' + req.body.vid + '",' +
 			'"' + req.body.name + '",' +
@@ -126,12 +126,15 @@ switch(req.body.cmd) {
 
 				if (error) {
 					cbk(error.message);
+					CP.skip = true;
 					return true;
+					
 				} else {
 					if (results[0]) {
 						cbk(results);
 					} else {
 						cbk(false);
+						CP.skip = true;
 					}
 
 				}
