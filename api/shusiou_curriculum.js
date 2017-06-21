@@ -130,7 +130,7 @@ switch(req.body.cmd) {
 					return true;
 					
 				} else {
-					if (results[0]) {
+					if (results) {
 						cbk(results);
 					} else {
 						cbk(false);
