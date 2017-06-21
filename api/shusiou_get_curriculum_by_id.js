@@ -6,6 +6,9 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 _f['S1'] = function(cbk) {
+	if (!req.body.cid) {
+		cbk({}); return true;
+	}
 	var str = 'SELECT * FROM  `curriculums` WHERE id = "' + req.body.cid + '"; ';
 	connection.query(str, function (error, results, fields) {
 		if (error) {
