@@ -6,11 +6,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 _f['S1'] = function(cbk) {
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
-	var connection = mysql.createConnection(cfg0);
-
 	var str = 'SELECT * FROM  `curriculums` WHERE id = "' + req.body.cid + '"; ';
-	
 	connection.query(str, function (error, results, fields) {
 		
 		if (error) {
@@ -26,12 +22,7 @@ _f['S2'] = function(cbk) {
 		cbk({});
 		return true;
 	}
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
-	var connection = mysql.createConnection(cfg0);
-
-	// var str = 'SELECT *  FROM  `videos` WHERE id = "' + CP.data.S1.vid + '"; ';
-	var str = 'SELECT *  FROM  `videos`; ';
-	
+	var str = 'SELECT *  FROM  `videos` WHERE id = "' + CP.data.S1.vid + '"; ';
 	connection.query(str, function (error, results, fields) {
 		
 		if (error) {
