@@ -7,7 +7,6 @@ var _f = {};
 
 _f['S1'] = function(cbk) {
 	var str = 'SELECT * FROM  `curriculums` WHERE id = "' + req.body.cid + '"; ';
-	cbk(str); return true;
 	connection.query(str, function (error, results, fields) {
 		if (error) {
 			cbk(error.message);
