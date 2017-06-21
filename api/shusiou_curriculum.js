@@ -44,7 +44,8 @@ switch(req.body.cmd) {
 				res.send({_spent_time:data._spent_time, status:data.status, curriculum: data.results.S1, video:data.results.S2});
 			},
 			3000
-		);		
+		);
+		break;
 	case 'getList':
 		var _f = {};
 		_f['S1'] = function(cbk) {
@@ -81,7 +82,7 @@ switch(req.body.cmd) {
 			var str = 'UPDATE  `curriculums` SET ' +
 			'`name` = "' + req.body.name + '",' +
 			'`created` = NOW() ' +
-			'WHERE `id` ="' + req.body.id + '" '; ';
+			'WHERE `id` ="' + req.body.id + '"; ';
 
 			connection.query(str, function (error, results, fields) {
 
