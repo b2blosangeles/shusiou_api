@@ -126,15 +126,12 @@ switch(req.body.cmd) {
 
 				if (error) {
 					cbk(false);
-					CP.skip = true;
-					return true;
-					
 				} else {
-					if ((results) && (results.insertId)) {
-						cbk(results.insertId);
+					if (results) {
+						cbk(results);
+						// cbk(results.insertId);
 					} else {
 						cbk(false);
-						CP.skip = true;
 					}
 
 				}
