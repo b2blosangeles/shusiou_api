@@ -121,8 +121,7 @@ switch(req.body.cmd) {
 			'"' + '' + '",' +
 			'"' + '' + '",' +
 			'NOW()' +	
-			'); SELECT LAST_INSERT_ID(); ';
-
+			'); ';
 			connection.query(str, function (error, results, fields) {
 
 				if (error) {
@@ -139,6 +138,25 @@ switch(req.body.cmd) {
 				}
 			});  
 		};
+		_f['S2'] = function(cbk) {
+			var str = 'SELECT LAST_INSERT_ID(); ';
+
+			connection.query(str, function (error, results, fields) {
+
+				if (error) {
+					cbk(error.message);
+					return true;
+				} else {
+					if (results[0]) {
+						cbk(results);
+						CP.skip = true;
+					} else {
+						cbk(false);
+					}
+
+				}
+			});  
+		};		
 		connection.connect();
 		CP.serial(
 			_f,
