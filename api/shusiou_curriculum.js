@@ -5,6 +5,7 @@ var connection = mysql.createConnection(cfg0);
 
 switch(req.body.cmd) {
 	case 'getCurriculumById':
+		var _f = {};
 		_f['S1'] = function(cbk) {
 			if (!req.body.cid) {
 				cbk({}); return true;
