@@ -4,22 +4,34 @@ var cfg0 = require(env.space_path + '/api/cfg/db.json');
 var connection = mysql.createConnection(cfg0);
 
 switch(req.body.cmd) {
-	case 'getById':
-		var _f = {};
+	case 'getCurriculumById':
 		_f['S1'] = function(cbk) {
-			var cfg0 = require(env.space_path + '/api/cfg/db.json');
-			var connection = mysql.createConnection(cfg0);
-
-
-			var str = 'SELECT A.*, B.code FROM  `curriculums` A LEFT JOIN `videos` B ON A.vid = B.id WHERE A.id = "' + req.body.cid + '"; ';
-
+			if (!req.body.cid) {
+				cbk({}); return true;
+			}
+			var str = 'SELECT * FROM  `curriculums` WHERE id = "' + req.body.cid + '"; ';
+			connection.query(str, function (error, results, fields) {
+				if (error) {
+					cbk(error.message);
+					return true;
+				} else {
+					cbk(results[0]);
+				}
+			});  
+		};
+		_f['S2'] = function(cbk) {
+			if (!CP.data.S1.vid) {
+				cbk({});
+				return true;
+			}
+			var str = 'SELECT *  FROM  `videos` WHERE id = "' + CP.data.S1.vid + '"; ';
 			connection.query(str, function (error, results, fields) {
 
 				if (error) {
 					cbk(error.message);
 					return true;
 				} else {
-					cbk(results);
+					cbk(results[0]);
 				}
 			});  
 		};
@@ -28,11 +40,10 @@ switch(req.body.cmd) {
 			_f,
 			function(data) {
 				connection.end();
-				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S1[0]});
+				res.send({_spent_time:data._spent_time, status:data.status, curriculum: data.results.S1, video:data.results.S2});
 			},
 			3000
-		);
-		break;		
+		);		
 	case 'getList':
 		var _f = {};
 		_f['S1'] = function(cbk) {
