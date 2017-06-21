@@ -123,20 +123,18 @@ switch(req.body.cmd) {
 			'NOW()' +	
 			'); ';
 			connection.query(str, function (error, results, fields) {
-				cbk('results');
-				/*
+
 				if (error) {
-					cbk(false);
+					cbk(error.message);
+					return true;
 				} else {
 					if (results) {
 						cbk(results);
-						// cbk(results.insertId);
 					} else {
 						cbk(false);
 					}
 
 				}
-				*/
 			});  
 		};		
 		connection.connect();
@@ -144,7 +142,7 @@ switch(req.body.cmd) {
 			_f,
 			function(data) {
 				connection.end();
-				res.send({_spent_time:data._spent_time, status:data.status, data:data.S1);
+				res.send({_spent_time:data._spent_time, status:data.status, data:data});
 			},
 			30000
 		);
