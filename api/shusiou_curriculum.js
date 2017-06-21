@@ -128,8 +128,8 @@ switch(req.body.cmd) {
 					cbk(error.message);
 					return true;
 				} else {
-					if (results) {
-						cbk(results);
+					if ((results) && (results.S1)) {
+						cbk(results.S1.insertId);
 					} else {
 						cbk(false);
 					}
