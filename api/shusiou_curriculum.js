@@ -73,6 +73,45 @@ switch(req.body.cmd) {
 			},
 			3000
 		);
+		break;	
+	case 'update':
+		var _f = {};
+
+		_f['S1'] = function(cbk) {
+			var str = 'INSERT INTO  curriculums (`uid`,`vid`,`name`,`mother_lang`,`learning_lang`,`created`) VALUES (' +
+			'"' + req.body.uid + '",' +
+			'"' + req.body.vid + '",' +
+			'"' + req.body.name + '",' +
+			'"' + '' + '",' +
+			'"' + '' + '",' +
+			'NOW()' +	
+			'); ';
+
+			connection.query(str, function (error, results, fields) {
+
+				if (error) {
+					cbk(error.message);
+					return true;
+				} else {
+					if (results[0]) {
+						cbk(results[0]);
+						CP.skip = true;
+					} else {
+						cbk(false);
+					}
+
+				}
+			});  
+		};
+		connection.connect();
+		CP.serial(
+			_f,
+			function(data) {
+				connection.end();
+				res.send({_spent_time:data._spent_time, status:data.status, data:data});
+			},
+			30000
+		);
 		break;		
 	case 'add':
 		var _f = {};
