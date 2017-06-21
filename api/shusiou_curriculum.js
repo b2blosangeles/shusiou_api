@@ -131,7 +131,7 @@ switch(req.body.cmd) {
 					if ((results) && (results.S1)) {
 						cbk(results.S1.insertId);
 					} else {
-						cbk(false);
+						cbk(888);
 					}
 
 				}
