@@ -123,7 +123,8 @@ switch(req.body.cmd) {
 			'NOW()' +	
 			'); ';
 			connection.query(str, function (error, results, fields) {
-
+				cbk('results');
+				/*
 				if (error) {
 					cbk(false);
 				} else {
@@ -135,6 +136,7 @@ switch(req.body.cmd) {
 					}
 
 				}
+				*/
 			});  
 		};		
 		connection.connect();
