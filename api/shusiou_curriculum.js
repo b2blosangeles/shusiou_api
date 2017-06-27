@@ -11,13 +11,13 @@ switch(req.body.cmd) {
 				cbk({}); return true;
 			}
 			var str = 'SELECT A.*, B.`script` FROM  `curriculums` A LEFT JOIN `curriculum_sections` B ON A.id = B.cid WHERE A.id = "' + req.body.cid + '"; ';
-			//cbk(str);
-			//return true;
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(error.message);
 					return true;
 				} else {
+					results[0].o = results[0].script;
+					delete esults[0].script;
 					cbk(results[0]);
 				}
 			});  
