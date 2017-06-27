@@ -17,7 +17,7 @@ switch(req.body.cmd) {
 					return true;
 				} else {
 					results[0].o = results[0].script;
-					delete results[0].script;
+					//delete results[0].script;
 					cbk(results[0]);
 				}
 			});  
