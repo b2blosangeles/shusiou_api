@@ -100,6 +100,50 @@ switch(req.body.cmd) {
 				}
 			});  
 		};
+		_f['S2'] = function(cbk) {
+			var str = 'DELETE FROM  `curriculum_sections` ' +
+			'WHERE `cid` ="' + req.body.id + '"; ';
+
+			connection.query(str, function (error, results, fields) {
+
+				if (error) {
+					cbk(error.message);
+					return true;
+				} else {
+					if (results[0]) {
+						cbk(results[0]);
+						CP.skip = true;
+					} else {
+						cbk(false);
+					}
+
+				}
+			});  
+		};
+		_f['S3'] = function(cbk) {
+			var str = 'INSERT INTO  `curriculum_sections` (`cid`,`type`,`script`,`created`) VALUES ("' +
+			'"' + req.body.id + '",' +
+			'"niu",' +
+			'"' + JSON.stringify(req.body.sections) + '",' +
+			'NOW()' +	
+			'); ';
+
+			connection.query(str, function (error, results, fields) {
+
+				if (error) {
+					cbk(error.message);
+					return true;
+				} else {
+					if (results[0]) {
+						cbk(results[0]);
+						CP.skip = true;
+					} else {
+						cbk(false);
+					}
+
+				}
+			});  
+		};		
 		connection.connect();
 		CP.serial(
 			_f,
