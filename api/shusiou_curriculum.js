@@ -120,13 +120,12 @@ switch(req.body.cmd) {
 		};
 		_f['S3'] = function(cbk) {
 			var str = 'INSERT INTO  `curriculum_sections` (`cid`,`type`,`script`,`created`) VALUES ("' +
-			'"' + req.body.id + '",' +
+			req.body.id + '",' +
 			'"niu",' +
 			"'"+ JSON.stringify(req.body.sections) + "'," +
 			'NOW()' +	
 			'); ';
-			cbk(str);
-			return true;
+
 			connection.query(str, function (error, results, fields) {
 
 				if (error) {
