@@ -122,7 +122,7 @@ switch(req.body.cmd) {
 			var str = 'INSERT INTO  `curriculum_sections` (`cid`,`type`,`script`,`created`) VALUES ("' +
 			'"' + req.body.id + '",' +
 			'"niu",' +
-			'"' + JSON.stringify(req.body.sections) + '",' +
+			"'"+ JSON.stringify(req.body.sections) + "'," +
 			'NOW()' +	
 			'); ';
 
