@@ -11,6 +11,8 @@ switch(req.body.cmd) {
 				cbk({}); return true;
 			}
 			var str = 'SELECT A.*, B.`script` FROM  `curriculums` AS A LEFT JOIN `curriculum_sections`  AS B ON A.id = B.cid WHERE A.id = "' + req.body.cid + '"; ';
+			cbk(str);
+			return true;
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(error.message);
