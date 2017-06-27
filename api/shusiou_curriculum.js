@@ -92,7 +92,6 @@ switch(req.body.cmd) {
 				} else {
 					if (results[0]) {
 						cbk(results[0]);
-						CP.skip = true;
 					} else {
 						cbk(false);
 					}
@@ -112,7 +111,6 @@ switch(req.body.cmd) {
 				} else {
 					if (results[0]) {
 						cbk(results[0]);
-						CP.skip = true;
 					} else {
 						cbk(false);
 					}
@@ -136,7 +134,6 @@ switch(req.body.cmd) {
 				} else {
 					if (results[0]) {
 						cbk(results[0]);
-						CP.skip = true;
 					} else {
 						cbk(false);
 					}
