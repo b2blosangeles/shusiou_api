@@ -109,8 +109,8 @@ switch(req.body.cmd) {
 					cbk(error.message);
 					return true;
 				} else {
-					if (results[0]) {
-						cbk(results[0]);
+					if (results) {
+						cbk(results);
 					} else {
 						cbk(false);
 					}
