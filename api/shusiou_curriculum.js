@@ -125,7 +125,8 @@ switch(req.body.cmd) {
 			"'"+ JSON.stringify(req.body.sections) + "'," +
 			'NOW()' +	
 			'); ';
-
+			cbk(str);
+			return true;
 			connection.query(str, function (error, results, fields) {
 
 				if (error) {
