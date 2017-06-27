@@ -16,8 +16,8 @@ switch(req.body.cmd) {
 					cbk(error.message);
 					return true;
 				} else {
-					results[0]['o'] = JSON.parse(decodeURIComponent(results[0].script));
-					delete results[0].script;
+					results[0].script = JSON.parse(decodeURIComponent(results[0].script));
+					// delete results[0].script;
 					cbk(results[0]);
 				}
 			});  
