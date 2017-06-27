@@ -10,7 +10,7 @@ switch(req.body.cmd) {
 			if (!req.body.cid) {
 				cbk({}); return true;
 			}
-			var str = 'SELECT * FROM  `curriculums` WHERE id = "' + req.body.cid + '"; ';
+			var str = 'SELECT *.A, `script`.B FROM  `curriculums` AS A LEFT JOIN `curriculum_sections`  AS B ON A.id = B.CID WHERE A.id = "' + req.body.cid + '"; ';
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(error.message);
