@@ -19,8 +19,9 @@ switch(req.body.cmd) {
 					try {
 					    results[0].script = JSON.parse(decodeURIComponent(results[0].script));
 					} catch(err) { 
-						results[0].script = [];
+						results[0].script = null;
 					}
+					if (!results[0].script) results[0].script = [];
 					cbk(results[0]);
 				}
 			});  
