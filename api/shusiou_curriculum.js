@@ -20,9 +20,8 @@ switch(req.body.cmd) {
 						var v = JSON.parse(decodeURIComponent(results[0].script));
 						for (var i = 0; i < v.length; i++) {
 							if (v[i].track) {
-								for (j = 0; j < v[i].track.length; j++) {
-									v[i].track[j].g = 8899;
- 								}
+
+								v[i].track.g = 8899;
 							}
 						}
 						results[0].script = v;
