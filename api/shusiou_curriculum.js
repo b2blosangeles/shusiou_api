@@ -22,7 +22,7 @@ switch(req.body.cmd) {
 							v.track['s'] = "parseFloat(v.track[i]['s'])";
 							v.track['t'] = parseFloat(v.track['t']);
 						}
-					    results[0].script = v;
+						results[0].script = v;
 					} catch(err) { 
 						results[0].script = null;
 					}
