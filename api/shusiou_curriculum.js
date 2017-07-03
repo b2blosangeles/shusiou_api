@@ -18,7 +18,8 @@ switch(req.body.cmd) {
 				} else {
 					try {
 						var v = JSON.parse(decodeURIComponent(results[0].script));
-						results[0].script = 'v';
+						v.tt = '123';
+						results[0].script = v;
 					} catch(err) { 
 						results[0].script = null;
 					}
