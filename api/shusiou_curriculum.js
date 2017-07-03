@@ -18,7 +18,9 @@ switch(req.body.cmd) {
 				} else {
 					try {
 						var v = JSON.parse(decodeURIComponent(results[0].script));
-						v.tt = '123';
+						for (var i = 0; i < v.length; i++) {
+							v[i]['tt'] = 1234;
+						}
 						results[0].script = v;
 					} catch(err) { 
 						results[0].script = null;
