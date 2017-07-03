@@ -20,7 +20,7 @@ switch(req.body.cmd) {
 						var v = JSON.parse(decodeURIComponent(results[0].script));
 						if (v.track) {
 							for (var i = 0; i < v.track.length; i++) {
-								v.track[i]['s'] = parseFloat(v.track[i]['s']);
+								v.track[i]['s'] = "parseFloat(v.track[i]['s'])";
 								v.track[i]['t'] = parseFloat(v.track[i]['t']);
 							}
 						}
