@@ -18,9 +18,9 @@ switch(req.body.cmd) {
 				} else {
 					try {
 						var v = JSON.parse(decodeURIComponent(results[0].script));
-						if (v.track) {
-							v.track['s'] = "parseFloat(v.track[i]['s'])";
-							v.track['t'] = parseFloat(v.track['t']);
+						if (v) {
+							v['s'] = "parseFloat(v['s'])";
+							v['t'] = parseFloat(v['t']);
 						}
 						results[0].script = v;
 					} catch(err) { 
