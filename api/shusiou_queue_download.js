@@ -40,7 +40,7 @@ _f['P0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT * FROM  `video_queue` WHERE `source` = "youtube" AND `status` = 0 AND NOW() - `created` > 180; ';
+	var str = 'SELECT * FROM  `video_queue` WHERE `source` = "youtube" AND `status` = 0 AND NOW() - `created` > 60; ';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
