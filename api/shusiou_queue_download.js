@@ -40,7 +40,7 @@ _f['P0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT * FROM  `video_queue` WHERE `source` = "youtube" AND `status` = 0 AND NOW() - `created` > 60; ';
+	var str = 'SELECT * FROM  `video_queue` WHERE `source` = "youtube" AND `status` = 0 AND NOW() - `created` > 180 ORDER BY `created` ASC LIMIT 10; ';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
@@ -59,38 +59,61 @@ _f['P0'] = function(cbk) {
 
 _f['P1'] = function(cbk) {
 	if (CP.data.P0) {
-		cbk(CP.data.P0[0]);	
+		var cfg0 = require(env.space_path + '/api/cfg/db.json');
+		var connection = mysql.createConnection(cfg0);
+		connection.connect();
+
+		var str = 'DELETE FROM  `video_queue` WHERE `id` = "' + CP.data.P0.id + '"; ';
+
+		connection.query(str, function (error, results, fields) {
+			connection.end();
+			if (error) {
+				cbk(error.message);
+				return true;
+			} else {
+				if (results.length) {
+					cbk(results[0]);
+				} else {
+					cbk(false);
+				}
+
+			}
+		});	
+	} else {
+		cbk(CP.data.P0);
+	} 
+};
+_f['P2'] = function(cbk) {
+	if (CP.data.P0) {
+		var cfg0 = require(env.space_path + '/api/cfg/db.json');
+		var connection = mysql.createConnection(cfg0);
+		connection.connect();
+
+		var str = 'UPDATE  `video_queue` SET `created` = NOW() - 180; ';
+
+		connection.query(str, function (error, results, fields) {
+			connection.end();
+			if (error) {
+				cbk(error.message);
+				CP.exit = 1; 
+				return true;
+			} else {
+				if (results.length) {
+					cbk(results[0]);
+					CP.exit = 1; 
+				} else {
+					cbk(false);
+					CP.exit = 1; 
+				}
+
+			}
+		});	
 	} else {
 		cbk(CP.data.P0);
 	}
 	
-	CP.exit = 1;  
+	 
 };
-
-
-_f['P2'] = function(cbk) {
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
-	var connection = mysql.createConnection(cfg0);
-	connection.connect();
-
-	var str = 'DELETE FROM  `video_queue` WHERE `source` = "youtube" AND `status` = 0 AND NOW() - `created` > 180; ';
-
-	connection.query(str, function (error, results, fields) {
-		connection.end();
-		if (error) {
-			cbk(error.message);
-			return true;
-		} else {
-			if (results.length) {
-				cbk(results[0]);
-			} else {
-				cbk(false);
-			}
-
-		}
-	});  
-};
-
 _f['Q1'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
