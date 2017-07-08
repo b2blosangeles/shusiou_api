@@ -61,7 +61,7 @@ _f['P2'] = function(cbk) {
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 
-		var str = 'UPDATE  `video_queue` SET `created` = `created` - 180; ';
+		var str = 'UPDATE  `video_queue` SET `created` = `created` + 180; ';
 
 		connection.query(str, function (error, results, fields) {
 			connection.end();
