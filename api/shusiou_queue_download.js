@@ -59,7 +59,7 @@ _f['P0'] = function(cbk) {
 
 _f['P1'] = function(cbk) {
 	cbk(CP.data.P0);
-	CP.skip = 1;  
+	CP.exit = 1;  
 };
 
 
