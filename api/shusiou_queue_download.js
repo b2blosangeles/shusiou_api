@@ -7,6 +7,8 @@ var step = 30000000;
 var CP = new pkg.crowdProcess();
 var _f = {};
 
+
+/*
 var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
@@ -29,10 +31,36 @@ var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	});  
 
 
+*/
 
 
+// return true;
+_f['P0'] = function(cbk) {
+	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var connection = mysql.createConnection(cfg0);
+	connection.connect();
 
-return true;
+	var str = 'SELECT * FROM  `video_queue` WHERE `source` = "youtube" AND `status` = 0 AND NOW() - `created` > 180; ';
+
+	connection.query(str, function (error, results, fields) {
+		connection.end();
+		if (error) {
+			cbk(error.message);
+			CP.skip = 1;
+			return true;
+		} else {
+			if (results.length) {
+				cbk(results);
+				CP.skip = 1;
+			} else {
+				cbk(false);
+				CP.skip = 1;
+			}
+
+		}
+	});  
+};
+
 
 _f['P1'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
