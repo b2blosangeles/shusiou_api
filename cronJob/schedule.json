@@ -1,6 +1,6 @@
 {
   "10":[
-    {"protocol":"http", "api":"shusiou_queue_download.js"}
+    {"protocol":"http", "api":"api/shusiou_queue_download.js"}
   ],
   "30":[],  
   "60":[],
