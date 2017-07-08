@@ -20,7 +20,7 @@ var cfg0 = require(env.space_path + '/api/cfg/db.json');
 			return true;
 		} else {
 			if (results.length) {
-				res.send(results[0]);
+				res.send(results);
 			//	CP.skip = true;
 			} else {
 				res.send(false);
