@@ -48,7 +48,7 @@ _f['P0'] = function(cbk) {
 			cbk(false);
 		} else {
 			if (results.length) {
-				cbk(results);
+				cbk(results[0]);
 			} else {
 				cbk(false);
 			}
@@ -58,7 +58,12 @@ _f['P0'] = function(cbk) {
 };
 
 _f['P1'] = function(cbk) {
-	cbk(CP.data.P0);
+	if (CP.data.P0) {
+		cbk(CP.data.P0[0]);	
+	} else {
+		cbk(CP.data.P0);
+	}
+	
 	CP.exit = 1;  
 };
 
