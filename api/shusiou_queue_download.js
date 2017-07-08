@@ -34,7 +34,7 @@ var cfg0 = require(env.space_path + '/api/cfg/db.json');
 
 return true;
 
-_f['P0'] = function(cbk) {
+_f['P1'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
