@@ -6,6 +6,10 @@ var step = 30000000;
 
 var CP = new pkg.crowdProcess();
 var _f = {};
+
+res.send('niu');
+return true;
+
 _f['Q1'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
