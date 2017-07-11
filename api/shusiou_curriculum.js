@@ -66,7 +66,7 @@ switch(req.body.cmd) {
 			var connection = mysql.createConnection(cfg0);
 
 
-			var str = 'SELECT A.*, B.code FROM  `videos` B JOIN `curriculums` A  ON A.vid = B.id AND A.uid = 1;';
+			var str = 'SELECT A.*, B.code FROM  `videos` B JOIN `curriculums` A  ON A.vid = B.id AND A.uid = "' + req.body.auth.uid + '";';
 
 			connection.query(str, function (error, results, fields) {
 
