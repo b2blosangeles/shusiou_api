@@ -171,7 +171,7 @@ switch(req.body.cmd) {
 			var str = 'INSERT INTO  curriculums (`uid`,`vid`,`name`,`mother_lang`,`learning_lang`,`level`,`created`) '+
 			' VALUES (' +
 			'"' + req.body.uid + '",' +
-			'"' + req.body.vid + '",' +
+			'"' + req.body.auth.vid + '",' +
 			'"' + req.body.name + '",' +
 			'"' + req.body.mother_lang  + '",' +
 			'"' + req.body.learning_lang  + '",' +
