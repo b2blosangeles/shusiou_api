@@ -66,7 +66,7 @@ switch(req.body.cmd) {
 			var connection = mysql.createConnection(cfg0);
 
 
-			var str = 'SELECT A.*, B.code FROM  `curriculums` A LEFT JOIN `videos` B ON A.vid = B.id AND A.uid = 7 ;';
+			var str = 'SELECT A.*, B.code FROM  `curriculums` A LEFT JOIN `videos` B ON A.vid = B.id AND A.uid = 1 ;';
 
 			connection.query(str, function (error, results, fields) {
 
