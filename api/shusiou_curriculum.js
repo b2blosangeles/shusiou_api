@@ -185,7 +185,7 @@ switch(req.body.cmd) {
 					return true;
 				} else {
 					if (results) {
-						cbk(str);
+						cbk(results);
 					} else {
 						cbk(false);
 					}
