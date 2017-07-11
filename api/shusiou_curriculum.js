@@ -207,7 +207,7 @@ switch(req.body.cmd) {
 		var _f = {};
 
 		_f['S1'] = function(cbk) {
-			var str = 'DELETE FROM  curriculums WHERE `id` ="' + req.body.cid + '" AND `uid` = "' + req.body.uid + '"; ';
+			var str = 'DELETE FROM  curriculums WHERE `id` ="' + req.body.cid + '" AND `uid` = "' + req.body.auth.uid + '"; ';
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(error.message);
