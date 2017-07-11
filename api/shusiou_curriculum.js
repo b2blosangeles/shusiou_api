@@ -170,8 +170,8 @@ switch(req.body.cmd) {
 		_f['S1'] = function(cbk) {
 			var str = 'INSERT INTO  curriculums (`uid`,`vid`,`name`,`mother_lang`,`learning_lang`,`level`,`created`) '+
 			' VALUES (' +
-			'"' + req.body.uid + '",' +
 			'"' + req.body.auth.uid + '",' +
+			'"' + req.body.vid + '",' +
 			'"' + req.body.name + '",' +
 			'"' + req.body.mother_lang  + '",' +
 			'"' + req.body.learning_lang  + '",' +
@@ -185,7 +185,7 @@ switch(req.body.cmd) {
 					return true;
 				} else {
 					if (results) {
-						cbk(results);
+						cbk(str);
 					} else {
 						cbk(false);
 					}
@@ -198,7 +198,7 @@ switch(req.body.cmd) {
 			_f,
 			function(data) {
 				connection.end();
-				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S1.insertId});
+				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S1});
 			},
 			30000
 		);
