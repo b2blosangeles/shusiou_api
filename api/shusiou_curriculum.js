@@ -94,7 +94,7 @@ switch(req.body.cmd) {
 		_f['S1'] = function(cbk) {
 			var str = 'UPDATE  `curriculums` SET ' +
 			'`name` = "' + req.body.name + '",' +
-			'`published` = "' + req.body.published + '",' +    
+			'`published` = "' + ((req.body.published)?req.body.published:'') + '",' +    
 			'`created` = NOW() ' +
 			'WHERE `id` ="' + req.body.id + '"; ';
 
