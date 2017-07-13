@@ -15,7 +15,7 @@ var _f = {};
 
 for (var i = 0; i < v.length; i++) {
    _f[i] = function(cbk) {
-        cbk(c[i]);   
+        cbk(v[i]);   
    };
 }
 
