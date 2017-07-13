@@ -1,5 +1,5 @@
 var v = req.body.ip;
-
+/*
 function isIp(ip) {
     var arrIp = ip.split(".");
     if (arrIp.length !== 4) return "Invalid IP";
@@ -9,7 +9,7 @@ function isIp(ip) {
     }
     return true;
 }
-
+*/
 var CP = new pkg.crowdProcess();
 var _f = {};
 
