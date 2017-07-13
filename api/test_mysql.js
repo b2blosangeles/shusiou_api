@@ -1,5 +1,5 @@
 var v = req.body.ip;
-/*
+
 function isIp(ip) {
     var arrIp = ip.split(".");
     if (arrIp.length !== 4) return "Invalid IP";
@@ -9,7 +9,27 @@ function isIp(ip) {
     }
     return true;
 }
-*/
+
+var CP = new pkg.crowdProcess();
+var _f = {};
+
+for (var i = 0; i < v.length; i++) {
+   _f[i] = function(cbk) {
+        cbk(c[i]);   
+   };
+}
+
+
+CP.serial(
+	_f,
+	function(data) {
+		res.send({_spent_time:data._spent_time, status:data.status, data:data});
+	},
+	30000
+);
+
+
+/*
 pkg.request({
         url: 'http://'+v[0]+'/checkip/',
         headers: {
@@ -25,3 +45,4 @@ pkg.request({
         res.send(a);
    });
 
+*/
