@@ -1,3 +1,4 @@
+var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 var v = req.body.ip;
 /*
 function isIp(ip) {
@@ -28,8 +29,24 @@ for (var i = 0; i < v.length; i++) {
 				    a = JSON.parse(body);
 				} catch(err)  {
 				}
-				if (a.indexOf(v[i]) !== -1) cbk(true);
-				else cbk(false);
+				if (a.indexOf(v[i]) !== -1) {
+					var cfg0 = require(env.space_path + '/api/cfg/db.json');
+					var connection = mysql.createConnection(cfg0);
+					connection.connect();
+					var str = 'INSERT INTO cloud_node (`node_ip`, `created`, `cupdated`) ' +
+						'values ("' +v[i] + '", NOW(), NOW());';
+
+					connection.query(str, function (error, results, fields) {
+						connection.end();
+						if (error) {
+							cbk(false);
+							return true;
+						} else {
+							cbk(true);
+						}
+					});					
+					
+				} else cbk(false);
 			   });
 		}	
 	})(i);
