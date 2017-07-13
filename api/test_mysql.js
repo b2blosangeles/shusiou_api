@@ -1,1 +1,1 @@
-res.send(req.body)
+res.send(req.body.ip)
