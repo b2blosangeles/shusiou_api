@@ -13,7 +13,7 @@ function isIp(ip) {
 pkg.request({
     url: 'http://'+v[0]+'/checkip/',
     headers: {
-    "content-type": "application/json",
+        "content-type": "application/json"
     },    
     method: "GET"
     }, function (error, resp, body) { 
