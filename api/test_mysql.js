@@ -23,7 +23,7 @@ for (var i = 0; i < v.length; i++) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send({_spent_time:data._spent_time, status:data.status, data:data});
+		res.send(data);
 	},
 	30000
 );
