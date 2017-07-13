@@ -14,8 +14,7 @@ pkg.request({
         url: 'http://'+v[0]+'/checkip/',
         headers: {
             "content-type": "application/json"
-        },    
-        method: "POST"
+        }
     }, function (error, resp, body) { 
         var a = [];
         try {
