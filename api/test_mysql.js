@@ -17,6 +17,6 @@ pkg.request({
         },    
         method: "POST"
     }, function (error, resp, body) { 
-        res.send(body);
+        res.send(typeof body);
    });
 
