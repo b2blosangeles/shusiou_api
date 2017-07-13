@@ -42,7 +42,7 @@ for (var i = 0; i < v.length; i++) {
 							cbk(false);
 							return true;
 						} else {
-							cbk(true);
+							cbk(str);
 						}
 					});					
 					
