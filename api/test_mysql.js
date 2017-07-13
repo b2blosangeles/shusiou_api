@@ -15,7 +15,7 @@ pkg.request({
     headers: {
         "content-type": "application/json"
     },    
-    method: "GET"
+    method: "POST"
     }, function (error, resp, body) { 
       res.send(typeof body);
    });
