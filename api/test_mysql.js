@@ -1,1 +1,2 @@
-res.send(req.body.ip)
+var v = req.body.ip;
+res.send(v[0]);
