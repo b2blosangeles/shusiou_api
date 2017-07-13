@@ -10,7 +10,7 @@ function isIp(ip) {
     return true;
 }
 */
-res.send(v[0]);
+res.send(v.length+'--');
 
 return true;
 
