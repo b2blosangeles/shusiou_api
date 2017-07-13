@@ -1,5 +1,5 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
-var v = req.body.ip;
+var v = req.body.ip, sts = JSON.stringify(req.body.status);
 /*
 function isIp(ip) {
     var arrIp = ip.split(".");
@@ -33,8 +33,9 @@ for (var i = 0; i < v.length; i++) {
 					var cfg0 = require(env.space_path + '/api/cfg/db.json');
 					var connection = mysql.createConnection(cfg0);
 					connection.connect();
-					var str = 'INSERT INTO cloud_node (`node_ip`, `created`, `updated`) ' +
-						'values ("' +v[i] + '", NOW(), NOW()) ON DUPLICATE KEY UPDATE `updated` = NOW() ';
+					var str = 'INSERT INTO cloud_node (`node_ip`, `created`, `updated`, `status`) ' +
+						'values ("' +v[i] + '", NOW(), NOW(), "' +  encodeURIComponent(sts) + '") ON DUPLICATE KEY '+
+					    	'UPDATE `updated` = NOW(), status = "' +  encodeURIComponent(sts) + '" ';
 
 					connection.query(str, function (error, results, fields) {
 						connection.end();
