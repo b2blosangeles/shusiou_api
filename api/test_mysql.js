@@ -20,7 +20,9 @@ pkg.request({
         var a = [];
         try {
             a = JSON.parse(body);
-        } catch(err)  {}
-        res.send(a);
+        } catch(err)  {
+            res.send(err.message);
+        }
+        res.send(body);
    });
 
