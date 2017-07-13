@@ -21,7 +21,7 @@ pkg.request({
         try {
             a = JSON.parse(body);
         } catch(err)  {
-            res.send(err.message);
+            res.send(err.message + '---' + body);
         }
         res.send(body);
    });
