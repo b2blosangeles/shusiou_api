@@ -11,11 +11,11 @@ function isIp(ip) {
 }
 */
 pkg.request({
-    url: 'http://'+v[0]+'/checkip/',
-    headers: {
-        "content-type": "application/json"
-    },    
-    method: "POST"
+        url: 'http://'+v[0]+'/checkip/',
+        headers: {
+            "content-type": "application/json"
+        },    
+        method: "POST"
     }, function (error, resp, body) { 
       res.send(typeof body);
    });
