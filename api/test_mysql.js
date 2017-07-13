@@ -15,7 +15,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 for (var i = 0; i < v.length; i++) {
-   _f[i] = function(cbk) {
+   _f['p_'+i] = function(cbk) {
         cbk(v[i]);   
    };
 }
