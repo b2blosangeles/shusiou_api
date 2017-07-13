@@ -15,7 +15,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 for (var i = 0; i < v.length; i++) {
-   _f['p_'+i] = (function(i) {
+   _f[i] = (function(i) {
 	   		return function(cbk) {
        	 			cbk(v[i]);
 			}	
@@ -23,7 +23,7 @@ for (var i = 0; i < v.length; i++) {
 }
 
 
-CP.serial(
+CP.parallel(
 	_f,
 	function(data) {
 		res.send(data);
