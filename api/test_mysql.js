@@ -33,7 +33,7 @@ for (var i = 0; i < v.length; i++) {
 					var cfg0 = require(env.space_path + '/api/cfg/db.json');
 					var connection = mysql.createConnection(cfg0);
 					connection.connect();
-					var str = 'INSERT INTO cloud_node (`node_ip`, `created`, `cupdated`) ' +
+					var str = 'INSERT INTO cloud_node (`node_ip`, `created`, `updated`) ' +
 						'values ("' +v[i] + '", NOW(), NOW());';
 
 					connection.query(str, function (error, results, fields) {
