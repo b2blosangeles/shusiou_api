@@ -16,7 +16,7 @@ var _f = {};
 
 for (var i = 0; i < v.length; i++) {
    _f['p'+i] = function(cbk) {
-        cbk(v[i]);   
+        cbk(i);   
    };
 }
 
