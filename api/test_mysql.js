@@ -16,7 +16,7 @@ var _f = {};
 
 for (var i = 0; i < v.length; i++) {
    _f[i] = function(cbk) {
-        cbk(i);   
+        cbk(v[i]);   
    };
 }
 
@@ -24,7 +24,7 @@ for (var i = 0; i < v.length; i++) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send(v);
+		res.send(data);
 	},
 	30000
 );
