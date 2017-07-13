@@ -17,6 +17,10 @@ pkg.request({
         },    
         method: "POST"
     }, function (error, resp, body) { 
-        res.send(typeof body);
+        var a = [];
+        try {
+            a = JSON.parse(body);
+        } catch(err)  {}
+        res.send(a);
    });
 
