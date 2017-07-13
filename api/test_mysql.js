@@ -15,7 +15,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 for (var i = 0; i < v.length; i++) {
-   _f[i] = (function(i) {
+	_f[i] = (function(i) {
 		return function(cbk) {
 			pkg.request({
 				url: 'http://'+v[i]+'/checkip/',
@@ -28,7 +28,8 @@ for (var i = 0; i < v.length; i++) {
 				    a = JSON.parse(body);
 				} catch(err)  {
 				}
-				cbk(a);
+				if (a.indexOf(v[i]) !== -1) cbk(true);
+				else cbk(false);
 			   });
 		}	
 	})(i);
