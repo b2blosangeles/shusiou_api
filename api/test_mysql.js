@@ -10,7 +10,6 @@ function isIp(ip) {
     return true;
 }
 */
-return true;
 
 var CP = new pkg.crowdProcess();
 var _f = {};
