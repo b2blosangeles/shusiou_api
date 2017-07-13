@@ -22,6 +22,6 @@ pkg.request({
         } catch(err)  {
             res.send(err.message + '---' + body);
         }
-        res.send(typeof body);
+        res.send(a);
    });
 
