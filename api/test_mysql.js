@@ -10,15 +10,13 @@ function isIp(ip) {
     return true;
 }
 */
-res.send(v.length+'--');
-
 return true;
 
 var CP = new pkg.crowdProcess();
 var _f = {};
 
 for (var i = 0; i < v.length; i++) {
-   _f[i] = function(cbk) {
+   _f['p'+i] = function(cbk) {
         cbk(v[i]);   
    };
 }
