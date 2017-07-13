@@ -34,7 +34,7 @@ for (var i = 0; i < v.length; i++) {
 					var connection = mysql.createConnection(cfg0);
 					connection.connect();
 					var str = 'INSERT INTO cloud_node (`node_ip`, `created`, `updated`) ' +
-						'values ("' +v[i] + '", NOW(), NOW());';
+						'values ("' +v[i] + '", NOW(), NOW()) ON DUPLICATE KEY UPDATE `updated` = NOW() ';
 
 					connection.query(str, function (error, results, fields) {
 						connection.end();
