@@ -15,7 +15,7 @@ var CP = new pkg.crowdProcess();
 var _f = {};
 
 for (var i = 0; i < v.length; i++) {
-   _f['p'+i] = function(cbk) {
+   _f[i] = function(cbk) {
         cbk(i);   
    };
 }
@@ -24,7 +24,7 @@ for (var i = 0; i < v.length; i++) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data);
+		res.send(v);
 	},
 	30000
 );
