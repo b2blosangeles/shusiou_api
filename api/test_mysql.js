@@ -39,7 +39,7 @@ for (var i = 0; i < v.length; i++) {
 					connection.query(str, function (error, results, fields) {
 						connection.end();
 						if (error) {
-							cbk(str);
+							cbk(error.message);
 							return true;
 						} else {
 							cbk(str);
