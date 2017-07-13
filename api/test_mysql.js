@@ -17,7 +17,20 @@ var _f = {};
 for (var i = 0; i < v.length; i++) {
    _f[i] = (function(i) {
 	   		return function(cbk) {
-       	 			cbk(v[i]);
+				pkg.request({
+					url: 'http://'+v[i]+'/checkip/',
+					headers: {
+					    "content-type": "application/json"
+					}
+				    }, function (error, resp, body) { 
+					var a = [];
+					try {
+					    a = JSON.parse(body);
+					} catch(err)  {
+					    cbk(err.message + '---' + body);
+					}
+					cbk(a);
+				   });
 			}	
    		})(i);
 }
