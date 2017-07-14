@@ -34,11 +34,11 @@ for (var i = 0; i < v.length; i++) {
 					var connection = mysql.createConnection(cfg0);
 					connection.connect();
 					var str = 'INSERT INTO cloud_node (`node_ip`, `created`, `updated`, `total_space`, `free_space`) ' +
-						'values ("' +v[i] + '", NOW(), NOW(), "' +  Math.round(parseInt(v_space.total) * 0.001) + '", "' 
-						+  Math.round(parseInt(v_space.free) * 0.001) + '") '+
+						'values ("' +v[i] + '", NOW(), NOW(), "' +  Math.round(parseInt(v_space.total) * 0.000001) + '", "' 
+						+  Math.round(parseInt(v_space.free) * 0.000001) + '") '+
 					    	'ON DUPLICATE KEY UPDATE `updated` = NOW(), '+
-					    	'total_space = "' +  Math.round(parseInt(v_space.total) * 0.001) + '", ' +
-						'free_space = "' +  Math.round(parseInt(v_space.free) * 0.001) + '"; ';
+					    	'total_space = "' +  Math.round(parseInt(v_space.total) * 0.000001) + '", ' +
+						'free_space = "' +  Math.round(parseInt(v_space.free) * 0.000001) + '"; ';
 					    
 					connection.query(str, function (error, results, fields) {
 						connection.end();
