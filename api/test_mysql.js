@@ -1,5 +1,5 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
-var v = req.body.ip, space = req.body.space;
+var v = req.body.ip, v_space = req.body.space;
 /*
 function isIp(ip) {
     var arrIp = ip.split(".");
@@ -34,10 +34,11 @@ for (var i = 0; i < v.length; i++) {
 					var connection = mysql.createConnection(cfg0);
 					connection.connect();
 					var str = 'INSERT INTO cloud_node (`node_ip`, `created`, `updated`, `total_space`, `free_space`) ' +
-						'values ("' +v[i] + '", NOW(), NOW(), "' +  space.total + '", "' +  space.free + '") '+
+						'values ("' +v[i] + '", NOW(), NOW(), "' +  Math.round(parseInt(v_space.total) * 0.001) + '", "' 
+						+  Math.round(parseInt(v_space.free) * 0.001) + '") '+
 					    	'ON DUPLICATE KEY UPDATE `updated` = NOW(), '+
-					    	'totle_space = "' +  space.total + '", ' +
-						'free_space = "' +  space.free + '"; ';
+					    	'total_space = "' +  Math.round(parseInt(v_space.total) * 0.001) + '", ' +
+						'free_space = "' +  Math.round(parseInt(v_space.free) * 0.001) + '"; ';
 					    
 					connection.query(str, function (error, results, fields) {
 						connection.end();
