@@ -33,7 +33,7 @@ fs.stat(fn, function(err, data) {
 			    'Content-Length': chunksize, 'Content-Type': 'video/mp4' 
 			   }); 
 	*/	
-	    var file = fs.createReadStream(fn, {start: start, end: end});
+	    var file = fs.createReadStream(fn);
         file.pipe(res);
 	
 
