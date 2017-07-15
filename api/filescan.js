@@ -5,7 +5,7 @@ function uu(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
     var d = dir || '.';
  
-    var finder = require(env.root_path + '/api/inc/findit/node_modules/findit.js')(d);
+    var finder = require(env.root_path + '/api/inc/findit/findit.js')(d);
     var path = require('path');
 
     finder.on('directory', function (dir, stat, stop) {
