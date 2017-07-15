@@ -21,11 +21,11 @@ function scan(dir, cbk) {
        var filter_master = /\/video\/video\.mp4$/;
      
        if (filter_master.test(file)) {
-          master_video = {path:file, mtime:stat.mtime, size:stat.size};
+          master_video = {folder:dir, path:file, mtime:stat.mtime, size:stat.size};
        }     
        if (!filter.test(file)) {
-           var patt = new RegExp('^'+ dir, 'i');
-           _result[_result.length] = {path:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
+           var patt = new RegExp('^'+ dir);
+           _result[_result.length] = {path:file.replace(patt,'--'), mtime:stat.mtime, size:stat.size};
        }
     });
     finder.on('link', function (link, stat) { });
