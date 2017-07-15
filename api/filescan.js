@@ -1,6 +1,4 @@
-var total_size = 0;
-var _result = [];
-var master_video = {};
+var total_size = 0, _result = [], master_video = {}, mtime = '';
 
 function scan(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
@@ -16,12 +14,17 @@ function scan(dir, cbk) {
     finder.on('file', function (file, stat) {
        var filter = /(\/tmp\_section\/)/;
        var filter_master = /\/video\/video\.mp4$/;
-     
+        var patt = new RegExp('^'+ dir);
+      
        if (filter_master.test(file)) {
-          master_video = {folder:dir, path:file, mtime:stat.mtime, size:stat.size};
+          master_video = {folder:dir, master_video:file, mtime:stat.mtime, size:stat.size};
        }  else if (!filter.test(file)) {
            total_size += stat.size;
-           var patt = new RegExp('^'+ dir);
+           if (!mtime) mtime = stat.mtime;
+           if (new Date(stat.mtime) > new Date(mtime)) {
+               mtime = stat.mtime;
+               last_file = file.replace(patt,'');
+           }
            _result[_result.length] = {path:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
        }
     });
