@@ -14,16 +14,13 @@ function scan(dir, cbk) {
         total_size += stat.size;
     });
     finder.on('file', function (file, stat) {
-       var ff =  ' bytes on both *nix and Windows systems. bytes on both *nix and Windows systems. bytes on both *nix and Windows systems.';
-       total_size += stat.size;
-       
        var filter = /(\/tmp\_section\/)/;
        var filter_master = /\/video\/video\.mp4$/;
      
        if (filter_master.test(file)) {
           master_video = {folder:dir, path:file, mtime:stat.mtime, size:stat.size};
-       }     
-       if (!filter.test(file)) {
+       }  else if (!filter.test(file)) {
+           total_size += stat.size;
            var patt = new RegExp('^'+ dir);
            _result[_result.length] = {path:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
        }
