@@ -20,7 +20,7 @@ function uu(dir, cbk) {
       // var filter = /(\/\.git\/)/;
        if (!filter.test(file)) {
            var patt = new RegExp('^'+ dir, 'i');
-           _result[_result.length] = {path:file};
+           _result[_result.length] = {path:file, stat:stat};
        }
     });
 
@@ -38,7 +38,7 @@ function uu(dir, cbk) {
 }
 
 
-uu('/mnt/shusiou-video/youtube/', function() {
+uu('/mnt/shusiou-video/youtube//962SfJ00tYM/', function() {
 // uu(env.root_path + '', function() {
     var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB (' + total_size + ')';
     // res.send(str);
