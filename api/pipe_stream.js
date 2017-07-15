@@ -8,6 +8,7 @@ fs.stat(fn, function(err, data) {
     if (err) 
       res.send('it does not exist');
     else {
+	    /*
       var total = data.size;
       var range = req.headers.range;
     
@@ -31,6 +32,8 @@ fs.stat(fn, function(err, data) {
 			  'Accept-Ranges': 'bytes', 
 			    'Content-Length': chunksize, 'Content-Type': 'video/mp4' 
 			   }); 
+	*/	
+	    var file = fs.createReadStream(fn, {start: start, end: end});
         file.pipe(res);
 	
 
