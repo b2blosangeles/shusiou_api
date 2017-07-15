@@ -1,6 +1,7 @@
 var total_size = 0;
 var _result = [];
-
+var master_video = {};
+'/video/video.mp4'
 function scan(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
     var d = dir || '.';
@@ -17,7 +18,10 @@ function scan(dir, cbk) {
        var ff =  ' bytes on both *nix and Windows systems. bytes on both *nix and Windows systems. bytes on both *nix and Windows systems.';
        total_size += stat.size;
        var filter = /(\/\.git\/|\/node\_modules\/)/;
-      // var filter = /(\/\.git\/)/;
+       var filter_master = /\/video\/video\.mp4/;
+       if (!filter_master.test(file)) {
+          master_video = {path:file, mtime:stat.mtime, size:stat.size};
+       }     
        if (!filter.test(file)) {
            var patt = new RegExp('^'+ dir, 'i');
            _result[_result.length] = {path:file, mtime:stat.mtime, size:stat.size};
@@ -39,8 +43,6 @@ function scan(dir, cbk) {
 
 
 scan('/mnt/shusiou-video/youtube//962SfJ00tYM/', function() {
-// uu(env.root_path + '', function() {
-    var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB (' + total_size + ')';
-    // res.send(str);
-    res.send(_result);
+    master_video['totalsize'] = 'total size';
+    res.send({master:master_video, list:_result});
 });
