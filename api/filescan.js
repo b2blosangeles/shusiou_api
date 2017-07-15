@@ -13,7 +13,6 @@ function scan(dir, cbk) {
         var base = path.basename(dir);
         total_size += stat.size;
     });
-
     finder.on('file', function (file, stat) {
        var ff =  ' bytes on both *nix and Windows systems. bytes on both *nix and Windows systems. bytes on both *nix and Windows systems.';
        total_size += stat.size;
@@ -29,10 +28,7 @@ function scan(dir, cbk) {
            _result[_result.length] = {path:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
        }
     });
-
-    finder.on('link', function (link, stat) {
-     //  _result[_result.length] = {path:link};
-    });
+    finder.on('link', function (link, stat) { });
     
     finder.on('end', function (link, stat) {
         if (typeof cbk == 'function') {
