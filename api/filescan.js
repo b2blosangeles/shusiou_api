@@ -1,7 +1,7 @@
 var total_size = 0;
 var _result = [];
 
-function uu(dir, cbk) {
+function scan(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
     var d = dir || '.';
  
@@ -38,7 +38,7 @@ function uu(dir, cbk) {
 }
 
 
-uu('/mnt/shusiou-video/youtube//962SfJ00tYM/', function() {
+scan('/mnt/shusiou-video/youtube//962SfJ00tYM/', function() {
 // uu(env.root_path + '', function() {
     var str = 'total size:' + (total_size/1024/1024).toFixed(0) + ' MB (' + total_size + ')';
     // res.send(str);
