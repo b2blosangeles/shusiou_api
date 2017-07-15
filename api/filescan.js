@@ -20,7 +20,7 @@ function uu(dir, cbk) {
       // var filter = /(\/\.git\/)/;
        if (!filter.test(file)) {
            var patt = new RegExp('^'+ dir, 'i');
-           _result[_result.length] = {path:file, stat:stat};
+           _result[_result.length] = {path:file, mtime:stat.mtime, size:stat.size};
        }
     });
 
