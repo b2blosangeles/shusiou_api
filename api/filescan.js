@@ -1,4 +1,4 @@
-var total_size = 0, _result = [], master_video = {}, mtime = '';
+var total_size = 0, _result = [], master_video = {}, mtime = '', last_file = '';
 
 function scan(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
@@ -42,5 +42,5 @@ function scan(dir, cbk) {
 
 scan('/mnt/shusiou-video/youtube/962SfJ00tYM/', function() {
     master_video['totalsize'] = total_size;
-    res.send({master:master_video, list:_result});
+    res.send({master:master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
 });
