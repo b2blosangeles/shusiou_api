@@ -41,6 +41,6 @@ function scan(dir, cbk) {
 
 
 scan('/mnt/shusiou-video/youtube/962SfJ00tYM/', function() {
-    master_video['totalsize'] = 'total size';
+    master_video['totalsize'] = total_size;
     res.send({master:master_video, list:_result});
 });
