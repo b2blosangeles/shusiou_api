@@ -17,7 +17,7 @@ function scan(dir, cbk) {
        var ff =  ' bytes on both *nix and Windows systems. bytes on both *nix and Windows systems. bytes on both *nix and Windows systems.';
        total_size += stat.size;
        
-       var filter = /(\/\.git\/|\/node\_modules\/)/;
+       var filter = /(\/tmp\_section\/)/;
        var filter_master = /\/video\/video\.mp4$/;
      
        if (filter_master.test(file)) {
