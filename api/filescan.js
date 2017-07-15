@@ -19,9 +19,9 @@ function scan(dir, cbk) {
        total_size += stat.size;
        
        var filter = /(\/\.git\/|\/node\_modules\/)/;
-       var filter_master = /\/video\/video\.mp4/;
+       var filter_master = /\/video\/video\.mp4$/;
      
-       if (!filter_master.test(file)) {
+       if (filter_master.test(file)) {
           master_video = {path:file, mtime:stat.mtime, size:stat.size};
        }     
        if (!filter.test(file)) {
