@@ -25,7 +25,7 @@ function scan(dir, cbk) {
        }     
        if (!filter.test(file)) {
            var patt = new RegExp('^'+ dir);
-           _result[_result.length] = {path:file.replace(patt,'--'), mtime:stat.mtime, size:stat.size};
+           _result[_result.length] = {path:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
        }
     });
     finder.on('link', function (link, stat) { });
