@@ -1,7 +1,7 @@
 var total_size = 0;
 var _result = [];
 var master_video = {};
-'/video/video.mp4'
+
 function scan(dir, cbk) {
  //   var d = dir || process.argv[2] || '.';
     var d = dir || '.';
