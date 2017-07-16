@@ -16,20 +16,19 @@ _f['Q0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(results);
+			var data = [];
+			for (var i=0 i < results.length; i++) {
+				data[data.length] = results[i].code;
+			}
+			cbk(data);
 		}
 	});  
 };
 
-_f['Q1'] = function(cbk) {
-	cbk(true);
-};
-
-
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data);
+		res.send(data.results.Q0);
 	},
 	30000
 );
