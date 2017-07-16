@@ -37,7 +37,6 @@ CP.serial(
 		CP.serial(
 			_f1,
 			function(data1) {
-				var _f1 = {};
 				res.send(data1);
 			},
 			30000
