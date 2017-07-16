@@ -29,11 +29,11 @@ CP.serial(
 	_f,
 	function(data) {
 		var _f1 = {};
-		for (var j=0; j< data.results.Q0.length; j++) {
-			_f1[j] = function(cbk) {
-				cbk(j);
-				// cbk(data.results.Q0);
-			}
+		for (var i=0; i< data.results.Q0.length; i++) {
+			_f1[i] = (function(i) { 
+				return function(cbk) {
+					cbk(data.results.Q0);
+				}})(i);
 		}
 		CP.serial(
 			_f1,
