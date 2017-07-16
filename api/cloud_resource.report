@@ -31,7 +31,7 @@ CP.serial(
 		var _f1 = {};
 		for (var j=0; j< data.results.Q0.length; j++) {
 			_f1[j] = function(cbk) {
-				cbk(data.results.Q0[j]);
+				cbk(data.results.Q0);
 			}
 		}
 		CP.serial(
