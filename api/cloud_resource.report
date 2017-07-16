@@ -1,4 +1,4 @@
-var total_size = 0, _result = [], master_video = {}, mtime = '', last_file = '';
+var total_size = 0, _result = {}, master_video = {}, mtime = '', last_file = '';
 var video = (req.param('video'))?(req.param('video')+'/'):'';
 
 function scan(dir, cbk) {
@@ -25,7 +25,7 @@ function scan(dir, cbk) {
                mtime = stat.mtime;
                last_file = file.replace(patt,'');
            }
-           _result[_result.length] = {path:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
+           _result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
        }
     });
     finder.on('link', function (link, stat) { });
