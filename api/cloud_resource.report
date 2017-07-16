@@ -28,7 +28,7 @@ _f['Q0'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send(results.Q0);
+		res.send(data.results.Q0);
 		return false;
 		var _f1 = {};
 		for (var i=0; i< data.results.Q0.length; i++) {
