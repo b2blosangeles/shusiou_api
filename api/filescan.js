@@ -38,7 +38,7 @@ function scan(dir, cbk) {
 
 }
 // '/mnt/shusiou-video/youtube/962SfJ00tYM/'
-scan('/mnt/shusiou-video/youtube/', function() {
+scan('/mnt/shusiou-video/youtube/' + (req.param('video'))?(req.param('video')+'/'):'', function() {
     master_video['totalsize'] = total_size;
     res.send({master:master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
 });
