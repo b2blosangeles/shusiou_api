@@ -17,7 +17,7 @@ _f['Q0'] = function(cbk) {
 			return true;
 		} else {
 			var data = [];
-			for (var i=0 i < results.length; i++) {
+			for (var i = 0;i < results.length; i++) {
 				data[data.length] = results[i].code;
 			}
 			cbk(data);
@@ -28,7 +28,7 @@ _f['Q0'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data);
+		res.send(data.results);
 	},
 	30000
 );
