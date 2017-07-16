@@ -1,5 +1,5 @@
 var total_size = 0, _result = {}, master_video = {}, mtime = '', last_file = '';
-var video = (req.param('video'))?(req.param('video')+'/'):'';
+var code = (req.param('video'))?(req.param('video')+'/'):'';
 
 function scan(dir, cbk) {
     var d = dir || '.';
@@ -39,7 +39,7 @@ function scan(dir, cbk) {
 
 }
 // '/mnt/shusiou-video/youtube/962SfJ00tYM/'
-scan('/mnt/shusiou-video/youtube/' + video, function() {
+scan('/mnt/shusiou-video/youtube/' + code + '/', function() {
     master_video['totalsize'] = total_size;
     res.send({master:master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
 });
