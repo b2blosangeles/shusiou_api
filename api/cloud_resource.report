@@ -12,7 +12,7 @@ function scan(dir, cbk) {
         total_size += stat.size;
     });
     finder.on('file', function (file, stat) {
-       var filter = /(\/yyyytmp\_section\/)/;
+       var filter = /(\/tmp\_section\/)/;
        var filter_master = /\/video\/video\.mp4$/;
         var patt = new RegExp('^'+ dir);
       
