@@ -28,6 +28,8 @@ _f['Q0'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
+		res.send(data);
+		return true;
 		var _f1 = {};
 		for (var i=0; i< data.length; i++) {
 			_f1[i] = function(cbk) {
