@@ -1,7 +1,6 @@
 var total_size = 0, _result = [], master_video = {}, mtime = '', last_file = '';
 
 function scan(dir, cbk) {
- //   var d = dir || process.argv[2] || '.';
     var d = dir || '.';
  
     var finder = require(env.space_path + '/api/inc/findit/findit.js')(d);
@@ -17,7 +16,7 @@ function scan(dir, cbk) {
         var patt = new RegExp('^'+ dir);
       
        if (filter_master.test(file)) {
-          master_video = {folder:dir, master_video:file, mtime:stat.mtime, size:stat.size};
+          master_video = {folder:dir, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
        }  else if (!filter.test(file)) {
            total_size += stat.size;
            if (!mtime) mtime = stat.mtime;
@@ -38,9 +37,8 @@ function scan(dir, cbk) {
 
 
 }
-
-
-scan('/mnt/shusiou-video/youtube/962SfJ00tYM/', function() {
+// '/mnt/shusiou-video/youtube/962SfJ00tYM/'
+scan('/mnt/shusiou-video/youtube/', function() {
     master_video['totalsize'] = total_size;
     res.send({master:master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
 });
