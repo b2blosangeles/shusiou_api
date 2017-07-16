@@ -29,7 +29,7 @@ _f['Q1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data:data);
+		res.send(data);
 	},
 	30000
 );
