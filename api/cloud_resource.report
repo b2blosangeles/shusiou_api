@@ -31,9 +31,9 @@ CP.serial(
 		res.send(data);
 		return true;
 		var _f1 = {};
-		for (var i=0; i< data.length; i++) {
+		for (var i=0; i< data.results.Q0.length; i++) {
 			_f1[i] = function(cbk) {
-				cbk(data[i]+8);
+				cbk(data.results.Q0[i]+8);
 			}
 		}
 		CP.serial(
