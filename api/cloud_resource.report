@@ -39,9 +39,8 @@ CP.serial(
 
 						// cbk('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/');
 						var R = new REPORT();
-						R.scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function() {
-						    master_video['totalsize'] = R.total_size;
-						    cbk({master:master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
+						R.scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function(data) {
+						    cbk(data);
 						});
 					}	
 				})(i);	
@@ -64,6 +63,7 @@ CP.serial(
 var REPORT = function () {
 	var me = this;
 	this.total_size = 0;
+	this.master_video = {};
 		this.scan = function(dir, cbk) {
 		    var d = dir || '.'; 
 		    var finder = require(env.space_path + '/api/inc/findit/findit.js')(d);
@@ -78,7 +78,7 @@ var REPORT = function () {
 			var patt = new RegExp('^'+ dir);
 
 		       if (filter_master.test(file)) {
-			  master_video = {folder:dir, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
+			  me.master_video = {folder:dir, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
 		       }  else {
 			   me.total_size += stat.size;
 			   if (!mtime) mtime = stat.mtime;
@@ -92,8 +92,10 @@ var REPORT = function () {
 		    finder.on('link', function (link, stat) { });
 
 		    finder.on('end', function (link, stat) {
+			
 			if (typeof cbk == 'function') {
-			    cbk();
+				me.master_video['totalsize'] = me.total_size;
+				cbk({master:me.master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
 			}
 		    });
 
