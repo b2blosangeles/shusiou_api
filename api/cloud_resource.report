@@ -1,7 +1,7 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 
-var _result = {}, mtime = '', last_file = '';
-var code = (req.param('video'))?(req.param('video')+'/'):'';	
+var mtime = '', last_file = '';
+// var code = (req.param('video'))?(req.param('video')+'/'):'';	
 						
 var CP = new pkg.crowdProcess();
 var _f = {};
@@ -64,6 +64,8 @@ var REPORT = function () {
 	var me = this;
 	this.total_size = 0;
 	this.master_video = {};
+	this._result = {};
+	
 		this.scan = function(dir, cbk) {
 		    var d = dir || '.'; 
 		    var finder = require(env.space_path + '/api/inc/findit/findit.js')(d);
@@ -95,7 +97,7 @@ var REPORT = function () {
 			
 			if (typeof cbk == 'function') {
 				me.master_video['totalsize'] = me.total_size;
-				cbk({master:me.master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
+				cbk({master:me.master_video, laster_file:{file:last_file, mtime:mtime}, list:me._result});
 			}
 		    });
 
