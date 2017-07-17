@@ -40,7 +40,7 @@ CP.serial(
 						// cbk('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/');
 						var R = new REPORT();
 						R.scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function() {
-						 //   R.master_video['totalsize'] = R.total_size;
+						 //   master_video['totalsize'] = R.total_size;
 						    cbk({master:R.master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
 						});
 					}	
@@ -80,7 +80,7 @@ var REPORT = function () {
 		var patt = new RegExp('^'+ dir);
 
 	       if (filter_master.test(file)) {
-		  me.master_video = {folder:dir, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
+		  master_video = {folder:dir, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
 	       }  else {
 		   me.total_size += stat.size;
 		   if (!mtime) mtime = stat.mtime;
