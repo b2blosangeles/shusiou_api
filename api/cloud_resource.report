@@ -1,7 +1,6 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 
-var mtime = '', last_file = '';
-// var code = (req.param('video'))?(req.param('video')+'/'):'';	
+var mtime = '';
 						
 var CP = new pkg.crowdProcess();
 var _f = {};
@@ -65,6 +64,7 @@ var REPORT = function () {
 	this.total_size = 0;
 	this.master_video = {};
 	this._result = {};
+	this.last_file = '';
 	
 		this.scan = function(dir, cbk) {
 		    var d = dir || '.'; 
@@ -86,7 +86,7 @@ var REPORT = function () {
 			   if (!mtime) mtime = stat.mtime;
 			   if (new Date(stat.mtime) > new Date(mtime)) {
 			       mtime = stat.mtime;
-			       last_file = file.replace(patt,'');
+			       me.last_file = file.replace(patt,'');
 			   }
 			//   _result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
 		       }
