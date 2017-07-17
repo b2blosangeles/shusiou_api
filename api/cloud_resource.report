@@ -63,8 +63,8 @@ CP.serial(
 var REPORT = function () {
 	this.total_size = 0;
 	this._result = {}; 
-	this.master_video = {}, 
-	this.mtime = '', 
+	this.master_video = {}; 
+	this.mtime = ''; 
 	this.last_file = '';
 
 	this.scan = function(dir, cbk) {
