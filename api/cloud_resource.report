@@ -33,7 +33,7 @@ CP.serial(
 	_f,
 	function(data) {
 		var _f1 = {};
-		for (var i=0; i< 1; i++) {
+		for (var i=0; i< data.results.Q0.length; i++) {
 			_f1[i] = (function(i) { 
 					return function(cbk) {
 
