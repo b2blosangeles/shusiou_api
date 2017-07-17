@@ -97,7 +97,7 @@ var REPORT = function () {
 			
 			if (typeof cbk == 'function') {
 				me.master_video['totalsize'] = me.total_size;
-				cbk({master:me.master_video, laster_file:{file:last_file, mtime:mtime}, list:me._result});
+				cbk({master:me.master_video, laster_file:{file:me.last_file, mtime:mtime}, list:me._result});
 			}
 		    });
 
