@@ -68,28 +68,29 @@ var REPORT = function () {
 	this.last_file = '';
 
 	this.scan = function(dir, cbk) {
+		var me = this;
 	    var d = dir || '.'; 
 	    var finder = require(env.space_path + '/api/inc/findit/findit.js')(d);
 	    var path = require('path');
 
 	    finder.on('directory', function (dir, stat, stop) {
 		var base = path.basename(dir);
-		this.total_size += stat.size;
+		me.total_size += stat.size;
 	    });
 	    finder.on('file', function (file, stat) {
-	       var filter_master = /\/video\/video\.mp4$/;
+		var filter_master = /\/video\/video\.mp4$/;
 		var patt = new RegExp('^'+ dir);
 
 	       if (filter_master.test(file)) {
-		  this.master_video = {folder:dir, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
+		  me.master_video = {folder:dir, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
 	       }  else {
-		   this.total_size += stat.size;
-		   if (!this.mtime) this.mtime = stat.mtime;
+		   me.total_size += stat.size;
+		   if (!me.mtime) me.mtime = stat.mtime;
 		   if (new Date(stat.mtime) > new Date(mtime)) {
-		       this.mtime = stat.mtime;
-		       this.last_file = file.replace(patt,'');
+		       me.mtime = stat.mtime;
+		       me.last_file = file.replace(patt,'');
 		   }
-		   this._result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
+		   me._result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
 	       }
 	    });
 	    finder.on('link', function (link, stat) { });
