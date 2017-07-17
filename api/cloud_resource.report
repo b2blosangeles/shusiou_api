@@ -45,7 +45,7 @@ CP.serial(
 			_f1,
 			function(data1) {
 				var v = {};
-				for (o in data1.results) v[data1.results[o].master.code] = data1.results[o].list;
+				for (o in data1.results) v[data1.results[o].master.code] = data1.results[o];
 				res.send(v);
 			},
 			30000
