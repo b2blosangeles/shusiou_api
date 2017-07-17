@@ -1,6 +1,6 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 
-var _result = {}, master_video = {}, mtime = '', last_file = '';
+var _result = {}, mtime = '', last_file = '';
 var code = (req.param('video'))?(req.param('video')+'/'):'';	
 						
 var CP = new pkg.crowdProcess();
