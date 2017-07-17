@@ -33,12 +33,13 @@ CP.serial(
 			_f1[i] = (function(i) { 
 				return function(cbk) {
 
-				var total_size = 0, _result = {}, master_video = {}, mtime = '', last_file = '';
-				var code = (req.param('video'))?(req.param('video')+'/'):'';				
-				scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function() {
-				    master_video['totalsize'] = total_size;
-				    cbk({master:master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
-				});
+					var total_size = 0, _result = {}, master_video = {}, mtime = '', last_file = '';
+					var code = (req.param('video'))?(req.param('video')+'/'):'';				
+					scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function() {
+					    master_video['totalsize'] = total_size;
+					    cbk({master:master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
+					});
+				})(i);	
 		}
 		CP.serial(
 			_f1,
