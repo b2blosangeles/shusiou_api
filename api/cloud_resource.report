@@ -77,7 +77,7 @@ var FOLDER_SCAN = function () {
 		var patt = new RegExp('^'+ dir);
 
 	       if (filter_master.test(file)) {
-		  me.master_video = {folder:dir, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
+		  me.master_video = {folder:dir, code: code, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
 	       }  else {
 		   me.total_size += stat.size;
 		   if (!me.mtime) me.mtime = stat.mtime;
@@ -85,7 +85,7 @@ var FOLDER_SCAN = function () {
 		       me.mtime = stat.mtime;
 		       me.last_file = file.replace(patt,'');
 		   }
-		  me._result[file.replace(patt,'')] = {code: code, mtime:stat.mtime, size:stat.size};
+		  me._result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
 	       }
 	    });
 	    finder.on('link', function (link, stat) { });
