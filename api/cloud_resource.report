@@ -38,7 +38,9 @@ CP.serial(
 		CP.serial(
 			_f1,
 			function(data1) {
-				res.send(data1.results);
+				var v = [];
+				for (o in data1.results) v[v.length] = data1.results[o];
+				res.send(v);
 			},
 			30000
 		);		
