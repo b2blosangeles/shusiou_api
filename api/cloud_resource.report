@@ -40,7 +40,7 @@ CP.serial(
 						// cbk('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/');
 						var R = new REPORT();
 						R.scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function() {
-						    master_video['totalsize'] = total_size;
+						    master_video['totalsize'] = R.total_size;
 						    cbk({master:master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
 						});
 					}	
@@ -61,7 +61,9 @@ CP.serial(
 	60000
 );
 
-var REPORT = function () {	
+var REPORT = function () {
+	var me = this;
+	this.total_size = 0;
 		this.scan = function(dir, cbk) {
 		    var d = dir || '.'; 
 		    var finder = require(env.space_path + '/api/inc/findit/findit.js')(d);
@@ -69,7 +71,7 @@ var REPORT = function () {
 
 		    finder.on('directory', function (dir, stat, stop) {
 			var base = path.basename(dir);
-			total_size += stat.size;
+			me.total_size += stat.size;
 		    });
 		    finder.on('file', function (file, stat) {
 		       var filter_master = /\/video\/video\.mp4$/;
@@ -78,7 +80,7 @@ var REPORT = function () {
 		       if (filter_master.test(file)) {
 			  master_video = {folder:dir, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
 		       }  else {
-			   total_size += stat.size;
+			   me.total_size += stat.size;
 			   if (!mtime) mtime = stat.mtime;
 			   if (new Date(stat.mtime) > new Date(mtime)) {
 			       mtime = stat.mtime;
