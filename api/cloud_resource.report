@@ -59,12 +59,11 @@ var FOLDER_SCAN = function () {
 	var me = this;
 	this.total_size = 0;
 	this.master_video = {};
-	this._result = [];
+	this._result = {};
 	this.last_file = '';
 	this.mtime = '';
 	
 	this.scan = function(dir, cbk) {
-	    var d = dir || '.'; 
 	    var finder = require(env.space_path + '/api/inc/findit/findit.js')(d);
 	    var path = require('path');
 
