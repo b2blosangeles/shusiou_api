@@ -33,8 +33,6 @@ CP.serial(
 		for (var i=0; i< data.results.Q0.length; i++) {
 			_f1[i] = (function(i) { 
 					return function(cbk) {
-
-						// cbk('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/');
 						var R = new FOLDER_SCAN();
 						R.scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function(data) {
 						    cbk(data);
@@ -61,9 +59,9 @@ var FOLDER_SCAN = function () {
 	var me = this;
 	this.total_size = 0;
 	this.master_video = {};
-	this._result = {};
+	this._result = [];
 	this.last_file = '';
-	me.mtime = '';
+	this.mtime = '';
 	
 	this.scan = function(dir, cbk) {
 	    var d = dir || '.'; 
