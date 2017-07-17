@@ -40,7 +40,7 @@ CP.serial(
 						// cbk('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/');
 						var R = new REPORT();
 						R.scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function() {
-						    R.master_video['totalsize'] = R.total_size;
+						 //   R.master_video['totalsize'] = R.total_size;
 						    cbk({master:R.master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
 						});
 					}	
