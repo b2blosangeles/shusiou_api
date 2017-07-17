@@ -1,7 +1,5 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 
-var mtime = '';
-						
 var CP = new pkg.crowdProcess();
 var _f = {};
 
@@ -37,7 +35,7 @@ CP.serial(
 					return function(cbk) {
 
 						// cbk('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/');
-						var R = new REPORT();
+						var R = new FOLDER_SCAN();
 						R.scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function(data) {
 						    cbk(data);
 						});
@@ -59,7 +57,7 @@ CP.serial(
 	60000
 );
 
-var REPORT = function () {
+var FOLDER_SCAN = function () {
 	var me = this;
 	this.total_size = 0;
 	this.master_video = {};
@@ -67,44 +65,41 @@ var REPORT = function () {
 	this.last_file = '';
 	me.mtime = '';
 	
-		this.scan = function(dir, cbk) {
-		    var d = dir || '.'; 
-		    var finder = require(env.space_path + '/api/inc/findit/findit.js')(d);
-		    var path = require('path');
+	this.scan = function(dir, cbk) {
+	    var d = dir || '.'; 
+	    var finder = require(env.space_path + '/api/inc/findit/findit.js')(d);
+	    var path = require('path');
 
-		    finder.on('directory', function (dir, stat, stop) {
-			var base = path.basename(dir);
-			me.total_size += stat.size;
-		    });
-		    finder.on('file', function (file, stat) {
-		       var filter_master = /\/video\/video\.mp4$/;
-			var patt = new RegExp('^'+ dir);
+	    finder.on('directory', function (dir, stat, stop) {
+		var base = path.basename(dir);
+		me.total_size += stat.size;
+	    });
+	    finder.on('file', function (file, stat) {
+	       var filter_master = /\/video\/video\.mp4$/;
+		var patt = new RegExp('^'+ dir);
 
-		       if (filter_master.test(file)) {
-			  me.master_video = {folder:dir, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
-		       }  else {
-			   me.total_size += stat.size;
-			   if (!mtime) mtime = stat.mtime;
-			   if (new Date(stat.mtime) > new Date(mtime)) {
-			       me.mtime = stat.mtime;
-			       me.last_file = file.replace(patt,'');
-			   }
-			//   _result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
-		       }
-		    });
-		    finder.on('link', function (link, stat) { });
+	       if (filter_master.test(file)) {
+		  me.master_video = {folder:dir, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
+	       }  else {
+		   me.total_size += stat.size;
+		   if (!mtime) mtime = stat.mtime;
+		   if (new Date(stat.mtime) > new Date(mtime)) {
+		       me.mtime = stat.mtime;
+		       me.last_file = file.replace(patt,'');
+		   }
+		//   _result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
+	       }
+	    });
+	    finder.on('link', function (link, stat) { });
 
-		    finder.on('end', function (link, stat) {
-			
-			if (typeof cbk == 'function') {
-				me.master_video['totalsize'] = me.total_size;
-				cbk({master:me.master_video, laster_file:{file:me.last_file, mtime:me.mtime}, list:me._result});
-			}
-		    });
+	    finder.on('end', function (link, stat) {
+
+		if (typeof cbk == 'function') {
+			me.master_video['totalsize'] = me.total_size;
+			cbk({master:me.master_video, laster_file:{file:me.last_file, mtime:me.mtime}, list:me._result});
+		}
+	    });
 
 
-		};
+	};
 };
-
-
-// '/mnt/shusiou-video/youtube/962SfJ00tYM/'
