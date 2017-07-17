@@ -1,8 +1,5 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 
-var total_size = 0, _result = {}, master_video = {}, mtime = '', last_file = '';
-var code = (req.param('video'))?(req.param('video')+'/'):'';	
-
 var CP = new pkg.crowdProcess();
 var _f = {};
 
@@ -36,7 +33,8 @@ CP.serial(
 		for (var i=0; i< data.results.Q0.length; i++) {
 			_f1[i] = (function(i) { 
 					return function(cbk) {
-
+						var total_size = 0, _result = {}, master_video = {}, mtime = '', last_file = '';
+						var code = (req.param('video'))?(req.param('video')+'/'):'';	
 						// cbk('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/');
 						var R = new REPORT();
 						R.scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function() {
