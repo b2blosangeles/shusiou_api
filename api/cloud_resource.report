@@ -65,6 +65,7 @@ var REPORT = function () {
 	this.master_video = {};
 	this._result = {};
 	this.last_file = '';
+	me.mtime = '';
 	
 		this.scan = function(dir, cbk) {
 		    var d = dir || '.'; 
@@ -85,7 +86,7 @@ var REPORT = function () {
 			   me.total_size += stat.size;
 			   if (!mtime) mtime = stat.mtime;
 			   if (new Date(stat.mtime) > new Date(mtime)) {
-			       mtime = stat.mtime;
+			       me.mtime = stat.mtime;
 			       me.last_file = file.replace(patt,'');
 			   }
 			//   _result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
@@ -97,7 +98,7 @@ var REPORT = function () {
 			
 			if (typeof cbk == 'function') {
 				me.master_video['totalsize'] = me.total_size;
-				cbk({master:me.master_video, laster_file:{file:me.last_file, mtime:mtime}, list:me._result});
+				cbk({master:me.master_video, laster_file:{file:me.last_file, mtime:me.mtime}, list:me._result});
 			}
 		    });
 
