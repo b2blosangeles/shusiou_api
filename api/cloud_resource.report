@@ -38,8 +38,8 @@ CP.serial(
 					return function(cbk) {
 
 						// cbk('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/');
-						var k = new niu();
-						k.scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function() {
+						var R = new REPORT();
+						R.scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/', function() {
 						    master_video['totalsize'] = total_size;
 						    cbk({master:master_video, laster_file:{file:last_file, mtime:mtime}, list:_result});
 						});
@@ -61,7 +61,7 @@ CP.serial(
 	60000
 );
 
-var niu = function () {
+var REPORT = function () {
 		this.scan = function(dir, cbk) {
 		    var d = dir || '.'; 
 		    var finder = require(env.space_path + '/api/inc/findit/findit.js')(d);
@@ -84,7 +84,7 @@ var niu = function () {
 			       mtime = stat.mtime;
 			       last_file = file.replace(patt,'');
 			   }
-			   _result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
+			//   _result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
 		       }
 		    });
 		    finder.on('link', function (link, stat) { });
