@@ -61,7 +61,6 @@ var FOLDER_SCAN = function () {
 	this.total_size = 0;
 	this.master_video = {};
 	this._result = {};
-	this.mtime = '';
 	
 	this.scan = function(dir, code, cbk) {
 	    var finder = require(env.space_path + '/api/inc/findit/findit.js')(dir);
@@ -76,10 +75,10 @@ var FOLDER_SCAN = function () {
 		var patt = new RegExp('^'+ dir);
 
 	       if (filter_master.test(file)) {
-		  me.master_video = {folder:dir, code: code, master_video:file.replace(patt,''), mtime:stat.mtime, size:stat.size};
+		  me.master_video = {folder:dir, code: code, master_video:file.replace(patt,''), size:stat.size};
 	       }  else {
 		   me.total_size += stat.size;
-		   me._result[file.replace(patt,'')] = {mtime:stat.mtime, size:stat.size};
+		   me._result[file.replace(patt,'')] = size:stat.size;
 	       }
 	    });
 	    finder.on('link', function (link, stat) { });
