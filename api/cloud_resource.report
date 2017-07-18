@@ -24,8 +24,6 @@ _f['Q0'] = function(cbk) {
 		}
 	});  
 };
-res.send('niu');
-return true;
 
 CP.serial(
 	_f,
