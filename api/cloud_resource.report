@@ -73,12 +73,12 @@ var FOLDER_SCAN = function () {
 	       var filter_master = /\/video\/video\.mp4$/;
 		var patt = new RegExp('^'+ dir);
 
-	       if (filter_master.test(file)) {
-		  me.master_video = {folder:dir, code: code, master_video:file.replace(patt,''), size:stat.size};
-	       }  else {
+	   //    if (filter_master.test(file)) {
+	//	  me.master_video = {folder:dir, code: code, master_video:file.replace(patt,''), size:stat.size};
+	  //     }  else {
 		   me.total_size += stat.size;
 		   me._result[file.replace(patt,'')] = stat.size;
-	       }
+	    //   }
 	    });
 	    finder.on('link', function (link, stat) { });
 
