@@ -78,7 +78,7 @@ var FOLDER_SCAN = function () {
 		  me.master_video = {folder:dir, code: code, master_video:file.replace(patt,''), size:stat.size};
 	       }  else {
 		   me.total_size += stat.size;
-		   me._result[file.replace(patt,'')] = size:stat.size;
+		   me._result[file.replace(patt,'')] = stat.size;
 	       }
 	    });
 	    finder.on('link', function (link, stat) { });
