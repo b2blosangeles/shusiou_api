@@ -76,9 +76,11 @@ var FOLDER_SCAN = function () {
 
 	       if (filter_master.test(file)) {
 		  me.master_video = {folder:dir, code: code, master_video:file.replace(patt,''), size:stat.size};
+		  me.lastupdate = m.mtime;
 	       }  else {
 		   me.total_size += stat.size;
 		   me._result[file.replace(patt,'')] = stat.size;
+		   me.lastupdate = m.mtime;
 	       }
 	    });
 	    finder.on('link', function (link, stat) { });
