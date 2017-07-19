@@ -90,7 +90,7 @@ var FOLDER_SCAN = function () {
 
 		if (typeof cbk == 'function') {
 			me.master_video['totalsize'] = me.total_size;
-			me.master_video['ip'] = req.body;
+			me.master_video['ip'] = req.body.ip;
 			me.master_video['lastupdate'] = me.master_video.code + '##' + me.lastupdate;
 			cbk({master:me.master_video, list:me._result});
 		}
