@@ -73,14 +73,15 @@ var FOLDER_SCAN = function () {
 	    finder.on('file', function (file, stat) {
 	       var filter_master = /\/video\/video\.mp4$/;
 		var patt = new RegExp('^'+ dir);
+		var tm = new Date(stat.mtime).getTime();
 
 	       if (filter_master.test(file)) {
 		  me.master_video = {folder:dir, code: code, master_video:file.replace(patt,''), size:stat.size};
-		  me.lastupdate = stat.mtime;
+		  if (tm > me.lastupdate)  me.lastupdate = tm;
 	       }  else {
 		   me.total_size += stat.size;
 		   me._result[file.replace(patt,'')] = stat.size;
-		   me.lastupdate = stat.mtime;
+		   if (tm > me.lastupdate)  me.lastupdate = tm;
 	       }
 	    });
 	    finder.on('link', function (link, stat) { });
