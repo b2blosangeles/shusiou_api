@@ -60,6 +60,7 @@ var FOLDER_SCAN = function () {
 	this.total_size = 0;
 	this.master_video = {};
 	this._result = {};
+	this.lastupdate = 0;
 	
 	this.scan = function(dir, code, cbk) {
 	    var finder = require(env.space_path + '/api/inc/findit/findit.js')(dir);
@@ -86,6 +87,7 @@ var FOLDER_SCAN = function () {
 
 		if (typeof cbk == 'function') {
 			me.master_video['totalsize'] = me.total_size;
+			me.master_video['lastupdate'] = me.lastupdate;
 			cbk({master:me.master_video, list:me._result});
 		}
 	    });
