@@ -50,8 +50,8 @@ _f['Q1'] = function(cbk) {
 };
 _f['Q2'] = function(cbk) {
 	var v=[];
-	for (o in CP.data.Q1.list) {	
-		v[v.length] = CP.data.Q1.list[o].master.lastupdate;	
+	for (o in CP.data.Q1) {	
+		v[v.length] = CP.data.Q1[o].master.lastupdate;	
 	}
 	v.sort();
 	cbk(JSON.stringify(v));			
