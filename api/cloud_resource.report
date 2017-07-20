@@ -54,10 +54,7 @@ _f['Q2'] = function(cbk) {
 		v[v.length] = CP.data.Q1.list[o].master.lastupdate;	
 	}
 	v.sort();
-	var fs = require('fs');
-	fs.writeFile(base_ctl + 'lastupdate.data', JSON.stringify(v), function(err) {
-	   cbk(JSON.stringify(v));
-	}); 			
+	cbk(JSON.stringify(v));			
 };
 
 CP.serial(
