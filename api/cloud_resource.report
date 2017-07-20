@@ -60,7 +60,11 @@ _f['Q2'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data.results.Q2);	
+		if (req.body.lastUpdate == data.results.Q2) {
+			res.send('no_up_data');
+		} else {
+			res.send(data.results.Q2);
+		}	
 	},
 	60000
 );
