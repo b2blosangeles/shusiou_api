@@ -24,33 +24,33 @@ _f['Q0'] = function(cbk) {
 		}
 	});  
 };
-
+_f['Q1'] = function(cbk) {
+	var _f1 = {};
+	for (var i=0; i< CP.data.Q0.length; i++) {
+		_f1[i] = (function(i) { 
+				return function(cbk1) {
+					var R = new FOLDER_SCAN();
+					R.scan('/mnt/shusiou-video/youtube/' + CP.data.Q0[i]+ '/',  CP.data.Q0[i], 
+					function(data) {
+					    cbk1(data);
+					});
+				}	
+			})(i);	
+	}
+	CP.serial(
+		_f1,
+		function(data1) {
+			var v = {};
+			for (o in data1.results) v[data1.results[o].master.code] = data1.results[o];
+			cbk(v);
+		},
+		30000
+	); 
+};
 CP.serial(
 	_f,
 	function(data) {
-		var _f1 = {};
-		for (var i=0; i< data.results.Q0.length; i++) {
-			_f1[i] = (function(i) { 
-					return function(cbk) {
-						var R = new FOLDER_SCAN();
-						R.scan('/mnt/shusiou-video/youtube/' + data.results.Q0[i]+ '/',  data.results.Q0[i], 
-						function(data) {
-						    cbk(data);
-						});
-					}	
-				})(i);	
-		}
-		CP.serial(
-			_f1,
-			function(data1) {
-				var v = {};
-				for (o in data1.results) v[data1.results[o].master.code] = data1.results[o];
-				res.send(v);
-			},
-			30000
-		);		
-	
-		
+		res.send(data);	
 	},
 	60000
 );
