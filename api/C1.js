@@ -24,6 +24,30 @@ _f['Q0'] = function(cbk) {
 		}
 	});  
 };
+_f['Q1'] = function(cbk) {
+	var _f1 = {};
+	var CP1 = new pkg.crowdProcess();
+	for (var i=0; i< CP.data.Q0.length; i++) {
+		_f1[i] = (function(i) { 
+				return function(cbk) {
+					var R = new FOLDER_SCAN();
+					R.scan('/mnt/shusiou-video/youtube/' + CP.data.Q0[i]+ '/',  CP.data.Q0[i], 
+					function(data) {
+					    cbk(data);
+					});
+				}	
+			})(i);	
+	}
+	CP1.serial(
+		_f1,
+		function(data1) {
+			var v = {};
+			for (o in data1.results) v[data1.results[o].master.code] = data1.results[o];
+			cbk(v);
+		},
+		30000
+	);	
+};
 
 CP.serial(
 	_f,
