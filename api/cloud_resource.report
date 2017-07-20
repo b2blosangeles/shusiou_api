@@ -48,11 +48,22 @@ _f['Q1'] = function(cbk) {
 		30000
 	);	
 };
+_f['Q2'] = function(cbk) {
+	var v=[];
+	for (o in CP.data.Q1) {	
+		v[v.length] = CP.data.Q1[o].master.lastupdate;	
+	}
+	v.sort();
+	var fs = require('fs');
+	fs.writeFile(base_ctl + 'lastupdate.data', JSON.stringify(v), function(err) {
+	   cbk(JSON.stringify(v));
+	}); 			
+};
 
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data.results.Q1);	
+		res.send(data.results.Q2);	
 	},
 	60000
 );
