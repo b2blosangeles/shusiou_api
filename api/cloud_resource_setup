@@ -45,52 +45,7 @@ _f['Q1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data);	
+		res.send(data.results.Q1);	
 	},
 	60000
 );
-
-var FOLDER_SCAN = function () {
-	var me = this;
-	this.total_size = 0;
-	this.master_video = {};
-	this._result = {};
-	this.lastupdate = 0;
-	
-	this.scan = function(dir, code, cbk) {
-	    var finder = require(env.space_path + '/api/inc/findit/findit.js')(dir);
-	    var path = require('path');
-
-	    finder.on('directory', function (dir, stat, stop) {
-		var base = path.basename(dir);
-		me.total_size += stat.size;
-	    });
-	    finder.on('file', function (file, stat) {
-	       var filter_master = /\/video\/video\.mp4$/;
-		var patt = new RegExp('^'+ dir);
-		var tm = new Date(stat.mtime).getTime();
-
-	       if (filter_master.test(file)) {
-		  me.master_video = {folder:dir, code: code, master_video:file.replace(patt,''), size:stat.size};
-		  if (tm > me.lastupdate)  me.lastupdate = tm;
-	       }  else {
-		   me.total_size += stat.size;
-		   me._result[file.replace(patt,'')] = stat.size;
-		   if (tm > me.lastupdate)  me.lastupdate = tm;
-	       }
-	    });
-	    finder.on('link', function (link, stat) { });
-
-	    finder.on('end', function (link, stat) {
-
-		if (typeof cbk == 'function') {
-			me.master_video['totalsize'] = me.total_size;
-			me.master_video['ip'] = req.body.ip;
-			me.master_video['lastupdate'] = me.master_video.code + '##' + me.lastupdate;
-			cbk({master:me.master_video, list:me._result});
-		}
-	    });
-
-
-	};
-};
