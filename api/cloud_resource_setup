@@ -16,11 +16,7 @@ _f['Q0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			var data = [];
-			for (var i = 0;i < results.length; i++) {
-				data[data.length] = results[i].code;
-			}
-			cbk(data);
+			cbk(results);
 		}
 	});  
 };
