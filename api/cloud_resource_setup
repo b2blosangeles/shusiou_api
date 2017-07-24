@@ -66,7 +66,7 @@ _f['Q0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(data.results);
+			cbk(results);
 		}
 	});  
 };
