@@ -8,10 +8,7 @@ _f['Q0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'CREATE TABLE `videos_table` ( `id`  INT NOT NULL AUTO_INCREMENT PRIMARY KEY, `uid` INT,' +
-	' `source` VARCHAR(16) NOT NULL,  `code` VARCHAR(64) NOT NULL,  `title` VARCHAR(255) NOT NULL, ' +
-	' `length` INT,  `size` BIGINT  );';
-//	 var str = 'SHOW TABLES';
+	var str = 'SELECT * FROM `videos` WHERE 1;';
 	 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
