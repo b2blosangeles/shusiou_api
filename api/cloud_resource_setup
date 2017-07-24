@@ -13,7 +13,7 @@ _f['Q0_A'] = function(cbk) {
 	_f1['BB'] = function(cbk) {
 		var str = "TRUNCATE TABLE `videos_test`";
 		connection.query(str, function (error, results, fields) {
-			connection.end();
+			// connection.end();
 			if (error) {
 				cbk(error.message);
 				return true;
