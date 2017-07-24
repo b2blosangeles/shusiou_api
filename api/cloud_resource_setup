@@ -3,12 +3,19 @@ var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 var CP = new pkg.crowdProcess();
 var _f = {};
 /*
+	`uid` INT,
+	`source` VARCHAR(16) NOT NULL, 
+	`code` VARCHAR(64) NOT NULL, 
+	`title` VARCHAR(255) NOT NULL, 
+	`length` INT, 
+
+
 _f['Q0_A'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'INSERT INFO `videos_test` () WHERE 1;';
+	var str = 'INSERT INFO `videos_test` (`uid`, `source`, `code`, `title`, `length`) VALUES (1, "youtube", "A001", "T001", 5000000);';
 	 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
