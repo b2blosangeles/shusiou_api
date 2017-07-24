@@ -9,8 +9,8 @@ _f['Q0_A'] = function(cbk) {
 	connection.connect();
 	var CP1 = new pkg.crowdProcess();
 	var _f1 = {}	
-	cbk('results');
-/*	
+	cbk('results--');
+	
 	_f1['BB'] = function(cbk) {
 		var str = "TRUNCATE TABLE `videos_test`";
 		connection.query(str, function (error, results, fields) {
@@ -41,14 +41,15 @@ _f['Q0_A'] = function(cbk) {
 			}
 		})(i);
 	}
+	
 	CP1.serial(
-		_f,
+		_f1,
 		function(data) {
 			cbk('data.results');	
 		},
 		60000
 	);
-	*/
+	
 };
 
 
