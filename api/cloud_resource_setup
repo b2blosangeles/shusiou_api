@@ -10,7 +10,7 @@ _f['Q0_A'] = function(cbk) {
 	var CP1 = new pkg.crowdProcess();
 	var _f1 = {}	
 
-	_f1['B'] = function(cbk) {
+	_f1['B0'] = function(cbk) {
 		var str = "TRUNCATE TABLE `videos_test`";
 		connection.query(str, function (error, results, fields) {
 			// connection.end();
@@ -24,7 +24,7 @@ _f['Q0_A'] = function(cbk) {
 	};	
 
 	for (var i=0; i < 100; i++) {
-		_f1[''+i] = (function(i) {
+		_f1['A'+i] = (function(i) {
 			return function(cbk) {
 				var str = "INSERT INTO `videos_test` (`uid`, `source`, `code`, `title`, `length`, `size`) VALUES "+
 				"(1, 'youtube', 'A00"+i+"', 'T00"+i+"', 320, 5000000);";
