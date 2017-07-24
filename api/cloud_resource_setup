@@ -23,7 +23,7 @@ _f['Q0_A'] = function(cbk) {
 			}
 		}); 
 	};	
-	
+	/*
 	for (var i=0; i < 100; i++) {
 		_f1[i] = (function(i) {
 			return function(cbk) {
@@ -41,7 +41,7 @@ _f['Q0_A'] = function(cbk) {
 			}
 		})(i);
 	}
-	
+	*/
 	CP1.serial(
 		_f1,
 		function(data) {
