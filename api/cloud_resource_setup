@@ -2,13 +2,6 @@ var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 
 var CP = new pkg.crowdProcess();
 var _f = {};
-/*
-	`uid` INT,
-	`source` VARCHAR(16) NOT NULL, 
-	`code` VARCHAR(64) NOT NULL, 
-	`title` VARCHAR(255) NOT NULL, 
-	`length` INT, 
-
 
 _f['Q0_A'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
@@ -27,7 +20,7 @@ _f['Q0_A'] = function(cbk) {
 		}
 	});  
 };
-*/
+
 
 _f['Q0'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
