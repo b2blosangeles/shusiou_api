@@ -28,8 +28,6 @@ _f['Q0_A'] = function(cbk) {
 			return function(cbk) {
 				var str = "INSERT INTO `videos_test` (`uid`, `source`, `code`, `title`, `length`) VALUES "+
 				"(1, 'youtube', 'A00"+i+"', 'T00"+i+"', 5000000);";
-				//cbk(str);
-				// return true;
 				connection.query(str, function (error, results, fields) {
 					//connection.end();
 					if (error) {
@@ -68,7 +66,7 @@ _f['Q0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(results);
+			cbk(data.results);
 		}
 	});  
 };
