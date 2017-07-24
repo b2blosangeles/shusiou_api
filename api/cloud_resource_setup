@@ -34,7 +34,7 @@ _f['Q0_A'] = function(cbk) {
 						cbk(error.message);
 						return true;
 					} else {
-						cbk(results);
+						cbk(true);
 					}
 				}); 
 			}
