@@ -24,7 +24,7 @@ _f['Q0_A'] = function(cbk) {
 	};	
 
 	for (var i=0; i < 100; i++) {
-		_f1['BB' + i] = (function(i) {
+		_f1['A' + i] = (function(i) {
 			return function(cbk) {
 				var str = "INSERT INTO `videos_test` (`uid`, `source`, `code`, `title`, `length`, `size`) VALUES "+
 				"(1, 'youtube', 'A00"+i+"', 'T00"+i+"', 320, 5000000);";
