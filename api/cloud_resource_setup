@@ -39,7 +39,7 @@ _f['Q1'] = function(cbk) {
 		} else {
 			var v = {};
 			for (var i=0; i<results.length; i++) {
-				v[results[i].node_ip] = true;
+				v[results[i].node_ip] = results[i].total_space;
 			}
 			cbk(v);
 		}
