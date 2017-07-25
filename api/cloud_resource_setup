@@ -60,7 +60,7 @@ function cap(v, idx, traffic) {
 	}
 }
 _f['Q0'] = function(cbk) {
-	var S = {}, C = {}, T = {'1':3}, short_a = 0, short_b = 0;
+	var S = {}, C = {}, T = {'1':3}, short_a = [], short_b = 0;
 	
 	for (var o in CP.data.S0) {
 		var ex = false;
@@ -78,7 +78,7 @@ _f['Q0'] = function(cbk) {
 				break;
 			}
 		}
-		if (!ex) short_a++;
+		if (!ex) short_a[short_a.length] = 0;
 	}
 
 	for (var o in CP.data.S0) {
