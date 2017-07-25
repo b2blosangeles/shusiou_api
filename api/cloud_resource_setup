@@ -103,7 +103,7 @@ _f['Q0'] = function(cbk) {
 		}
 		if (!ex) short_b++;
 	}
-	var C1P = new pkg.crowdProcess();
+	var CP1 = new pkg.crowdProcess();
 	var _f1 = {};
 	CP1.serial(
 		_f1,
