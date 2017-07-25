@@ -62,7 +62,7 @@ _f['Q2'] = function(cbk) {
 		}
 	});  
 };
-_f['Q2'] = function(cbk) {
+_f['Q3'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
@@ -83,7 +83,7 @@ _f['Q2'] = function(cbk) {
 		}
 	});  
 };
-_f['Q3'] = function(cbk) {
+_f['Q4'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
