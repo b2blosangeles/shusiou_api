@@ -53,7 +53,7 @@ function sum(a, d) {
 	return v;
 }
 function cap(v, idx, traffic) {
-	var max = 1;
+	var max = 2;
 	if ((traffic) && (traffic[idx])) max = traffic[idx];
 	if (v[idx].length >= max) {
 		return true;	
@@ -87,11 +87,6 @@ _f['Q0'] = function(cbk) {
 		
 		for (var p in CP.data.S1) {
 			if (!S[p]) S[p] = [];
-			
-			if (!T[o] || T[o] < 2) {
-				ex = true;
-				continue;
-			}
 			
 			if (S[p].indexOf(o) == -1) {
 				if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.3)) {
