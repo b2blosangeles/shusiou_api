@@ -53,14 +53,14 @@ function sum(a, d) {
 	return v;
 }
 function cap(v, idx, traffic) {
-	var max = 1;
+	var max = 2;
 	if ((traffic) && (traffic[idx])) max = traffic[idx];
 	if (v[idx].length >= max) {
 		return true;	
 	}
 }
 _f['Q0'] = function(cbk) {
-	var S = {}, C = {}, T = {'1':2}, short_a = [], short_b = 0;
+	var S = {}, C = {}, T = {}, short_a = [], short_b = 0;
 	
 	for (var o in CP.data.S0) {
 		var ex = false;
