@@ -64,10 +64,6 @@ _f['Q0'] = function(cbk) {
 	
 	for (var o in CP.data.S0) {
 		var ex = false;
-		if (!T[o] || T[o] < 2) {
-			ex = true;
-			continue;
-		}
 		if (!C[o]) C[o] = [];
 		for (var p in CP.data.S1) {
 			if (C[o].length) {
@@ -88,8 +84,15 @@ _f['Q0'] = function(cbk) {
 	for (var o in CP.data.S0) {
 		var ex = false;
 		if (!C[o]) C[o] = [];
+		
 		for (var p in CP.data.S1) {
 			if (!S[p]) S[p] = [];
+			
+			if (!T[o] || T[o] < 2) {
+				ex = true;
+				continue;
+			}
+			
 			if (S[p].indexOf(o) == -1) {
 				if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.3)) {
 					if (cap(C,o, T)) {
