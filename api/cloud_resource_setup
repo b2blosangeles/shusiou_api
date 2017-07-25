@@ -53,7 +53,7 @@ function sum(a, d) {
 	return v;
 }
 function cap(v, idx, traffic) {
-	if (v[idx].length > (traffic[idx])?traffic[idx]:2) {
+	if (v[idx].length > ((traffic) && (traffic[idx]))?traffic[idx]:2) {
 		return true;	
 	}
 }
