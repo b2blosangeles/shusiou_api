@@ -18,7 +18,7 @@ _f['S0'] = function(cbk) {
 		} else {
 			var v = {};
 			for (var i=0; i<results.length; i++) {
-				v[results[i].id] = results[i].size;
+				v[results[i].id] = Math.round(results[i].size/1000000);
 			}
 			cbk(v);
 		}
