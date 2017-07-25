@@ -52,6 +52,11 @@ function sum(a, d) {
 	}
 	return v;
 }
+function cap(v, idx, traffic) {
+	if (v[idx].length > (traffic[idx])?traffic[idx]:2) {
+		return true;	
+	}
+}
 _f['Q0'] = function(cbk) {
 	var S={}, C={};
 	for (var o in CP.data.S0) {
@@ -60,10 +65,10 @@ _f['Q0'] = function(cbk) {
 			if (!S[p]) S[p] = [];
 			if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.3)) {
 				S[p][S[p].length] = o;
-				if (C[o].length < 3) {
-					C[o][C[o].length] = p;
-				} else {	
+				if (cap(C,o)) {
 					break;
+				} else {	
+					C[o][C[o].length] = p;
 				}
 			}
 		}
