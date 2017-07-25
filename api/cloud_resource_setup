@@ -60,8 +60,11 @@ _f['Q0'] = function(cbk) {
 			if (!S[p]) S[p] = [];
 			if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.3)) {
 				S[p][S[p].length] = o;
-				C[o][C[o].length] = p;
-				break;
+				if (C[o].length < 2) {
+					C[o][C[o].length] = p;
+				} else {	
+					break;
+				}
 			}
 		}
 	}
