@@ -60,7 +60,7 @@ function cap(v, idx, traffic) {
 	}
 }
 _f['Q0'] = function(cbk) {
-	var S = {}, C = {}, T = {'1':3};
+	var S = {}, C = {}, T = {'1':3}, short_a = 0;
 	
 	for (var o in CP.data.S0) {
 		if (!C[o]) C[o] = [];
@@ -72,7 +72,8 @@ _f['Q0'] = function(cbk) {
 				C[o][C[o].length] = p;
 				break;
 			}
-		}		
+		}
+		short_a++;
 	}
 
 	for (var o in CP.data.S0) {
@@ -89,7 +90,7 @@ _f['Q0'] = function(cbk) {
 		}		
 	}
 
-	cbk({S:S, C:C});
+	cbk({S:S, C:C, short:{A:short_a}});
 };
 
 
