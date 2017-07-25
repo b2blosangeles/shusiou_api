@@ -45,10 +45,10 @@ _f['S1'] = function(cbk) {
 		}
 	});  
 };
-function sum(a) {
+function sum(a, d) {
 	var v = 0;
 	for (var i=0; i < a.length; i++) {
-		v += a[i];	
+		v += d[a[i]];	
 	}
 	return v;
 }
