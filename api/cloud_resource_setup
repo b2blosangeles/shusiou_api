@@ -67,7 +67,6 @@ _f['Q0'] = function(cbk) {
 		for (var p in CP.data.S1) {
 			if (!S[p]) S[p] = [];
 			if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.3)) {
-				if (S[p].length) bresk;
 				S[p][S[p].length] = o;
 			}
 		}		
