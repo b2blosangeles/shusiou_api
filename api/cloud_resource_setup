@@ -66,14 +66,23 @@ _f['Q0'] = function(cbk) {
 		for (var p in CP.data.S1) {
 			if (!S[p]) S[p] = [];
 			if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.3)) {
+				if (S[p].length) bresk;
 				S[p][S[p].length] = o;
+			}
+		}		
+	}	
+	for (var o in CP.data.S0) {
+		if (!C[o]) C[o] = [];
+		for (var p in CP.data.S1) {
+			if (!S[p]) S[p] = [];
+			if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.3)) {
 				if (cap(C,o, T)) {
 					break;
 				} else {	
 					C[o][C[o].length] = p;
 				}
 			}
-		}
+		}		
 	}
 	cbk({S:S, C:C});
 };
