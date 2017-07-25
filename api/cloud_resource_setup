@@ -53,7 +53,9 @@ function sum(a, d) {
 	return v;
 }
 function cap(v, idx, traffic) {
-	if (v[idx].length > ((traffic) && (traffic[idx]))?traffic[idx]:2) {
+	var max = 2;
+	if ((traffic) && (traffic[idx])) max = traffic[idx];
+	if (v[idx].length > max) {
 		return true;	
 	}
 }
