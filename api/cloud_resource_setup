@@ -65,7 +65,7 @@ _f['Q0'] = function(cbk) {
 	for (var o in CP.data.S0) {
 		var ex = false;
 		if (!T[o] || T[o] < 2) {
-			ex = false;
+			ex = true;
 			continue;
 		}
 		if (!C[o]) C[o] = [];
