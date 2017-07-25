@@ -86,7 +86,7 @@ _f['Q0'] = function(cbk) {
 		if (!C[o]) C[o] = [];
 		for (var p in CP.data.S1) {
 			if (!S[p]) S[p] = [];
-			if (o.indexOf(S[p]) == -1) {
+			if (S[p].indexOf(o) == -1) {
 				if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.3)) {
 					if (cap(C,o, T)) {
 						var ex = true;
