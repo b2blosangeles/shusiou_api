@@ -86,15 +86,18 @@ _f['Q0'] = function(cbk) {
 		if (!C[o]) C[o] = [];
 		for (var p in CP.data.S1) {
 			if (!S[p]) S[p] = [];
-			if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.3)) {
-				if (cap(C,o, T)) {
-					var ex = true;
-					break;
-				} else {
-					S[p][S[p].length] = o;
-					C[o][C[o].length] = p;
+			if (o.indexOf(C[o]) == -1) {
+				if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.3)) {
+					if (cap(C,o, T)) {
+						var ex = true;
+						break;
+					} else {
+						S[p][S[p].length] = o;
+						C[o][C[o].length] = p;
+					}
 				}
 			}
+			
 		}
 		if (!ex) short_b++;
 	}
