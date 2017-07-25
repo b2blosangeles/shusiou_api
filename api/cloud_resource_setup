@@ -33,7 +33,11 @@ _f['Q1'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(results);
+			var v = {};
+			for (var i=0; i<results.length; i++) {
+				v[results[i].id] = true;
+			}
+			cbk(v);
 		}
 	});  
 };
