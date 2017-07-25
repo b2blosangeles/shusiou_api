@@ -57,7 +57,7 @@ _f['Q0'] = function(cbk) {
 	for (var o in CP.data.S0) {
 		for (var p in CP.data.S1) {
 			if (!S[p]) S[p] = [];
-			if (sum(S[p]) < (CP.data.S1[p] * 0.4)) {
+			if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.4)) {
 				S[p][S[p].length] = o;
 				break;
 			}
