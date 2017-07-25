@@ -72,5 +72,5 @@ CP.serial(
 	function(data) {
 		res.send(data.results);	
 	},
-	60000
+	10000
 );
