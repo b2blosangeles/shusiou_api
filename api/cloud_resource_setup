@@ -66,7 +66,10 @@ _f['Q0'] = function(cbk) {
 		var ex = false;
 		if (!C[o]) C[o] = [];
 		for (var p in CP.data.S1) {
-			if (C[o].length) break;
+			if (C[o].length) {
+				ex = true;
+				break;
+			}	
 			if (!S[p]) S[p] = [];
 			if (sum(S[p], CP.data.S0) < (CP.data.S1[p] * 0.3)) {
 				S[p][S[p].length] = o;
