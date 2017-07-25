@@ -95,8 +95,8 @@ _f['Q0'] = function(cbk) {
 					C[o][C[o].length] = p;
 				}
 			}
-			if (!ex) short_b++;
-		}		
+		}
+		if (!ex) short_b++;
 	}
 
 	cbk({S:S, C:C, short:{L1:short_a,L2:short_b}});
