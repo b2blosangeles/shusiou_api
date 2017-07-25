@@ -99,7 +99,7 @@ _f['Q0'] = function(cbk) {
 		if (!ex) short_b++;
 	}
 
-	cbk({S:S, C:C, short:{L1:short_a,L2:short_b}});
+	cbk({S:S, C:C, short:{LV:short_a, L1:short_a.length,L2:short_b}});
 };
 
 
