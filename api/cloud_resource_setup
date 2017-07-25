@@ -18,7 +18,7 @@ _f['Q0'] = function(cbk) {
 		} else {
 			var v = {};
 			for (var i=0; i<results.length; i++) {
-				v[results[i].id] = true;
+				v[results[i].id] = results[i].size;
 			}
 			cbk(v);
 		}
