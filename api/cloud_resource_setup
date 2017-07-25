@@ -107,7 +107,7 @@ _f['Q0'] = function(cbk) {
 	var _f1 = {};
 	
 	for (var o in S) {
-		_f1['L1'] = function(cbk1) {
+		_f1[o] = function(cbk1) {
 			cbk1(S[o]);
 			return true;
 			var cfg0 = require(env.space_path + '/api/cfg/db.json');
