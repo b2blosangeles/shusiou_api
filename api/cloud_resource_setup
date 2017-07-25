@@ -65,7 +65,7 @@ _f['Q0'] = function(cbk) {
 			}
 		}
 	}
-	cbk(S);
+	cbk({S:S, C:C});
 };
 
 
