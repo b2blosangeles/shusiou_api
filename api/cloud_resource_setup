@@ -78,7 +78,7 @@ _f['Q0'] = function(cbk) {
 				break;
 			}
 		}
-		if (!ex) short_a[short_a.length] = 0;
+		if (!ex) short_a[short_a.length] = o;
 	}
 
 	for (var o in CP.data.S0) {
