@@ -39,21 +39,38 @@ _f['S1'] = function(cbk) {
 		} else {
 			var v = {};
 			for (var i=0; i<results.length; i++) {
-				v[results[i].node_ip] = results[i].total_space + '--' + results[i].free_space;
+				v[results[i].node_ip] = results[i].total_space;
 			}
 			cbk(v);
 		}
 	});  
 };
+function sum(a) {
+	var v = 0;
+	for (var i=0; i < a.length; i++) {
+		v += a[i];	
+	}
+	return v;
+}
 _f['Q0'] = function(cbk) {
-	cbk('Q0');
+	var S={}, C={};
+	for (var o in CP.data.S0) {
+		for (var p in CP.data.S1) {
+			if (!S[p]) S[p] = [];
+			if ((sum(S[p]) < (CP.data.S1[p] * 0.4)) {
+				S[p][S[p].length] = o;
+				break;
+			}
+		}
+	}
+	cbk(S);
 };
 
 
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data.results);	
+		res.send(data.results.Q0);	
 	},
 	60000
 );
