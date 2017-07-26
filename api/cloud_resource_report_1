@@ -9,7 +9,7 @@ _f['QQ'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT * FROM  `videos` WHERE 1 ';
+	var str = 'SELECT * FROM  `cloud_node` WHERE 1 ';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
