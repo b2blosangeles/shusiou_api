@@ -127,7 +127,29 @@ _f['Q0'] = function(cbk) {
 			}	
 		})(o);
 	}	
-	
+	for (var o in C) {
+	/*
+		_f1[o] = (function(o) {
+			return function(cbk) {
+				var cfg0 = require(env.space_path + '/api/cfg/db.json');
+				var connection = mysql.createConnection(cfg0);
+				connection.connect();
+
+				var str = 'UPDATE `cloud_node` SET `list` =  "' + S[o].join(',') + '" WHERE `node_ip` = "' + o + '" ';
+
+				connection.query(str, function (error, results, fields) {
+					connection.end();
+					if (error) {
+						cbk(error.message);
+						return true;
+					} else {
+						cbk(S[o]);
+					}
+				});  
+			}	
+		})(o);
+	*/	
+	}	
 	CP1.serial(
 		_f1,
 		function(data) {
