@@ -59,7 +59,7 @@ _f['S2'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(results);
+			cbk(fields);
 		}
 	});  
 };
