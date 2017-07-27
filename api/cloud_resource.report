@@ -15,7 +15,7 @@ _f['QQ0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk((results[0])?results[0].list:'');
+			cbk('uu_' + (results[0])?results[0].list:'');
 		}
 	}); 
 };
