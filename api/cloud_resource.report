@@ -15,14 +15,14 @@ _f['QQ'] = function(cbk) {
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
-				cbk('error.message');
-				return true;
+				cbk({status:'error', message:error.message});
+				CP.exit = 1;
 			} else {
 				cbk(((results[0])?results[0].list:''));
 			}
 		}); 	
 	} else {
-		cbk('no req.body.ip');
+		cbk({status:'error', message:'no req.body.ip'});
 		CP.exit = 1;
 	}
  
@@ -84,8 +84,8 @@ _f['Q2'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		if (typeof data.results.QQ == 'string') {
-			res.send({status:'error', message:data.results.QQ});
+		if (typeof data.results.QQ != 'string') {
+			res.send({status:'error', message:data.results.QQ.message});
 			return true;
 		}
 		if (typeof data.results.Q0 == 'string') {
