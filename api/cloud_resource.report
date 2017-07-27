@@ -18,7 +18,7 @@ _f['QQ0'] = function(cbk) {
 		}
 	}); 
 };
-_f['QQA'] = function(cbk) {
+_f['QQB'] = function(cbk) {
 	cbk(req.body.ip)
 };
 _f['QQ'] = function(cbk) {
