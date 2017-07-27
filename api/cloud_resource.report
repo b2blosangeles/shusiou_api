@@ -2,7 +2,31 @@ var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 
 var CP = new pkg.crowdProcess();
 var _f = {};
-
+_f['QQ0'] = function(cbk) {
+	cbk(res.body);
+	var cfg0 = require(env.space_path + '/api/cfg/db.json');
+	var connection = mysql.createConnection(cfg0);
+	connection.connect();
+	var where_a = [];
+	if (req.body.ip) {
+		for (var i = 0; i < req.body.ip.length; i++) {
+			where_a[where_a.length] = ' `node_ip` = "' + req.body.ip[i] + '"'
+		}
+		var str = 'SELECT * FROM  `cloud_node` WHERE 1';
+		connection.query(str, function (error, results, fields) {
+			connection.end();
+			if (error) {
+				cbk(error.message);
+				return true;
+			} else {
+				cbk((results[0])?results[0].list:'');
+			}
+		}); 	
+	} else {
+		cbk('');
+	}
+ 
+};
 _f['QQ'] = function(cbk) {
 	cbk(res.body);
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
