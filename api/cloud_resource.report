@@ -92,9 +92,8 @@ CP.serial(
 			res.send({status:'error', message:data.results.Q0});
 			return true;
 		}		
-		if (req.body.lastUpdate == data.results.Q2) {
-			res.send({status:'success', data:req.body.lastUpdate});
-			// res.send({status:'success', data:'no_up_data'});
+		if ((lastUpdate) && req.body.lastUpdate == data.results.Q2) {
+			res.send({status:'success', data:'no_up_data'});
 		} else {
 			res.send({status:'success', data:data.results.Q1});
 		}	
