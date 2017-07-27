@@ -65,7 +65,7 @@ _f['Q1'] = function(cbk) {
 			for (o in data1.results) v[data1.results[o].master.code] = data1.results[o];
 			cbk(v);
 		},
-		3000
+		3
 	);	
 };
 _f['Q2'] = function(cbk) {
@@ -88,7 +88,7 @@ CP.serial(
 			res.send(data.results.Q1);
 		}	
 	},
-	6000
+	6
 );
 
 var FOLDER_SCAN = function () {
