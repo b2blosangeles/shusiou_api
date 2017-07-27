@@ -18,6 +18,9 @@ _f['QQ0'] = function(cbk) {
 		}
 	}); 
 };
+_f['QQA'] = function(cbk) {
+	cbk(req.body.ip)
+};
 _f['QQ'] = function(cbk) {
 	cbk(res.body);
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
