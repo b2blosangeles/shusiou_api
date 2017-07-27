@@ -14,8 +14,6 @@ _f['QQ'] = function(cbk) {
 		where_a[where_a.length] = ' `node_ip` = "' + req.body.ip[i] + '"'
 	}
 	var str = 'SELECT * FROM  `cloud_node` WHERE ' + where_a.join(' OR ');
-	cbk(str);
-	return true;
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		if (error) {
