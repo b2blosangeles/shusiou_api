@@ -3,9 +3,6 @@ var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-res.send(req.body);
-return true;
-
 _f['QQ'] = function(cbk) {
 	cbk(res.body);
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
@@ -88,6 +85,8 @@ _f['Q2'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
+		res.send(data);
+		return true;
 		if (req.body.lastUpdate == data.results.Q2) {
 			res.send('no_up_data');
 		} else {
