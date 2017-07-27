@@ -40,7 +40,7 @@ _f['Q0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(results);
+			cbk(str);
 			CP.exit = 1;
 			return true;
 			
