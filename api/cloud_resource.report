@@ -13,20 +13,21 @@ _f['QQ'] = function(cbk) {
 		for (var i = 0; i < req.body.ip.length; i++) {
 			where_a[where_a.length] = ' `node_ip` = "' + req.body.ip[i] + '"'
 		}
+		var str = 'SELECT * FROM  `cloud_node` WHERE ' + where_a.join(' OR ');
+		connection.query(str, function (error, results, fields) {
+			connection.end();
+			if (error) {
+				cbk(error.message);
+				return true;
+			} else {
+				cbk((results[0])?results[0].list:'');
+				CP.exit = 1;
+			}
+		}); 	
 	} else {
 		cbk('');
 	}
-	var str = 'SELECT * FROM  `cloud_node` WHERE ' + where_a.join(' OR ');
-	connection.query(str, function (error, results, fields) {
-		connection.end();
-		if (error) {
-			cbk(error.message);
-			return true;
-		} else {
-			cbk((results[0])?results[0].list:'');
-			CP.exit = 1;
-		}
-	});  
+ 
 };
 _f['Q0'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
