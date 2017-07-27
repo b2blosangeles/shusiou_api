@@ -90,11 +90,11 @@ _f['Q1'] = function(cbk) {
 	var CP1 = new pkg.crowdProcess();
 	for (var i=0; i< CP.data.Q0.length; i++) {
 		_f1[i] = (function(i) { 
-				return function(cbk) {
+				return function(cbk1) {
 					var R = new FOLDER_SCAN();
 					R.scan('/mnt/shusiou-video/youtube/' + CP.data.Q0[i]+ '/',  CP.data.Q0[i], 
 					function(data) {
-					    cbk(data);
+					    cbk1(data);
 					});
 				}	
 			})(i);	
