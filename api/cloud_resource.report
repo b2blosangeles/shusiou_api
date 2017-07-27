@@ -22,8 +22,6 @@ _f['QQB'] = function(cbk) {
 	cbk(req.body.ip)
 };
 _f['QQ'] = function(cbk) {
-	cbk(JSON.stringify(req.body));
-	return true;
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
