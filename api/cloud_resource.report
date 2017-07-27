@@ -36,14 +36,14 @@ _f['QQ'] = function(cbk) {
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
-				cbk(error.message);
+				cbk('error.message');
 				return true;
 			} else {
 				cbk((results[0])?results[0].list:'');
 			}
 		}); 	
 	} else {
-		cbk('');
+		cbk('nn');
 	}
  
 };
