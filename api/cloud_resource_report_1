@@ -14,8 +14,8 @@ _f['QQ'] = function(cbk) {
 //		where_str = req.body.node_ip[i] + '--';
 //	}
 	var str = 'SELECT * FROM  `cloud_node` WHERE 1 ';
-//	cbk(str + where_str  +  JSON.stringify(req.body.node_ip));
-//	return true;
+	cbk(str + where_str  +  JSON.stringify(req.body));
+	return true;
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		if (error) {
