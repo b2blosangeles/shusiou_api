@@ -13,6 +13,8 @@ _f['QQ'] = function(cbk) {
 		for (var i = 0; i < req.body.ip.length; i++) {
 			where_a[where_a.length] = ' `node_ip` = "' + req.body.ip[i] + '"'
 		}
+	} else {
+		cbk('');
 	}
 	var str = 'SELECT * FROM  `cloud_node` WHERE ' + where_a.join(' OR ');
 	connection.query(str, function (error, results, fields) {
