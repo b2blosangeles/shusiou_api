@@ -46,6 +46,7 @@ _f['Q0'] = function(cbk) {
 			}
 			// cbk(data);
 			cbk(str);
+			CP.exit = 1;
 		}
 	});  
 };
