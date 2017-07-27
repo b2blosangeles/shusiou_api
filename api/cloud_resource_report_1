@@ -29,7 +29,7 @@ _f['Q0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT * FROM  `videos` WHERE 1 ';
+	var str = 'SELECT * FROM  `videos` WHERE vid in (' + CP.data.QQ + ') ';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
@@ -84,8 +84,7 @@ CP.serial(
 		if (req.body.lastUpdate == data.results.Q2) {
 			res.send('no_up_data');
 		} else {
-			res.send(data.results.QQ);
-			// res.send(data.results.Q1);
+			res.send(data.results.Q1);
 		}	
 	},
 	60000
