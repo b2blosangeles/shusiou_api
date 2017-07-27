@@ -10,10 +10,10 @@ _f['QQ'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 	var where_str = '';
-//	for (var i = 0; i < req.body.node_ip.length; i++) {
-//		where_str = req.body.node_ip[i] + '--';
-//	}
-	var str = 'SELECT * FROM  `cloud_node` WHERE 1 ';
+	for (var i = 0; i < req.body.ip.length; i++) {
+		where_str = " AND `node_ip` = '" + req.body.ip[i] + '"';
+	}
+	var str = 'SELECT * FROM  `cloud_node` WHERE 1 = 1 ';
 	cbk(str + where_str  +  JSON.stringify(req.body));
 	return true;
 	connection.query(str, function (error, results, fields) {
