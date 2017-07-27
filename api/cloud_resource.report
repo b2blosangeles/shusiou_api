@@ -84,7 +84,7 @@ _f['Q2'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		if (typeof data.results.QQ == 'string'  || typeof data.results.Q0 == 'string') {
+		if (typeof data.results.QQ == 'string') {
 			res.send({status:'error', message:data.data.results.QQ});
 			return true;
 		}
