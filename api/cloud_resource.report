@@ -39,7 +39,7 @@ _f['QQ'] = function(cbk) {
 				cbk('error.message');
 				return true;
 			} else {
-				cbk(((results[0])?results[0].list:'')+'__'+str);
+				cbk(((results[0])?results[0].list:''));
 			}
 		}); 	
 	} else {
