@@ -93,9 +93,9 @@ CP.serial(
 			return true;
 		}		
 		if (req.body.lastUpdate == data.results.Q2) {
-			res.send('no_up_data');
+			res.send({status:'success', data:'no_up_data'});
 		} else {
-			res.send(data.results.Q1);
+			res.send({status:'success', data:data.results.Q1});
 		}	
 	},
 	60000
