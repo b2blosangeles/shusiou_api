@@ -9,9 +9,12 @@ _f['QQ'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
-	
+	var where_str = '';
+	for (var i = 0; i < req.body.node_ip.length; i++) {
+		where_str = req.body.node_ip[i] + '--';
+	}
 	var str = 'SELECT * FROM  `cloud_node` WHERE 1 ';
-	cbk(str + JSON.stringify(req.body.node_ip));
+	cbk(str + where_str  +  JSON.stringify(req.body.node_ip));
 	return true;
 	connection.query(str, function (error, results, fields) {
 		connection.end();
