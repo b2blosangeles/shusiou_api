@@ -84,15 +84,14 @@ _f['Q2'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		/*
 		if (typeof data.results.QQ == 'string') {
-			res.send({status:'error', message:data.data.results.QQ});
+			res.send({status:'error', message:data.results.QQ});
 			return true;
 		}
 		if (typeof data.results.Q0 == 'string') {
-			res.send({status:'error', message:typeof data.results.Q0});
+			res.send({status:'error', message:data.results.Q0});
 			return true;
-		}*/		
+		}		
 		if (req.body.lastUpdate == data.results.Q2) {
 			res.send('no_up_data');
 		} else {
