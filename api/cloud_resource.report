@@ -36,7 +36,7 @@ _f['Q0'] = function(cbk) {
 	var str = 'SELECT * FROM  `videos` WHERE  `id` in (' + CP.data.QQ + ') ';
 	cbk(str);
 	CP.exit = 1;
-	treurn true;
+	return true;
 	
 	connection.query(str, function (error, results, fields) {
 		connection.end();
