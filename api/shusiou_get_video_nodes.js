@@ -17,7 +17,7 @@ _f['Q0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(results.data[0]);
+			cbk(results);
 		}
 	});  
 };
@@ -25,7 +25,7 @@ _f['Q0'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {	
-		res.send({_spent_time:data._spent_time, status:data.status, data:data.results.Q0});
+		res.send(data.results.Q0);
 	},
 	30000
 );
