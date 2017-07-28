@@ -20,7 +20,7 @@ _f['Q0'] = function(cbk) {
 			return true;
 		} else {
 			var v = [];
-			if ((results) || (results.length)) {
+			if ((results) && (results.length)) {
 				v = results[0].nodes.split(',');  
 			} 
 			if (!v || !v.length) {
