@@ -11,8 +11,6 @@ _f['Q0'] = function(cbk) {
 	connection.connect();
 
 	var str = 'SELECT A.*, B.* FROM  `videos` A, `video_node` B WHERE A.id = B.video_id AND A.`code` = "' + code + '"';
-	cbk(str);
-	return true;
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		if (error) {
