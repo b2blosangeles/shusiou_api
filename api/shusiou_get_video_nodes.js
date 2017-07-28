@@ -19,12 +19,13 @@ _f['Q0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			var v = results;
-			if ((v) && (v.length)) {
-				cbk(v);
-			} else {
-				cbk('api.shusiou.com');
-			}	
+			var v = '', a=[];
+			if ((results) && (results.length)) {
+				a = results[0].nodes.split(',');
+				v = a[0];
+			} 
+			
+			cbk((!v)?'api.shusiou.com':v);	
 		}
 	});  
 };
