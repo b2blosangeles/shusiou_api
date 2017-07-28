@@ -30,4 +30,3 @@ CP.serial(
 	},
 	30000
 );
-video_node
