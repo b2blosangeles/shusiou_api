@@ -5,7 +5,7 @@ var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 var CP = new pkg.crowdProcess();
 var _f = {};
 
-var code = req.query['vid'];
+var code = req.query['code'];
 
 _f['Q0'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
@@ -20,12 +20,12 @@ _f['Q0'] = function(cbk) {
 			return true;
 		} else {
 			var v = '', a=[];
-			if ((results) && (results.length)) {
-				a = results[0].nodes.split(',');
-				v = a[Math.floor(Math.random()*a.length)];
-			} 
-			
-			cbk((!v)?'api.shusiou.com':v);	
+			if (!results || !results.length)) {
+				v = ['api.shusiou.com']);
+				
+			} else { v = results[0].nodes.split(','); }
+			if (!v || !v.length) v = ['api.shusiou.com']);
+			cbk(v);
 		}
 	});  
 };
