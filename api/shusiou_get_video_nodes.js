@@ -22,7 +22,7 @@ _f['Q0'] = function(cbk) {
 			var v = '', a=[];
 			if ((results) && (results.length)) {
 				a = results[0].nodes.split(',');
-				v = s[Math.floor(Math.random()*s.length)];
+				v = a[Math.floor(Math.random()*a.length)];
 			} 
 			
 			cbk((!v)?'api.shusiou.com':v);	
