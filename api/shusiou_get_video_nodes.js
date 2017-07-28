@@ -16,7 +16,8 @@ _f['Q0'] = function(cbk) {
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		if (error) {
-			cbk(error.message);
+			// cbk(error.message);
+			cbk(['api.shusiou.com']);
 			return true;
 		} else {
 			var v = [];
