@@ -17,7 +17,7 @@ _f['Q0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(results);
+			cbk(results.data[0]);
 		}
 	});  
 };
