@@ -10,7 +10,7 @@ _f['Q0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT * FROM  `videos` WHERE `code` = "' + code + '"';
+	var str = 'SELECT A.*, B.* FROM  `videos` A, `video_node` B WHERE A.id = B.video_id AND A.`code` = "' + code + '"';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
@@ -30,3 +30,4 @@ CP.serial(
 	},
 	30000
 );
+video_node
