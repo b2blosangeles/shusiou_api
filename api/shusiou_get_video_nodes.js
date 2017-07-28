@@ -1,3 +1,5 @@
+/* This API get video cache server */
+
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
 
 var CP = new pkg.crowdProcess();
@@ -17,7 +19,12 @@ _f['Q0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(results);
+			var v = results;
+			if ((v) && (v.length)) {
+				cbk(v);
+			} else {
+				cbk('api.shusiou.com');
+			}	
 		}
 	});  
 };
@@ -25,7 +32,7 @@ _f['Q0'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {	
-		res.send(data.results.Q0[0].nodes);
+		res.send(data.results.Q0);
 	},
 	30000
 );
