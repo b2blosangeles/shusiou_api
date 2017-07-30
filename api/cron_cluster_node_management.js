@@ -72,8 +72,6 @@ _f['Q2'] = function(cbk) {
 							cbk1(true);
 						}	
 					}
-				}, function (error, resp, body) {
-					cbk1('error.message==CC>'+i);
 				});	    
 			}
 		})(i);
