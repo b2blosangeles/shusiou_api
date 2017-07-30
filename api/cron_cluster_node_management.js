@@ -6,6 +6,18 @@ connection.connect();
 var CP = new pkg.crowdProcess();
 var _f = {};
 _f['Q0'] = function(cbk) {
+	var str = 'DELETE FROM `cloud_node` WHERE  `status` = "4"; ';
+	connection.query(str, function (error, results, fields) {
+		if (error) {
+			cbk(error.message);
+			CP.exit = 1;
+		} else {
+			cbk(results);
+		}
+	});  
+};
+
+_f['Q1'] = function(cbk) {
 	var str = 'SELECT * FROM  `cloud_node` WHERE  1; ';
 	connection.query(str, function (error, results, fields) {
 		if (error) {
@@ -16,7 +28,7 @@ _f['Q0'] = function(cbk) {
 		}
 	});  
 };
-_f['Q1'] = function(cbk) {
+_f['Q2'] = function(cbk) {
 	var v = CP.data.Q0;
 	var CP1 = new pkg.crowdProcess();
 	var _f1 = {};	
@@ -68,7 +80,7 @@ CP.serial(
 	_f,
 	function(data) {
 		connection.end();
-		res.send(data.results.Q1);	
+		res.send(data.results.Q2);	
 	},
 	60000
 );
