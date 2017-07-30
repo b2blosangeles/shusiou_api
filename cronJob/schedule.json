@@ -1,7 +1,7 @@
 {
   "10":[],
   "30":[
-   {"protocol":"http", "api":"shusiou_queue_download.js"}
+   {"protocol":"http", "api":"cron_video_queue_download.js"}
   ],  
   "60":[],
   "120":[]
