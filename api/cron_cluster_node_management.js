@@ -35,8 +35,7 @@ _f['Q2'] = function(cbk) {
 	for (var i=0; i <v.length; i++) {
 		_f1['S_'+i] = (function(i) {
 			return function(cbk1) {
-				cbk1('error.message==>'+i);
-				return true;
+
 				
 				pkg.request({
 					url: 'http://'+v[i].node_ip+'/checkip/',
@@ -46,7 +45,8 @@ _f['Q2'] = function(cbk) {
 				    }, function (error, resp, body) {
 					if (error) {
 						
-						
+				cbk1('error.message==AA>'+i);
+				return true;						
 						var str = 'UPDATE `cloud_node` SET status = status + 1 WHERE  id = "' + v[i].id + '"; ';
 						connection.query(str, function (error, results, fields) {
 							if (error) {
@@ -56,6 +56,9 @@ _f['Q2'] = function(cbk) {
 							}
 						}); 						
 					} else {
+				cbk1('error.message==BB>'+i);
+				return true;						
+						
 						if  (v[i].status) {
 							var str = 'UPDATE `cloud_node` SET status = 0 WHERE  id = "' + v[i].id + '"; ';
 							connection.query(str, function (error, results, fields) {
