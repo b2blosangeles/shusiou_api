@@ -35,6 +35,9 @@ _f['Q2'] = function(cbk) {
 	for (var i=0; i <v.length; i++) {
 		_f1['S_'+i] = (function(i) {
 			return function(cbk1) {
+				cbk1('error.message==>'+i);
+				return true;
+				
 				pkg.request({
 					url: 'http://'+v[i].node_ip+'/checkip/',
 					headers: {
@@ -42,6 +45,8 @@ _f['Q2'] = function(cbk) {
 					}
 				    }, function (error, resp, body) {
 					if (error) {
+						
+						
 						var str = 'UPDATE `cloud_node` SET status = status + 1 WHERE  id = "' + v[i].id + '"; ';
 						connection.query(str, function (error, results, fields) {
 							if (error) {
