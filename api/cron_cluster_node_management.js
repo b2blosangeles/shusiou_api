@@ -42,7 +42,8 @@ _f['Q2'] = function(cbk) {
 					url: 'http://'+v[i].node_ip+'/checkip/',
 					headers: {
 					    "content-type": "application/json"
-					}
+					},
+					timeout: 2000
 				    }, function (error, resp, body) {
 					if (error) {
 						
@@ -73,9 +74,6 @@ _f['Q2'] = function(cbk) {
 						}	
 					}
 				});	
-				r.on('error', function (resp) {
-				   cbk1('error.message==CCC>'+i);
-				})
 			}
 		})(i);
 	}
