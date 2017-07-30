@@ -55,10 +55,7 @@ _f['Q2'] = function(cbk) {
 								cbk1(false);
 							}
 						}); 						
-					} else {
-				cbk1('error.message==BB>'+i);
-				return true;						
-						
+					} else {								
 						if  (v[i].status) {
 							var str = 'UPDATE `cloud_node` SET status = 0 WHERE  id = "' + v[i].id + '"; ';
 							connection.query(str, function (error, results, fields) {
