@@ -24,14 +24,14 @@ _f['Q1'] = function(cbk) {
 	var _f1 = {};	
 	for (var i=0; i <v.length; i++) {
 		_f1['S_'+i] = (function(i) {
-			return function(cbk) {
+			return function(cbk1) {
 				pkg.request({
 					url: 'http://'+v[i]+'/checkip/',
 					headers: {
 					    "content-type": "application/json"
 					}
 				    }, function (error, resp, body) {
-					cbk(body);
+					cbk1(body);
 					}
 				);	    
 			}
@@ -40,7 +40,7 @@ _f['Q1'] = function(cbk) {
 	CP1.serial(
 		_f1,
 		function(data) {
-			res.send(data);	
+			cbk(data);	
 		},
 		60000
 	);
@@ -48,7 +48,7 @@ _f['Q1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data.results.Q0);	
+		res.send(data.results.Q1);	
 	},
 	60000
 );
