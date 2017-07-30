@@ -30,7 +30,7 @@ _f['Q1'] = function(cbk) {
 					}
 				    }, function (error, resp, body) {
 					if (error) {
-						var str = 'UPDATE `cloud_node` SET status = status + 1 WHERE  id = "' + v[i].node_id + '"; ';
+						var str = 'UPDATE `cloud_node` SET status = status + 1 WHERE  id = "' + v[i].id + '"; ';
 						connection.query(str, function (error, results, fields) {
 							if (error) {
 								cbk1(error.message);
