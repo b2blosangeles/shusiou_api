@@ -18,10 +18,13 @@ _f['Q0'] = function(cbk) {
 		}
 	});  
 };
+_f['Q1'] = function(cbk) {
+	cbk(CP.data.Q0); 
+};
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data);	
+		res.send(data.results.Q0);	
 	},
 	60000
 );
