@@ -40,7 +40,7 @@ _f['Q2'] = function(cbk) {
 					headers: {
 					    "content-type": "application/json"
 					},
-					timeout: 1000
+					timeout: 500
 				    }, function (error, resp, body) {
 					if (error) {			
 						var str = 'UPDATE `cloud_node` SET status = status + 1 WHERE  id = "' + v[i].id + '"; ';
