@@ -29,7 +29,7 @@ _f['Q1'] = function(cbk) {
 	});  
 };
 _f['Q2'] = function(cbk) {
-	var v = CP.data.Q0;
+	var v = CP.data.Q1;
 	var CP1 = new pkg.crowdProcess();
 	var _f1 = {};	
 	for (var i=0; i <v.length; i++) {
