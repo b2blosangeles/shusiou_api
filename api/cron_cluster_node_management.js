@@ -6,7 +6,7 @@ connection.connect();
 var CP = new pkg.crowdProcess();
 var _f = {};
 _f['Q0'] = function(cbk) {
-	var str = 'DELETE FROM `cloud_node` WHERE  `status` = "4"; ';
+	var str = 'DELETE FROM `cloud_node` WHERE  `status` > "4"; ';
 	connection.query(str, function (error, results, fields) {
 		if (error) {
 			cbk(error.message);
@@ -80,7 +80,7 @@ CP.serial(
 	_f,
 	function(data) {
 		connection.end();
-		res.send(data.results.Q2);	
+		res.send(data.results.Q1);	
 	},
 	60000
 );
