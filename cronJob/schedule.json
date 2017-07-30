@@ -4,5 +4,7 @@
    {"protocol":"http", "api":"cron_video_queue_download.js"}
   ],  
   "60":[],
-  "120":[]
+  "120":[
+      {"protocol":"http", "api":"cron_cluster_node_management.js"}
+  ]
 }
