@@ -37,7 +37,7 @@ _f['Q1'] = function(cbk) {
 			}
 		})(i);
 	}
-	CP1.serial(
+	CP1.parallel(
 		_f1,
 		function(data) {
 			cbk(data);	
