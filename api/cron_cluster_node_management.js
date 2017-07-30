@@ -73,7 +73,7 @@ _f['Q2'] = function(cbk) {
 		function(data) {
 			cbk(data);	
 		},
-		60000
+		30000
 	);
 };
 CP.serial(
@@ -82,6 +82,6 @@ CP.serial(
 		connection.end();
 		res.send(data.results.Q0);	
 	},
-	60000
+	30000
 );
 
