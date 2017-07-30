@@ -80,7 +80,7 @@ CP.serial(
 	_f,
 	function(data) {
 		connection.end();
-		res.send(data.results.Q1);	
+		res.send(data.results.Q0);	
 	},
 	60000
 );
