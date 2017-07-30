@@ -31,9 +31,12 @@ _f['Q1'] = function(cbk) {
 					    "content-type": "application/json"
 					}
 				    }, function (error, resp, body) {
-					cbk1(body);
+					if (error) {
+						cbk1(error.message);
+					} else {
+						cbk1(body);
 					}
-				);	    
+				});	    
 			}
 		})(i);
 	}
