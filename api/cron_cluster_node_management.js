@@ -1,15 +1,13 @@
 var mysql = require(env.space_path + '/api/inc/mysql/node_modules/mysql');
+var cfg0 = require(env.space_path + '/api/cfg/db.json');
+var connection = mysql.createConnection(cfg0);
+connection.connect();
 
 var CP = new pkg.crowdProcess();
 var _f = {};
 _f['Q0'] = function(cbk) {
-	var cfg0 = require(env.space_path + '/api/cfg/db.json');
-	var connection = mysql.createConnection(cfg0);
-	connection.connect();
-
 	var str = 'SELECT * FROM  `cloud_node` WHERE  1; ';
 	connection.query(str, function (error, results, fields) {
-		connection.end();
 		if (error) {
 			cbk(error.message);
 			CP.exit = 1;
@@ -32,7 +30,14 @@ _f['Q1'] = function(cbk) {
 					}
 				    }, function (error, resp, body) {
 					if (error) {
-						cbk1(false);
+						var str = 'UPDATE `cloud_node` SET status = status + 1 WHERE  id = "' + v[i].node_id + '"; ';
+						connection.query(str, function (error, results, fields) {
+							if (error) {
+								cbk1(error.message);
+							} else {
+								cbk1(false);
+							}
+						}); 						
 					} else {
 						cbk1(true);
 					}
@@ -51,6 +56,7 @@ _f['Q1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
+		connection.end();
 		res.send(data.results.Q1);	
 	},
 	60000
