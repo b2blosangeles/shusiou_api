@@ -36,7 +36,7 @@ _f['Q2'] = function(cbk) {
 		_f1['S_'+i] = (function(i) {
 			return function(cbk1) {
 				pkg.request({
-					url: 'http://'+v[i].node_ip+'1/checkip/',
+					url: 'http://'+v[i].node_ip+'/checkip/',
 					headers: {
 					    "content-type": "application/json"
 					}
