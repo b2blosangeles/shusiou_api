@@ -32,9 +32,9 @@ _f['Q1'] = function(cbk) {
 					}
 				    }, function (error, resp, body) {
 					if (error) {
-						cbk1(error.message);
+						cbk1(false);
 					} else {
-						cbk1(body);
+						cbk1(true);
 					}
 				});	    
 			}
