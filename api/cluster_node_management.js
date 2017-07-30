@@ -19,7 +19,31 @@ _f['Q0'] = function(cbk) {
 	});  
 };
 _f['Q1'] = function(cbk) {
-	cbk(CP.data.Q0); 
+	var v = CP.data.Q0;
+	var CP1 = new pkg.crowdProcess();
+	var _f1 = {};	
+	for (var i=0; i <v.length; i++) {
+		_f1['S_'+i] = (function(i) {
+			return function(cbk) {
+				pkg.request({
+					url: 'http://'+v[i]+'/checkip/',
+					headers: {
+					    "content-type": "application/json"
+					}
+				    }, function (error, resp, body) {
+					cbk(body);
+					}
+				);	    
+			}
+		})(i);
+	}
+	CP1.serial(
+		_f1,
+		function(data) {
+			res.send(data);	
+		},
+		60000
+	);
 };
 CP.serial(
 	_f,
