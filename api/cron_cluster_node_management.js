@@ -37,7 +37,7 @@ _f['Q2'] = function(cbk) {
 			return function(cbk1) {
 
 				
-				pkg.request({
+				var r = pkg.request({
 					url: 'http://'+v[i].node_ip+'/checkip/',
 					headers: {
 					    "content-type": "application/json"
@@ -72,7 +72,10 @@ _f['Q2'] = function(cbk) {
 							cbk1(true);
 						}	
 					}
-				});	    
+				});	
+				r.on('error', function (resp) {
+				   cbk1('error.message==CCC>'+i);
+				})
 			}
 		})(i);
 	}
