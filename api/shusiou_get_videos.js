@@ -8,8 +8,9 @@ _f['Q0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT * FROM  `videos` WHERE 1 ';
-
+	var str = 'SELECT A.*, B.nodes FROM  `videos` A, `video_node` B WHERE A.id = B.video_id '+
+	    ' AND B.nodes <> "";
+	
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		if (error) {
