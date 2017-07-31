@@ -8,7 +8,7 @@ _f['Q0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT * FROM  `videos` WHERE 1 ';
+	var str = 'SELECT A.*, B.* FROM  `videos` A, `video_node` B WHERE 1 ';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
@@ -20,7 +20,7 @@ _f['Q0'] = function(cbk) {
 		}
 	});  
 };
-
+/*
 _f['Q1'] = function(cbk) {
 	var cfg0 = require(env.space_path + '/api/cfg/db.json');
 	var connection = mysql.createConnection(cfg0);
@@ -47,7 +47,7 @@ _f['Q1'] = function(cbk) {
 		}
 	});  
 };
-
+*/
 
 CP.serial(
 	_f,
@@ -57,10 +57,12 @@ CP.serial(
 			data.results.Q0[o].type = 'local';
 			list[list.length] = data.results.Q0[o];
 		}
+		/*
 		for (o in data.results.Q1) {
 			data.results.Q1[o].type = 'remote';
 			list[list.length] = data.results.Q1[o];
-		}		
+		}	
+		*/
 		res.send({_spent_time:data._spent_time, status:data.status, data:list});
 	},
 	30000
