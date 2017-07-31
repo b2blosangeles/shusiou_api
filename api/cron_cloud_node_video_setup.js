@@ -6,7 +6,20 @@ var _f = {};
 var cfg0 = require(env.space_path + '/api/cfg/db.json');
 var connection = mysql.createConnection(cfg0);
 connection.connect();
-	
+
+_f['Q0'] = function(cbk) {
+	var str = 'DELETE FROM `cloud_node` WHERE  `status` > "2"; ';
+	connection.query(str, function (error, results, fields) {
+		if (error) {
+			cbk(error.message);
+			CP.exit = 1;
+		} else {
+			cbk(results);
+		}
+	});  
+};
+
+
 _f['S0'] = function(cbk) {
 	var str = 'SELECT * FROM `videos` WHERE 1;';
 	connection.query(str, function (error, results, fields) {	
