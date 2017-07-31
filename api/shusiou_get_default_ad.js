@@ -8,7 +8,7 @@ _f['Q0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	var str = 'SELECT A.*, B.* FROM  `videos` A, `video_node` B WHERE 1 ';
+	var str = 'SELECT A.*, B.nodes FROM  `videos` A, `video_node` B WHERE A.id = B.video_id ';
 
 	connection.query(str, function (error, results, fields) {
 		connection.end();
