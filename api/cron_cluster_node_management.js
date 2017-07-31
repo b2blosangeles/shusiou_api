@@ -28,6 +28,23 @@ _f['Q1'] = function(cbk) {
 		}
 	});  
 };
+
+_f['S0'] = function(cbk) {
+	var str = 'SELECT * FROM `videos` WHERE 1;';	 
+	connection.query(str, function (error, results, fields) {
+		if (error) {
+			cbk(error.message);
+			return true;
+		} else {
+			var v = {};
+			for (var i=0; i<results.length; i++) {
+				v[results[i].id] = Math.round(results[i].size/1000000);
+			}
+			cbk(v);
+		}
+	});  
+};
+
 _f['Q2'] = function(cbk) {
 	var v = CP.data.Q1;
 	var CP1 = new pkg.crowdProcess();
