@@ -55,6 +55,8 @@ _f['Q1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
+		res.send(data);
+		return true;
 		var list = [];
 		for (o in data.results.Q0) {
 			data.results.Q0[o].type = 'local';
