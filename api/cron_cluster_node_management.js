@@ -28,7 +28,7 @@ _f['Q1'] = function(cbk) {
 		}
 	});  
 };
-
+/*
 _f['S0'] = function(cbk) {
 	var str = 'SELECT * FROM `videos` WHERE 1;';	 
 	connection.query(str, function (error, results, fields) {
@@ -44,7 +44,7 @@ _f['S0'] = function(cbk) {
 		}
 	});  
 };
-
+*/
 _f['Q2'] = function(cbk) {
 	var v = CP.data.Q1;
 	var CP1 = new pkg.crowdProcess();
