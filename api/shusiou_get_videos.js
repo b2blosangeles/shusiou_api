@@ -9,7 +9,7 @@ _f['Q0'] = function(cbk) {
 	connection.connect();
 
 	var str = 'SELECT A.*, B.nodes FROM  `videos` A, `video_node` B WHERE A.id = B.video_id '+
-	    ' AND B.nodes <> "";
+	    ' AND B.nodes <> "";';
 	
 	connection.query(str, function (error, results, fields) {
 		connection.end();
