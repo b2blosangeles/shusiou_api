@@ -8,10 +8,8 @@ _f['Q0'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 
-	// var str = 'SELECT A.*, B.nodes FROM  `videos` A, `video_node` B WHERE A.id = B.video_id ';
-	var str = 'SELECT A.* FROM  `videos` A';
-	//+
-	 //   ' AND B.nodes <> "";';
+	var str = 'SELECT A.*, B.nodes FROM  `videos` A, `video_node` B WHERE A.id = B.video_id ' +
+	   ' AND B.nodes <> "";';
 	
 	connection.query(str, function (error, results, fields) {
 		connection.end();
@@ -55,8 +53,6 @@ _f['Q1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {
-		res.send(data);
-		return true;
 		var list = [];
 		for (o in data.results.Q0) {
 			data.results.Q0[o].type = 'local';
