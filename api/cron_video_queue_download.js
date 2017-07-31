@@ -273,8 +273,8 @@ _f['AF3'] = function(cbk) {
 		}
 		cmd_str += ' > '+ folder_base + code + '/video/video.mp4 && rm -fr ' + folder_base + code + '/video/tmp';
 		
-		var childProcess = require('child_process');
-		var ls = childProcess.exec(cmd_str, 		   
+	//	var childProcess = require('child_process');
+		var ls = pkg.childProcess.exec(cmd_str, 		   
 			function (error, stdout, stderr) {
 				if (error) cbk(false);
 				else {
