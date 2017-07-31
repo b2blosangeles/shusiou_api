@@ -3,6 +3,9 @@
   "30":[
    {"protocol":"http", "api":"cron_video_queue_download.js"}
   ],  
-  "60":[{"protocol":"http", "api":"cron_cluster_node_management.js"}],
+  "60":[
+      {"protocol":"http", "api":"cron_cluster_node_management.js"},
+      {"protocol":"http", "api":"cron_cloud_node_video_setup.js"}
+  ],
   "120":[]
 }
