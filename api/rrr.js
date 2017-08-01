@@ -111,7 +111,8 @@ _f['Q0'] = function(cbk) {
 	}
 	var CP1 = new pkg.crowdProcess();
 	var _f1 = {};
-	
+	cbk({S:S,C:C});
+	/*
 	for (var o in S) {
 		_f1[o] = (function(o) {
 			return function(cbk) {
@@ -143,7 +144,8 @@ _f['Q0'] = function(cbk) {
 				});  
 			}	
 		})(o);	
-	}	
+	}
+	*/
 	CP1.serial(
 		_f1,
 		function(data) {
