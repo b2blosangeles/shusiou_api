@@ -27,8 +27,6 @@ _f['S0'] = function(cbk) {
 			cbk(error.message);
 			return true;
 		} else {
-			cbk(results);
-			return true;
 			var v = {};
 			for (var i=0; i<results.length; i++) {
 				v[results[i].id] = Math.round(results[i].size/1000000);
