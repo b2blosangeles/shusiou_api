@@ -32,6 +32,7 @@ _f['S0'] = function(cbk) {
 				v[results[i].id] = Math.round(results[i].size/1000000);
 			}
 			cbk(v);
+			CP.exit = 1;
 		}
 	});  
 };
