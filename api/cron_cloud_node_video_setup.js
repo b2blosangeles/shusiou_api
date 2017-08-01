@@ -65,7 +65,7 @@ function cap(v, idx, traffic) {
 		return true;	
 	}
 }
-_f['Q0'] = function(cbk) {
+_f['Q1'] = function(cbk) {
 	var S = {}, C = {}, T = {}, short_a = [], short_b = 0;
 	
 	for (var o in CP.data.S0) {
