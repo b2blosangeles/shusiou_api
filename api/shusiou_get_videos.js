@@ -9,7 +9,7 @@ _f['Q0'] = function(cbk) {
 	connection.connect();
 
 //	var str = 'SELECT A.*, B.nodes FROM  `videos` A, `video_node` B WHERE A.id = B.video_id ';
-	var str = 'SELECT A.* FROM  `videos` A WHERE 1 ';
+	var str = 'SELECT A.*, B.nodes FROM  `videos` A LEFT JOIN `video_node` B ON A.id = B.video_id ';
 	//+
 	//   ' AND B.nodes <> "";';
 	
