@@ -38,7 +38,8 @@ switch(req.body.cmd) {
 				cbk({});
 				return true;
 			}
-			var str = 'SELECT *  FROM  `videos` WHERE id = "' + CP.data.S1.vid + '"; ';
+			var str = 'SELECT A.*, B.* FROM  `videos` A LEFT JOIN `video_node` B ON A.id = B.video_id '+
+			    ' WHERE A.id = "' + CP.data.S1.vid + '"; ';
 			connection.query(str, function (error, results, fields) {
 
 				if (error) {
