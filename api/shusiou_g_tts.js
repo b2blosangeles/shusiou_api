@@ -31,7 +31,7 @@ CP.serial(
 			var googleTTS = require(env.space_path + '/api/inc/google-tts-api/node_modules/google-tts-api/');
 			googleTTS(str, lang, 0.24)   // speed normal = 1 (default), slow = 0.24 
 			.then(function (url) {
-			   var fs = require('fs');
+		//	   var fs = require('fs');
 		//	   var text = 'Hello World';
 			   var options = {
 			      url: url,
@@ -41,14 +41,14 @@ CP.serial(
 			      }
 			   }
 			   var p = pkg.request(options);
-			      p.pipe(fs.createWriteStream(fn));
+			      p.pipe(pkg.fs.createWriteStream(fn));
 			      p.pipe(res);
 			})
 			.catch(function (err) {
 			   res.send(err.stack);
 			});
 		     } else { 
-			     res.sendFile(fn);
+			     res.sendFile('fn');
 			     return true; 
 		    }	     
 		});
