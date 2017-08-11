@@ -27,8 +27,8 @@ CP.serial(
 	_f,
 	function(data) {		
 		 pkg.fs.stat(fn, function(err, data) {
-		     if (error) { 
-			 res.send(error.message);
+		     if (err) { 
+			 res.send(err.message);
      			return true;
 			     
 			var googleTTS = require(env.space_path + '/api/inc/google-tts-api/node_modules/google-tts-api/');
