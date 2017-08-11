@@ -48,7 +48,7 @@ CP.serial(
 			   res.send(err.stack);
 			});
 		     } else { 
-			     res.sendFile('fn');
+			     res.sendFile(fn);
 			     return true; 
 		    }	     
 		});
