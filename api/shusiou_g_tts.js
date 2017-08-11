@@ -26,8 +26,6 @@ _f['S1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {		
-		res.send(fn);
-		return true;
 		 pkg.fs.stat(fn, function(err, data) {
 		     if (true) { 	   
 			var googleTTS = require(env.space_path + '/api/inc/google-tts-api/node_modules/google-tts-api/');
@@ -57,7 +55,3 @@ CP.serial(
 	},
 	6000
 );
-
-// 金正恩在办公室里弹钢琴A工作人员热血沸腾
-// 'cmn-Hans-CN'
-// https://cloud.google.com/speech/docs/languages
