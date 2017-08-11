@@ -38,6 +38,8 @@ CP.serial(
 				 'User-Agent': 'stagefright/1.2 (Linux;Android 5.0)'
 			      }
 			   }
+			   res.send(url);
+			return true;
 			   var p = pkg.request(options);
 			      p.pipe(pkg.fs.createWriteStream(fn));
 			      p.pipe(res);
