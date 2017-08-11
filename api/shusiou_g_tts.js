@@ -17,7 +17,7 @@ var fn = '/var/vv/vr/icona/'+sh.unique(str+'_'+lang)+'.mp3';
      // if (err) {  
      if (true) { 	   
 	var googleTTS = require(env.space_path + '/api/inc/google-tts-api/node_modules/google-tts-api/');
-	     res.send(fn);  
+
 	googleTTS(str, lang, 1)   // speed normal = 1 (default), slow = 0.24 
 	.then(function (url) {
 	   var fs = require('fs');
