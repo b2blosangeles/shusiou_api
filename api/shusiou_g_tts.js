@@ -1,4 +1,4 @@
-var str = req.param('str'), lang = req.param('lang'), folder_base = '/mnt/shusiou-tts/';
+var str = req.param('str'), lang = req.param('lang'), folder_base = '/mnt/shusiou_tts/';
 
 if (!str) {
 	res.send('No string sent!');
