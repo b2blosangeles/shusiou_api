@@ -8,7 +8,7 @@ if (!lang) {
 	return false;
 }
 
-var sh = require(env.space_path + '/api/lang_space/inc/shorthash/node_modules/shorthash');
+var sh = require(env.space_path + '/api/inc/shorthash/node_modules/shorthash');
 var fn = '/var/vv/vr/icona/'+sh.unique(str)+'.mp3';
 
  pkg.fs.stat(fn, function(err, data) {
