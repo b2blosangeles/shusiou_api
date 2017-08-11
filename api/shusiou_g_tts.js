@@ -51,7 +51,7 @@ CP.serial(
 			   res.send(err.stack);
 			});
 		     } else { 
-			     res.send('fn');
+			     res.send(data);
 			     return true; 
 		    }	     
 		});
