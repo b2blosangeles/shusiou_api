@@ -34,12 +34,12 @@ CP.serial(
 			   var options = {
 			      url: url,
 			      headers: {
-				 'Referer': 'http://translate.google.com/',
-				 'User-Agent': 'stagefright/1.2 (Linux;Android 5.0)'
+		//		 'Referer': 'http://translate.google.com/',
+		//		 'User-Agent': 'stagefright/1.2 (Linux;Android 5.0)'
 			      }
 			   }
-			   res.send(url);
-			return true;
+			//   res.send(url);
+		//	return true;
 			   var p = pkg.request(options);
 			      p.pipe(pkg.fs.createWriteStream(fn));
 			      p.pipe(res);
