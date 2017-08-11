@@ -11,6 +11,8 @@ if (!lang) {
 var sh = require(env.space_path + '/api/inc/shorthash/node_modules/shorthash');
 var fn = '/var/vv/vr/icona/'+sh.unique(str)+'.mp3';
 
+res.send(fn);
+
  pkg.fs.stat(fn, function(err, data) {
      // if (err) {  
      if (true) { 	     
