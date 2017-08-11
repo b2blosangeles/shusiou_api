@@ -1,13 +1,5 @@
 var str = req.param('str'), lang = req.param('lang');
 
-var vid = req.param('vid');
-var folder_base = '/mnt/shusiou-video/youtube/';
-var fn =  folder_base +  vid + '/video/video.mp4';
-
-res.send(fn);
-return true;
-
-
 if (!str) {
 	res.send('No string sent!');
 	return false;
@@ -18,9 +10,10 @@ if (!lang) {
 }
 
 var sh = require(env.space_path + '/api/inc/shorthash/node_modules/shorthash');
-var fn = '/var/vv/vr/icona/'+sh.unique(str+'_'+lang)+'.mp3';
+var fn = folder_base + sh.unique(str+'_'+lang)+'.mp3';
 
-
+res.send(fn);
+return true;
 
  pkg.fs.stat(fn, function(err, data) {
      // if (err) {  
