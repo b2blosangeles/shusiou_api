@@ -32,7 +32,7 @@ CP.serial(
 			googleTTS(str, lang, 0.1)   // speed normal = 1 (default), slow = 0.24 
 			.then(function (url) {
 			   var fs = require('fs');
-			   var text = 'Hello World';
+		//	   var text = 'Hello World';
 			   var options = {
 			      url: url,
 			      headers: {
