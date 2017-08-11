@@ -12,7 +12,25 @@ if (!lang) {
 var sh = require(env.space_path + '/api/inc/shorthash/node_modules/shorthash');
 var fn = folder_base + sh.unique(str+'_'+lang)+'.mp3';
 
-res.send(fn);
+var CP = new pkg.crowdProcess();
+
+var _f = {};
+_f['S1'] = function(cbk) {
+	var folderP = require(env.space_path + '/api/inc/folderP/folderP');
+	var fp = new folderP();
+	fp.build(folder_base, function() {
+		cbk(true);
+	});
+};
+
+CP.serial(
+	_f,
+	function(data) {		
+		res.send(fn);
+	},
+	6000
+);
+
 return true;
 
  pkg.fs.stat(fn, function(err, data) {
