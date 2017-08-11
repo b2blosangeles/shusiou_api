@@ -27,12 +27,9 @@ CP.serial(
 	_f,
 	function(data) {		
 		 pkg.fs.stat(fn, function(err, data) {
-		     if (err) { 
-			 res.send(err.message);
-     			return true;
-			     
+		     if (true) {  
 			var googleTTS = require(env.space_path + '/api/inc/google-tts-api/node_modules/google-tts-api/');
-			googleTTS(str, lang, 1)   // speed normal = 1 (default), slow = 0.24 
+			googleTTS(str, lang, 0.1)   // speed normal = 1 (default), slow = 0.24 
 			.then(function (url) {
 			   var fs = require('fs');
 			   var text = 'Hello World';
