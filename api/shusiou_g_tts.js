@@ -26,7 +26,7 @@ _f['S1'] = function(cbk) {
 CP.serial(
 	_f,
 	function(data) {		
-		res.send(fn);
+		res.send(data);
 	},
 	6000
 );
