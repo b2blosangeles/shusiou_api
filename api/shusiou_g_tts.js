@@ -46,8 +46,9 @@ CP.serial(
 			   res.send(err.stack);
 			});
 		     } else { 
-			var file = pkg.fs.createReadStream(fn);
-			file.pipe(res);
+			res.sendFile(fn);
+			//var file = pkg.fs.createReadStream(fn);
+			//file.pipe(res);
 		    }	     
 		});
 	},
