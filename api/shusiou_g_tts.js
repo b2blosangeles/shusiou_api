@@ -27,7 +27,7 @@ CP.serial(
 	_f,
 	function(data) {		
 		 pkg.fs.stat(fn, function(err, data) {
-		     if (true) {  
+		     if (err) {  
 			var googleTTS = require(env.space_path + '/api/inc/google-tts-api/node_modules/google-tts-api/');
 			googleTTS(str, lang, 1)   // speed normal = 1 (default), slow = 0.24 
 			.then(function (url) {
