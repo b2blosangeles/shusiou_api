@@ -31,8 +31,8 @@ CP.serial(
 			var googleTTS = require(env.space_path + '/api/inc/google-tts-api/node_modules/google-tts-api/');
 			googleTTS(str, lang, 0.24)   // speed normal = 1 (default), slow = 0.24 
 			.then(function (url) {
-		//	   var fs = require('fs');
-		//	   var text = 'Hello World';
+				res.send(url);
+				return true;
 			   var options = {
 			      url: url,
 			      headers: {
