@@ -1,3 +1,5 @@
+// language https://github.com/glutanimate/simple-google-tts
+
 var str = req.param('str'), lang = req.param('lang'), folder_base = '/mnt/shusiou_tts/';
 
 if (!str) {
