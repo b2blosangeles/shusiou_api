@@ -10,15 +10,15 @@ switch(req.body.cmd) {
 			if (!req.body.cid) {
 				cbk({}); return true;
 			}
-			var str = 'SELECT A.*, B.`script0` FROM  `curriculums` A LEFT JOIN `curriculum_sections` B ON A.id = B.cid WHERE A.id = "' + req.body.cid + '"; ';
+			var str = 'SELECT A.*, B.`script` FROM  `curriculums` A LEFT JOIN `curriculum_sections` B ON A.id = B.cid WHERE A.id = "' + req.body.cid + '"; ';
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(error.message);
 					return true;
 				} else {
 					try {
-					//	var v = JSON.parse(decodeURIComponent(results[0].script));
-						var v = JSON.parse(results[0].script);
+						var v = JSON.parse(decodeURIComponent(results[0].script));
+					//	var v = JSON.parse(results[0].script);
 						for (var i = 0; i < v.length; i++) {
 							if (v[i].track) {
 								v[i].track.s = parseFloat(v[i].track.s);
