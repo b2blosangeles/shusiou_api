@@ -167,7 +167,7 @@ switch(req.body.cmd) {
 			req.body.id + '",' +
 			'"niuA",' +
 			'"'+ encodeURIComponent(JSON.stringify(req.body.sections)) + '",' +
-			'"'+ JSON.stringify(req.body.sections).replace('"','__').replace("'",'_^_') + '",' +
+			"'"+ JSON.stringify(req.body.sections) + "'," +
 			'NOW()' +	
 			'); ';
 
