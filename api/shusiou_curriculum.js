@@ -165,10 +165,10 @@ switch(req.body.cmd) {
 		_f['S3'] = function(cbk) {
 			var section = JSON.stringify(req.body.sections);
 			section = section.replace('"','\"');
-			var str = 'INSERT INTO  `curriculum_sections` (`cid`,`type`,`script`,`script0`,`created`) VALUES ("' +
+			var str = 'INSERT INTO  `curriculum_sections` (`cid`,`type`,`script`, `created`) VALUES ("' +
 			req.body.id + '",' +
 			'"niuA",' +
-			'"'+ encodeURIComponent(JSON.stringify(req.body.sections)) + '",' +
+			// '"'+ encodeURIComponent(JSON.stringify(req.body.sections)) + '",' +
 			"'"+ section + "'," +
 			'NOW()' +	
 			'); ';
