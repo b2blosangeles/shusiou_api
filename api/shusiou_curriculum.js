@@ -17,7 +17,7 @@ switch(req.body.cmd) {
 					return true;
 				} else {
 					try {
-						var v = JSON.parse(decodeURIComponent(results[0].script0));
+						var v = JSON.parse(decodeURIComponent(results[0].script));
 					//	var v = JSON.parse(results[0].script);
 						for (var i = 0; i < v.length; i++) {
 							if (v[i].track) {
