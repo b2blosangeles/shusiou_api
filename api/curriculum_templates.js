@@ -8,7 +8,7 @@ var default = {
 		{text:'Please repeat', lang:'en-US'}
 	],					
 	match:[
-		{text:'Good Job|Nice|good|excellent', lang:'en-US'},
+		{text:'Good Job|Nice|good|excellent', lang:'en-US'}
 	],
 	nomatch:[
 		{text:'Incorrect, please try again|Wrong, repeat', lang:'en-US'},
