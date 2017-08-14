@@ -1,3 +1,4 @@
+/*
 var default = {
 	lang:{mother:'en-US', learning:'zh-CN'},
 	pro:[
@@ -16,5 +17,5 @@ var default = {
 		{text:'Please try again.', lang:'en-US'}					
 	],
 	done:{text:'Lets continue', lang:'en-US'}
-};
-res.send(default);
+};*/
+res.send('default');
