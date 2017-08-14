@@ -1,4 +1,4 @@
-var default0 = {
+var default = {
 	lang:{mother:'en-US', learning:'zh-CN'},
 	pro:[
 		{text:'The next sentence is saying|The next paragraph is talking about', lang:'en-US'},
@@ -17,4 +17,4 @@ var default0 = {
 	],
 	done:{text:'Lets continue', lang:'en-US'}
 };
-res.send(default0);
+res.send(default);
