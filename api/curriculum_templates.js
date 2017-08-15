@@ -1,4 +1,2 @@
-var default = {
-
-};
+var default = {};
 res.send('default');
