@@ -1,20 +1,20 @@
 var _default = {
   lang:{mother:'en-US', learning:'zh-CN'},
 	pro:[
-		{text:'The next sentence is saying|The next paragraph is talking about', lang:'en-US'},
-		{text:'{l}', lang:'en-US'},
-		{text:'Listen', lang:'en-US'},
+		{text:'The next sentence is saying|The next paragraph is talking about', lang:'mother'},
+		{text:'{l}'},
+		{text:'Listen', lang:'mother'},
 		{action:'play video'}, 
-		{text:'Please repeat', lang:'en-US'}
+		{text:'Please repeat', lang:'mother'}
 	],					
 	match:[
-		{text:'Good Job|Nice|good|excellent', lang:'en-US'}
+		{text:'Good Job|Nice|good|excellent', lang:'mother'}
 	],
 	nomatch:[
-		{text:'Incorrect, please try again|Wrong, repeat', lang:'en-US'},
+		{text:'Incorrect, please try again|Wrong, repeat', lang:'mother'},
 		{action:'play video'}, 
-		{text:'Please try again.', lang:'en-US'}					
+		{text:'Please try again.', lang:'mother'}					
 	],
-	done:{text:'Lets continue', lang:'en-US'}
+	done:{text:'Lets continue', lang:'mother'}
 };
 res.send(_default);
