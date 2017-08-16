@@ -1,4 +1,4 @@
-var _default = {
+var v = {
   lang:{mother:'en-US', learning:'zh-CN'},
 	pro:[
 		{text:'The next sentence is saying|The next paragraph is talking about', lang:'mother'},
@@ -15,6 +15,6 @@ var _default = {
 		{action:'play video'}, 
 		{text:'Please try again.', lang:'mother'}					
 	],
-	done:{text:'Lets continue', lang:'mother'}
+	done:[{text:'Lets continue', lang:'mother'}]
 };
-res.send(_default);
+res.send(v);
