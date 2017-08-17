@@ -18,7 +18,11 @@ pkg.fs.readdir(env.space_path + '/api/templates/', function(err, files) {
      CP.serial(
           _f,
           function(data) {
-               res.send(data);
+		var v = [];  
+		for (var i in files) {  
+               		v[v.length] = data.result(files[i]);
+			res.send(v);
+		}
           },
           3000
      );     
