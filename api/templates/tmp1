@@ -1,4 +1,5 @@
 {
+  "code":"S001",
   "lang":{"mother":"en-US", "learning":"zh-CN"},
   "pro":[
       {"text":"The next sentence is saying|The next paragraph is talking about", "lang":"mother"},
