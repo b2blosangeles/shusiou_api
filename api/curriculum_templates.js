@@ -1,3 +1,8 @@
+pkg.fs.readdir(env.space_path + '/api/templates/', function(err, files) {
+     res.send(files);
+});
+return true;
+
 pkg.fs.readFile(env.space_path + '/api/templates/tmp1', 'utf8', function(err, data) { 
     try {
         res.send(JSON.parse(data)); 
