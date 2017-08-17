@@ -3,8 +3,7 @@ var _f = {};
 		
 var mother = req.body.nother_languge, learning = req.body.nother_learnging;
 var v = []; 
-getData();
-res.send(v);
+
 
 function getData() {
 
@@ -37,6 +36,7 @@ function getData() {
 
 	});
 }
-return true;
+getData();
+res.send(v);
 
 
