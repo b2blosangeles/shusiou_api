@@ -1,1 +1,1 @@
-res.send(env.space_path + '/api/templates/tmp');
+res.sendFile(env.space_path + '/api/templates/tmp1');
