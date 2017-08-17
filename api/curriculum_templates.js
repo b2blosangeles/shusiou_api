@@ -4,7 +4,7 @@ var _f = {};
 pkg.fs.readdir(env.space_path + '/api/templates/', function(err, files) {
      for (var i in files)
      _f[files[i]] = function(cbk) {
-	pkg.fs.readFile(env.space_path + '/api/templates/tmp1', 'utf8', function(err, data) { 
+	pkg.fs.readFile(env.space_path + '/api/templates/'+files[i], 'utf8', function(err, data) { 
 	    try {
 		cbk(JSON.parse(data)); 
 	    } catch (err) {
