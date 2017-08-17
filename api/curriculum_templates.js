@@ -20,7 +20,7 @@ pkg.fs.readdir(env.space_path + '/api/templates/', function(err, files) {
           function(data) {
 		var v = [];  
 		for (var i in files) {  
-               		v[v.length] = data.results(files[i]);
+               		v[v.length] = data.results[files[i]];
 			res.send(v);
 		}
           },
