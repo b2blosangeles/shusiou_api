@@ -4,7 +4,7 @@ var _f = {};
 var mother = req.body.nother_languge, learning = req.body.nother_learnging;
 var v = []; 
 getData();
-res.send('v');
+res.send(v);
 
 function getData() {
 
