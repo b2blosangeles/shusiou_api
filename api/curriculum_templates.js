@@ -27,11 +27,11 @@ pkg.fs.readdir(env.space_path + '/api/templates/', function(err, files) {
 				var mother = req.body.mother, learning = req.body.learning;
 			//	var mother = '', learning = '';
 				v[v.length] = vs.lang;
-				/*
-				if ((vs.lang.mother == mother && vs.lang.learning == learning) ||(!mother && !learning)) {
+				
+				if ((vs.lang.mother == mother && vs.lang.learning == learning) || (!mother && !learning)) {
 					v[v.length] = 'data.results[files[i]]';
 				}
-				*/
+				
 			}	
 
 		}
