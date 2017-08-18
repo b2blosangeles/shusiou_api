@@ -24,10 +24,10 @@ pkg.fs.readdir(env.space_path + '/api/templates/', function(err, files) {
 		for (var i in files) { 
 			if (data.results[files[i]].script) {
 				var vs =  data.results[files[i]].script;
-				//var mother = req.body.mother, learning = req.body.learning;
-				var mother = '', learning = '';
+				var mother = req.body.mother, learning = req.body.learning;
+			//	var mother = '', learning = '';
 				if ((vs.lang.mother == mother && vs.lang.learning == learning) ||(!mother && !learning)) {
-					v[v.length] = data.results[files[i]];
+					v[v.length] = 'data.results[files[i]]';
 				}	
 			}	
 
