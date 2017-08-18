@@ -1,7 +1,7 @@
 var CP = new pkg.crowdProcess();
 var _f = {};
 		
-var mother = req.body.nother_languge, learning = req.body.nother_learnging;
+var mother = req.body.mother, learning = req.body.learning;
 
 pkg.fs.readdir(env.space_path + '/api/templates/', function(err, files) {
      for (var i in files) {
