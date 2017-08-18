@@ -24,7 +24,7 @@ pkg.fs.readdir(env.space_path + '/api/templates/', function(err, files) {
 		for (var i in files) { 
 			if (data.results[files[i]].script) {
 				var vs =  data.results[files[i]].script;
-				if ((vs.lang.mother == mother && vs.lang.learning == learning) ||(!mother && !learning)) {
+				if ((vs.lang.mother == mother && vs.lang.learning1 == learning) ||(!mother && !learning)) {
 					v[v.length] = data.results[files[i]];
 				}	
 			}	
