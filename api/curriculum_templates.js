@@ -1,7 +1,7 @@
 var CP = new pkg.crowdProcess();
 var _f = {};
 		
-var mother = req.body.mother, learning = req.body.learning;
+
 
 pkg.fs.readdir(env.space_path + '/api/templates/', function(err, files) {
      for (var i in files) {
@@ -24,6 +24,7 @@ pkg.fs.readdir(env.space_path + '/api/templates/', function(err, files) {
 		for (var i in files) { 
 			if (data.results[files[i]].script) {
 				var vs =  data.results[files[i]].script;
+				var mother = req.body.mother, learning = req.body.learning;
 				if ((vs.lang.mother == mother && vs.lang.learning1 == learning) ||(!mother && !learning)) {
 					v[v.length] = data.results[files[i]];
 				}	
