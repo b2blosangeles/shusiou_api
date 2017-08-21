@@ -4,7 +4,7 @@
       "lang":{"mother":"en-US", "learning":"zh-CN"},
       "pro":[
           {"text":"The next sentence is saying|The next paragraph is talking about", "lang":"mother"},
-          {"text":"{m}"},
+          {"text":"{l}"},
           {"text":"Listen", "lang":"mother"},
           {"action":"play video"}, 
           {"text":"Please repeat", "lang":"mother"}
