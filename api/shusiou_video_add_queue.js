@@ -27,7 +27,7 @@ _f['Q'] = function(cbk) {
 			} else {
 				if (results[0]) {
 					cbk(results[0]);
-					CP.skip = true;
+					CP.exit = 1;
 				} else {
 					cbk(false);
 				}
