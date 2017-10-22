@@ -11,7 +11,7 @@ var thumbnail_url = req.body.thumbnail_url;
 _f['Q'] = function(cbk) {
 	if (!vid && !vurl) {
 		cbk(false);
-		CP.exit  = 1;
+		CP.skip  = 1;
 	} else {	
 		var cfg0 = require(env.space_path + '/api/cfg/db.json');
 		var connection = mysql.createConnection(cfg0);
